@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SwapAdvisor | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" deep learning , swap ">
+  <meta name="description" content="SwapAdvisor | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/04/21/hexo/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-20T16:26:16.000Z">
+<meta property="article:modified_time" content="2021-04-20T16:32:01.213Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-SwapAdvisor" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">SwapAdvisor</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="papers">papers</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">deep learning</a>
+            
+            <a class="color5">swap</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-03-02 17:35</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference-amp-Notations"><span class="toc-text">Reference &amp; Notations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Background"><span class="toc-text">Background</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Challenge-and-Our-Approach"><span class="toc-text">Challenge and Our Approach</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Our-approach"><span class="toc-text">Our approach</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SwapAdvisor-Design"><span class="toc-text">SwapAdvisor Design</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operator-Schedule-and-memory-allocation"><span class="toc-text">Operator Schedule and memory allocation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Operator-schedule"><span class="toc-text">Operator schedule</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-allocation"><span class="toc-text">Memory allocation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Swap-planning"><span class="toc-text">Swap planning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Which-tensors-to-swap-out"><span class="toc-text">Which tensors to swap out?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#When-to-swap-in-and-out"><span class="toc-text">When to swap in and out?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimization-via-Genetic-Algorithm"><span class="toc-text">Optimization via Genetic Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Algorithm-overview"><span class="toc-text">Algorithm overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Selection-methodology"><span class="toc-text">Selection methodology.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-new-schedules"><span class="toc-text">Creating new schedules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoding"><span class="toc-text">Encoding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Crossover"><span class="toc-text">Crossover</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutation"><span class="toc-text">Mutation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-new-memory-allocation"><span class="toc-text">Creating new memory allocation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoding-1"><span class="toc-text">Encoding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Crossover-1"><span class="toc-text">Crossover</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutation-1"><span class="toc-text">Mutation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evaluation"><span class="toc-text">Evaluation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Experimental-setup"><span class="toc-text">Experimental setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype-implementation"><span class="toc-text">Prototype implementation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Testbeds"><span class="toc-text">Testbeds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Genetic-algorithm-parameters"><span class="toc-text">Genetic algorithm parameters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evaluated-DNN-models"><span class="toc-text">Evaluated DNN models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Baselines"><span class="toc-text">Baselines</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wider-and-deeper-DNN-model-training"><span class="toc-text">Wider and deeper DNN model training</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Discussion-limitations-and-future-work"><span class="toc-text">Discussion, limitations and future work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusions"><span class="toc-text">Conclusions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Questions"><span class="toc-text">Questions</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Reference-amp-Notations"><a href="#Reference-amp-Notations" class="headerlink" title="Reference &amp; Notations"></a>Reference &amp; Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3373376.3378530">SwapAdvisor: Push Deep Learning Beyond the GPU Memory Limit via Smart Swapping</a></td>
+</tr>
+<tr>
+<td>Authors</td>
+<td>Chien-Chin Huang, GuJin, Jinyang Li</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3190508.3190551">EuroSys’18 TensorFlow’s swap extension</a></td>
+<td>swap工作，没有利用DNN中已知的flow信息来优化swap</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.02037">arXiv’18 TFLMS</a>, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/7783721/">MICRO’16 vDNN</a></td>
+<td>swap工作，仅交换了根据拓扑排序确定的激活Tensor</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3178487.3178491">PPoPP’18 SuperNeurons</a></td>
+<td>swap工作，仅交换了卷积操作的数据</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>Genetic Algorithm: 启发式算法，能利用多核GPU做并行计算（快）</td>
+</tr>
+<tr>
+<td>N<sub>p</sub></td>
+<td>超参：遗传算法中种群的大小</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>支持swap GPU和CPU内存，可以训练更大的模型，但是现有工作只支持特定models，并且不能达到满意的性能。</p>
+<p>SwapAdvisor从3个维度做优化：</p>
+<ol>
+<li>Operator scheduling</li>
+<li>Memory allocation</li>
+<li>Swap decisions</li>
+</ol>
+<p>此外，SwapAdvisor还设计了一个算法来搜索方案。</p>
+<p>Evaluation部分评测了很多种类的大模型，表明SwapAdvisor最多可以训练12x于显存大小的模型，并且能达到相比于无限显存的53%~99%性能。</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>对于训练大模型的现有工作的解决方法：</p>
+<ol>
+<li>低精度/压缩： 可能影响模型精度，引入额外超参数</li>
+<li>时间换空间： 对于大模型，模型参数重新计算开销很大</li>
+<li>swap memory between CPU and GPU</li>
+</ol>
+<p>以下3点利好方法3：</p>
+<ol>
+<li>CPU memory 相比于 GPU memory大得多，便宜的多。</li>
+<li>现代GPU可以高效overlap计算与通信</li>
+<li>CPU-GPU之间的通信变快：PCI-e 5.0， NVLink</li>
+</ol>
+<p>DNN中swap 与传统swap的优势：<strong>执行前清楚DNN的计算结构，可以最大化overlap计算和通信</strong></p>
+<p>之前Swap工作的缺陷：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>work</th>
+<th>weakness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TensorFlow’s swap extension</td>
+<td>没利用事先清楚DNN计算结构的优势</td>
+</tr>
+<tr>
+<td>TFLM, vDNN</td>
+<td>仅交换了activation tensors</td>
+</tr>
+<tr>
+<td>SuperNeurons</td>
+<td>only swap data for convolution operations</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>限制了DNN种类与性能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>设计了SwapAdvisor：用有限的显存可以训练与推理多种大模型。<strong>在执行前决定何时+哪些数据需要交换</strong>。</p>
+<p>决策需要考虑的信息：</p>
+<ol>
+<li>dataflow graph </li>
+<li>operators scheduling</li>
+<li>memory allocation</li>
+</ol>
+<p>搜索空间很大，设计了一个算法来搜索。</p>
+<p>应用于训练的意义：训练12x于显存大小的模型。性能达到理论无限大显存下的53%-99%（有意思，baseline的性能咋测试的？）</p>
+<p>应用于推理的意义： 推理的时候单张卡内会放多个推理模型，当所有模型的占用显存和相加超过物理显存的时候，会采用时分复用的策略。SwapAdvisor提供的方法相比于时分复用有4x lower latency. </p>
+<p>SwapAdvisor的限制：</p>
+<ol>
+<li>需要一个<strong>没有control-flow primitives</strong>的静态数据流图。</li>
+<li>仅支持single GPU</li>
+</ol>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>DNN内存消耗三大门户：</p>
+<ol>
+<li>Model Parameters. (本文中认为是此占据大部分的内存)</li>
+<li>Intermediate results: activation, gradient, error tensors. 其中推理时仅有activation</li>
+<li>Scratch space(辅助空间): 一些算子计算的时候需要申请额外空间完成计算，例如conv。但是最多占用1G，不大。</li>
+</ol>
+<h1 id="Challenge-and-Our-Approach"><a href="#Challenge-and-Our-Approach" class="headerlink" title="Challenge and Our Approach"></a>Challenge and Our Approach</h1><p>仅根据data flow graph来决策是不够的，还需要考虑：</p>
+<ol>
+<li>Memory allocation. 例如MXNe中使用内存池来管理，会提前分配很多固定大小的空间。所以当剩余显存足够，但是剩余的对应固定大小空间的tensor不够，也需要做swap。结论：需要小心配置内存池。</li>
+<li>Operator scheduling. data flow graph中有分支、合并、循环等，而不是一条链。</li>
+</ol>
+<p><del>Parameters: 前向计算不修改，所以swap出去的时候不需要复制到CPU memory中。<br>Activations: 由OP计算得到，所以swap进来的时候直接分配一块空间即可，不需要从CPU拷贝；但是swap出去的时候，必须一直保存在CPU memory中，因为反向会用到。</del></p>
+<h2 id="Our-approach"><a href="#Our-approach" class="headerlink" title="Our approach"></a>Our approach</h2><ol>
+<li>在给定dataflow graph, memory allocation scheme, operator schedule后，可以给出一个swapping plan(即：确定哪个tensor什么时候被swap in/out)</li>
+<li>穷举所有可能的allocation scheme + operator schedule组合。</li>
+<li>用simulator估计swapping plan的实际性能</li>
+</ol>
+<h1 id="SwapAdvisor-Design"><a href="#SwapAdvisor-Design" class="headerlink" title="SwapAdvisor Design"></a>SwapAdvisor Design</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210303150341.png" alt=""></p>
+<center>overview图</center>
+
+<p>随机选一个operator scheduling &amp; memory allocation, 不断做optimize。</p>
+<h2 id="Operator-Schedule-and-memory-allocation"><a href="#Operator-Schedule-and-memory-allocation" class="headerlink" title="Operator Schedule and memory allocation"></a>Operator Schedule and memory allocation</h2><h3 id="Operator-schedule"><a href="#Operator-schedule" class="headerlink" title="Operator schedule"></a>Operator schedule</h3><p>定义：无环数据流图G中，对G中节点的一个拓扑排序序列。根据序列中的前后关系决定节点的执行先后。</p>
+<p>SwapAdvisor用了3个streams：</p>
+<ol>
+<li>GPU execution</li>
+<li>GPU memory -&gt; CPU memory</li>
+<li>CPU memory -&gt; GPU memory</li>
+</ol>
+<h3 id="Memory-allocation"><a href="#Memory-allocation" class="headerlink" title="Memory allocation"></a>Memory allocation</h3><p>定义：预留大小的种类，G中每个tensor对应预留多大。</p>
+<blockquote>
+<p>Togo: 似乎有的时候一个tensor可以对应多个预留大小。例如正常的时候1MB应该对应1MB预留大小，但是在1MB空间不够，2MB空间足够的情况下，可以临时用2MB的空间，而不用swap。</p>
+</blockquote>
+<h2 id="Swap-planning"><a href="#Swap-planning" class="headerlink" title="Swap planning"></a>Swap planning</h2><p>定义：<strong>which</strong> tensors to swap and <strong>when</strong>?</p>
+<h3 id="Which-tensors-to-swap-out"><a href="#Which-tensors-to-swap-out" class="headerlink" title="Which tensors to swap out?"></a>Which tensors to swap out?</h3><p>假设大小为s的tensor对应的预留大小是s’。<br>当需要在内存中增加一个大小为s的tensor时候，若不存在空闲的s’大小的预留空间，则从当前占用了s’的所有tensor中选择一个距离下次使用时间最长 并且 <strong>最近一次使用与当前时间相隔超过某阈值</strong>(不然无法做overlap)的，做swap-out操作。</p>
+<p>double-pass: </p>
+<ol>
+<li>first pass: 一开始所有parameters均在CPU中，结束后有部分parameters’留在了GPU中。</li>
+<li>second pass：一开始在first pass中留到最后的parameters’预加载到GPU中；扫描过程中因为内存压力，可能会将部分parameters’移出GPU（记作parameter’’）。最终parameter’ - parameter’’则是常驻GPU的参数，雷打不动，不参与swap的。</li>
+</ol>
+<p>double-pass的意义：衔接DNN训练中前后两个iteration。</p>
+<h3 id="When-to-swap-in-and-out"><a href="#When-to-swap-in-and-out" class="headerlink" title="When to swap in and out?"></a>When to swap in and out?</h3><p>越早越好，还得保证安全。<br>如何保证安全？添加一条control flow edge.</p>
+<h1 id="Optimization-via-Genetic-Algorithm"><a href="#Optimization-via-Genetic-Algorithm" class="headerlink" title="Optimization via Genetic Algorithm"></a>Optimization via Genetic Algorithm</h1><h2 id="Algorithm-overview"><a href="#Algorithm-overview" class="headerlink" title="Algorithm overview"></a>Algorithm overview</h2><p>交叉：一对父母 —&gt; 4个孩子（2 new schedules x 2 new allocations)<br>变异：1个孩子 —&gt; 另1个孩子<br>选择：很多个孩子 —&gt; N<sub>p</sub>个孩子作为下一代</p>
+<h3 id="Selection-methodology"><a href="#Selection-methodology" class="headerlink" title="Selection methodology."></a>Selection methodology.</h3><p>选取表现最好的若干孩子的问题：失去多样性，过早收敛。<br>表现定量化（simulator） —&gt; 正则化 —&gt; 通过softmax得到每个个体对应的存活概率（表现好的存活概率大）</p>
+<p>选择softmax的原因 ：实验表明并其他的selection方式有更好的稳定性。</p>
+<h2 id="Creating-new-schedules"><a href="#Creating-new-schedules" class="headerlink" title="Creating new schedules"></a>Creating new schedules</h2><h3 id="Encoding"><a href="#Encoding" class="headerlink" title="Encoding"></a>Encoding</h3><p>将schedule编码：就是将每个节点按顺序排列(SCH)。</p>
+<h3 id="Crossover"><a href="#Crossover" class="headerlink" title="Crossover"></a>Crossover</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210303160847.png" alt=""></p>
+<p>解释：234|51如何变成234|15；234不变，51根据12543中的order重排序变成15，结合得到234|15</p>
+<h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><p>有1-P的概率按照原来的schedule取下一个，有P的概率从就绪的node中选下一个。选完为止。</p>
+<h2 id="Creating-new-memory-allocation"><a href="#Creating-new-memory-allocation" class="headerlink" title="Creating new memory allocation"></a>Creating new memory allocation</h2><p>【复杂，待补充，主要讲了如何将memory allocation塞进遗传算法里面】</p>
+<h3 id="Encoding-1"><a href="#Encoding-1" class="headerlink" title="Encoding"></a>Encoding</h3><h3 id="Crossover-1"><a href="#Crossover-1" class="headerlink" title="Crossover"></a>Crossover</h3><h3 id="Mutation-1"><a href="#Mutation-1" class="headerlink" title="Mutation"></a>Mutation</h3><h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>评估对象：throughput。<br>评测结果：</p>
+<ol>
+<li>训练部分：达到理想baseline的53%-99%</li>
+<li>推理部分：latency 4x（应该是75% lower）</li>
+<li>Joint Optimization相对于仅搜索memory allocation/scheduling来说，有20%-1100%的性能提升。</li>
+</ol>
+<h2 id="Experimental-setup"><a href="#Experimental-setup" class="headerlink" title="Experimental setup"></a>Experimental setup</h2><h3 id="Prototype-implementation"><a href="#Prototype-implementation" class="headerlink" title="Prototype implementation"></a>Prototype implementation</h3><p>基于MXNet，修改了stream部分，替换了memory allocator。 GA与simulator采用python实现，GA支持并行。</p>
+<h3 id="Testbeds"><a href="#Testbeds" class="headerlink" title="Testbeds"></a>Testbeds</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run SwapAdvisor</td>
+<td>72 virtual CPU cores, 144GB memory</td>
+</tr>
+<tr>
+<td>train with produced plan</td>
+<td>V100 16GB x1, 8 virtual CPU cores, 61GB memory, PCIe: 12GB/s单向+20GB/s双向</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注：对需要超过61GB内存的，作者转而换了有更大内存的instance做实验，但是只用了一个GPU。（可能为了省钱吧）</p>
+<h3 id="Genetic-algorithm-parameters"><a href="#Genetic-algorithm-parameters" class="headerlink" title="Genetic algorithm parameters"></a>Genetic algorithm parameters</h3><p>所有参数都是手动调参出来的（empirically）。<br>详见论文。</p>
+<h3 id="Evaluated-DNN-models"><a href="#Evaluated-DNN-models" class="headerlink" title="Evaluated DNN models"></a>Evaluated DNN models</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210304173345.png" alt=""></p>
+<h3 id="Baselines"><a href="#Baselines" class="headerlink" title="Baselines"></a>Baselines</h3><ol>
+<li>ideal: 当显存不够，直接原地替换，不考虑计算正确性。可以得到基于swap系统的性能上限。</li>
+<li>ODSwap：即时决策，第一轮用LRU的方式swap，得到swap策略后，应用到随后的训练。</li>
+</ol>
+<h2 id="Wider-and-deeper-DNN-model-training"><a href="#Wider-and-deeper-DNN-model-training" class="headerlink" title="Wider and deeper DNN model training"></a>Wider and deeper DNN model training</h2><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h1 id="Discussion-limitations-and-future-work"><a href="#Discussion-limitations-and-future-work" class="headerlink" title="Discussion, limitations and future work"></a>Discussion, limitations and future work</h1><h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ol>
+<li>用作评估Swap Plan的Simulator，根本没提怎么实现。</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

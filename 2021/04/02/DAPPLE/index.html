@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DAPPLE | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" deep learning , pipeline parallelism , hybrid parallelism , schedule ">
+  <meta name="description" content="DAPPLE | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/04/21/hexo/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-20T16:26:16.000Z">
+<meta property="article:modified_time" content="2021-04-20T16:32:01.213Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DAPPLE" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">DAPPLE</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="paper">paper</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">deep learning</a>
+            
+            <a class="color1">pipeline parallelism</a>
+            
+            <a class="color4">hybrid parallelism</a>
+            
+            <a class="color4">schedule</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-04-02 16:18</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#References-amp-Notations"><span class="toc-text">References &amp; Notations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Notations"><span class="toc-text">Notations</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Previous-Work"><span class="toc-text">Previous Work</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Previous-Problem"><span class="toc-text">Previous Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-amp-Challenge"><span class="toc-text">Solution &amp; Challenge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation"><span class="toc-text">Evaluation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributions"><span class="toc-text">Contributions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-DAPPLE-Approach-Overview"><span class="toc-text">The DAPPLE Approach Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DAPPLE-Schedule"><span class="toc-text">DAPPLE Schedule</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Limitations-of-GPipe-Schedule"><span class="toc-text">Limitations of GPipe Schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Device-Assignment"><span class="toc-text">Device Assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning-Algorithm"><span class="toc-text">Planning Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Determining-The-Pivot-Stage-Q"><span class="toc-text">Determining The Pivot Stage Q.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Algorithm-Formula"><span class="toc-text">Algorithm Formula</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributions-over-previous-work"><span class="toc-text">Contributions over previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Uneven-Pipeline-Partitioning-with-Fewer-Stages"><span class="toc-text">Uneven Pipeline Partitioning with Fewer Stages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Versatile-Device-Placement"><span class="toc-text">Versatile Device Placement</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DAPPLE-Runtime"><span class="toc-text">DAPPLE Runtime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evaluation-1"><span class="toc-text">Evaluation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Experimental-Setup"><span class="toc-text">Experimental Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Benchmarks"><span class="toc-text">Benchmarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hardware-Configurations"><span class="toc-text">Hardware Configurations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BatchSize-and-Training-Setup"><span class="toc-text">BatchSize and Training Setup</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning-Results"><span class="toc-text">Planning Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-Analysis"><span class="toc-text">Performance Analysis</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="References-amp-Notations"><a href="#References-amp-Notations" class="headerlink" title="References &amp; Notations"></a>References &amp; Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3437801.3441593">DAPPLE: A Pipelined Data Parallel Approach for Training Large Models</a></td>
+</tr>
+<tr>
+<td>Authors</td>
+<td>Shiqing Fan, Yi Rong, Chen Meng, Zongyan Cao, Siyu Wang, Zhen Zheng, Chuan Wu, Guoping Long, Jun Yang, Lixue Xia, Lansong Diao, Xiaoyong Liu, Wei Lin</td>
+</tr>
+<tr>
+<td>Conference</td>
+<td>PPoPP’21</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>将global batchsize 切分成 M个micro batchsize</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Pipeline Latency: a single global batch的执行时间</td>
+</tr>
+<tr>
+<td>pivot stage</td>
+<td>有最少的bubble的stage</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>id of pivot stage</td>
+</tr>
+<tr>
+<td>$T_w$</td>
+<td>warmup阶段的时间</td>
+</tr>
+<tr>
+<td>$T_s$</td>
+<td>steady阶段的时间</td>
+</tr>
+<tr>
+<td>$T_e$</td>
+<td>ending阶段的时间</td>
+</tr>
+<tr>
+<td>$F_i$</td>
+<td>第i个stage的前向计算时间</td>
+</tr>
+<tr>
+<td>$B_i$</td>
+<td>第i个stage的反向计算时间</td>
+</tr>
+<tr>
+<td>$P_i$</td>
+<td>第i个stage的参数</td>
+</tr>
+<tr>
+<td>$g_s$</td>
+<td>第i个stage的梯度</td>
+</tr>
+<tr>
+<td>$AR(P_i, g_i)$</td>
+<td>对第i个stage做Allreduce的时间</td>
+</tr>
+<tr>
+<td>$T_{PL}(j,m,\cal{g})$</td>
+<td>对前j个layers，使用m个GPUs，这m个GPUs的id set是$\cal{g}$，得到的最小的$L$，剩下的layers组成最后一个stages，并且replicate到剩下的(G-m)个GPUs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>流水线并行的两个问题：</p>
+<ol>
+<li>如何在确保收敛的同时提高计算效率</li>
+<li>如何在不增加计算的情况下减少内存使用</li>
+</ol>
+<p>作者提出了DAPPLE：结合数据并行与流水线并行的一个同步训练框架。</p>
+<ol>
+<li>a novel parallelization strategy _planner_: 解决partition和placement问题，探索DP与PP结合的最佳方案（对应上面的问题1）</li>
+<li>a new runtime scheduling algorithm: 降低内存占用，同时与重计算方式正交，并且不影响吞吐量。（对应上面的问题2）</li>
+</ol>
+<p>DAPPLE的实验结果：</p>
+<ol>
+<li>相比于PipeDream，有3.23x的提升（啥的提升，没写清楚）</li>
+<li>相比于GPipe，吞吐量有1.6x的提升，内存节省12%。</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Previous-Work"><a href="#Previous-Work" class="headerlink" title="Previous Work"></a>Previous Work</h2><p>现有的Pipeline Parallelism工作大致可以分为以下两类</p>
+<ol>
+<li>sync，代表工作有Gpipe，Pipe-Torch。需要在相邻两个iteration之间插入梯度同步操作以确保收敛。会有显著的内存峰值过高的问题，重计算等工作可以解决这类问题。</li>
+<li>async, 代表工作有PipeDream。</li>
+</ol>
+<h2 id="Previous-Problem"><a href="#Previous-Problem" class="headerlink" title="Previous Problem"></a>Previous Problem</h2><ol>
+<li>对于async类，PipeDream改善了time-to-accuracy的性能，但是由于采用的异步训练，考虑到收敛性问题，工业界不常用这个，这个在<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9042047/">阿里巴巴报告</a>中有展示；另外异步训练需要存储多个版本的Weights。</li>
+<li>对于sync类，均需要非常高的内存占用：因为前向的所有小批次结束前不能调度反向传播。用重计算解决会降低训练速度。</li>
+</ol>
+<h2 id="Solution-amp-Challenge"><a href="#Solution-amp-Challenge" class="headerlink" title="Solution &amp; Challenge"></a>Solution &amp; Challenge</h2><p>DAPPLE：结合了Pipeline Parallelism &amp; Data Parallelism。属于sync类，<strong>保证了收敛性</strong>，用async的方法，<strong>避免存储多个版本的参数</strong>。</p>
+<p>总结一下，DAAPLE解决了两个挑战：</p>
+<ol>
+<li>（模型结构+硬件配置）—&gt; 最优的并行策略。其中目标空间：DP,PP,DP+PP。<br>提出了a _sync_ pipeline planner: 自动生成最优的并行策略，可以最小化一次迭代训练的执行时间；将layer划分成多个stages。</li>
+<li>如何调度流水线阶段的计算。<br>提出了<em>DAPPLE</em> schedule：以低的内存峰值来实现较高的执行效率；关键是以deterministic and interleaved方式来调度前后向阶段，尽早释放内存。</li>
+</ol>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><ol>
+<li>模型类型： image classification, machine translation, language modeling.</li>
+<li>硬件环境：3种</li>
+</ol>
+<p>此外，DAPPLE也适用于VGG这种大weights小activations的模型。</p>
+<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
+<li>探索了结合DP与PP。</li>
+<li>提出了DAPPLE planner，解决了partition和placement问题，并探索了数据和流水线并行的最佳混合策略。</li>
+<li>不需要存储多个版本的参数，不增加计算的前提下降低内存占用量，并且可以结合重计算进一步降低。</li>
+</ol>
+<h1 id="The-DAPPLE-Approach-Overview"><a href="#The-DAPPLE-Approach-Overview" class="headerlink" title="The DAPPLE Approach Overview"></a>The DAPPLE Approach Overview</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402201324.png" alt=""></p>
+<ul>
+<li>Profiler: (DNN model) $\rightarrow$ (每个层的执行时间、ACTIVATION大小、Parameters大小)</li>
+<li>Planner: (Profiler的结果、_global batch size_) $\rightarrow$ (parallelization plan)</li>
+<li>Runtime: (Planner的结果, 原始model graph) $\rightarrow$ pipelined parallel graph.</li>
+</ul>
+<h1 id="DAPPLE-Schedule"><a href="#DAPPLE-Schedule" class="headerlink" title="DAPPLE Schedule"></a>DAPPLE Schedule</h1><h2 id="Limitations-of-GPipe-Schedule"><a href="#Limitations-of-GPipe-Schedule" class="headerlink" title="Limitations of GPipe Schedule"></a>Limitations of GPipe Schedule</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402203458.png" alt=""></p>
+<center>GPipe的原理</center>
+中间的Activations必须在反向结束后才能释放，会占用大量内存。DAPPLE采取重计算来节约内存，但是带来了的20%的额外计算。
+
+DAPPLE的解决方法:  _early backward scheduling_ 
+
+## Early backward scheduling
+
+![](https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402203946.png)
+
+1. 不一次性将所有M个micro-batches注入，而是注入K（K<M）个。
+2. 一个FW后紧跟一个BW
+3. 在和GPipe同样的执行效率的前提下，峰值内存占用下降了。
+
+
+# DAPPLE Planner
+## The Optimization Objective
+![](https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402210036.png)
+<center>一个调度示意图</center>
+
+<p>_pivot stage_： 拥有最少bubble的stage。<br>_warmup phase_: 开始$\rightarrow$ _pivot stage_ 的第一个前向阶段<br>_ending phase_: _pivot stage_ 的最后一个反向阶段 $\rightarrow$ 最后<br>_steady phase_: 介于 _warmup phase_ 和 _ending phase_ 之间的阶段。<br>_L_: 上述三个阶段的和。</p>
+<p>有如下公式：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+L&= T_w + T_s + T_e \\
+T_w &= \Sigma_{s=0}^{Q}F_s \\
+T_s &= (M-1)·(F_Q + B_Q) \\
+T_e& = \max_{s=0}^{S-1}(AR(P_s, g_s)+
+\begin{cases}
+-\Sigma_{a=Q}^sB_a, &s>Q \\
+\Sigma_{a=s}^QB_a, &s\le Q
+\end{cases}
+)
+\end{aligned}</script><p>其中$T_s$的估计中忽略了其中存在的bubble</p>
+<h2 id="Device-Assignment"><a href="#Device-Assignment" class="headerlink" title="Device Assignment"></a>Device Assignment</h2><p>对于异步类的（PipeDream），决定整体性能的是单个stage的速度；<br>对于同步类的，决定整体性能的是单个iteration的速度。</p>
+<p>提供了3种分配设备的方式：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403093945.png" alt=""></p>
+<h2 id="Planning-Algorithm"><a href="#Planning-Algorithm" class="headerlink" title="Planning Algorithm"></a>Planning Algorithm</h2><p>寻找最优的(partition, replication, placement strategy) $\rightarrow$ minimize $L$.</p>
+<h3 id="Determining-The-Pivot-Stage-Q"><a href="#Determining-The-Pivot-Stage-Q" class="headerlink" title="Determining The Pivot Stage Q."></a>Determining The Pivot Stage Q.</h3><p>估计Q的公式（heuristic)<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402215754.png" alt=""></p>
+<h3 id="Algorithm-Formula"><a href="#Algorithm-Formula" class="headerlink" title="Algorithm Formula"></a>Algorithm Formula</h3><p>使用$T_{PL}(N,G,\cal{G})$来表示结果，于是可以采用动态规划的方式求解。(实际上就是穷举$N,G,\cal{G}$的组合，避免重复计算)</p>
+<script type="math/tex; mode=display">T_{PL}(N,G,{\cal{G}}) = \min_{1\le j \lt N}\min_{1\le m\lt G}\min_{g\in D({\cal G},m)}T_{PL}(j,m,{\cal{g}})</script><p>显而易见，$T_{PL}$可以用动态规划来解决。</p>
+<h2 id="Contributions-over-previous-work"><a href="#Contributions-over-previous-work" class="headerlink" title="Contributions over previous work"></a>Contributions over previous work</h2><h3 id="Uneven-Pipeline-Partitioning-with-Fewer-Stages"><a href="#Uneven-Pipeline-Partitioning-with-Fewer-Stages" class="headerlink" title="Uneven Pipeline Partitioning with Fewer Stages"></a>Uneven Pipeline Partitioning with Fewer Stages</h3><p>按以下方法对模型进行划分会得到更好的性能：</p>
+<ol>
+<li>尽可能少的stages（GPipe也提出）</li>
+<li>不必严格均分<br>参考下图：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403083238.png" alt=""></li>
+</ol>
+<h3 id="Versatile-Device-Placement"><a href="#Versatile-Device-Placement" class="headerlink" title="Versatile Device Placement"></a>Versatile Device Placement</h3><p>这里前面没看懂，但是举得例子看懂了。<br>对于一些Activation size &gt;&gt; Weights size的模型，利用高速NVLink来传输activation，利用低速的Ethernet来做Allreduce。</p>
+<h1 id="DAPPLE-Runtime"><a href="#DAPPLE-Runtime" class="headerlink" title="DAPPLE Runtime"></a>DAPPLE Runtime</h1><p>实现在TF1.12中，TF1.12能根据DAG与其中的数据/控制依赖来调度整个图的执行。</p>
+<p>DAPPLE Runtime： (模型，Planner的结果) $\rightarrow$ (流水行并行的图，并将之执行在分布式设备上)<br>流程：</p>
+<ol>
+<li>对于每个pipeline stage，构建一个前向/反向的图</li>
+<li>相邻层之间需要对activation做通信，所以在相邻层之间加入额外的split/concat节点（为什么是这两个类型？）</li>
+<li>构建一个子图用来执行weights updates.</li>
+</ol>
+<p>后面为实现细节，暂时略过。</p>
+<h1 id="Evaluation-1"><a href="#Evaluation-1" class="headerlink" title="Evaluation"></a>Evaluation</h1><h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><h3 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402222301.png" alt=""><br>用到的数据集分别是WMT16 En-DE(Translation), SQuAD2.0(Language Model), ImageNet(Image Classification)。</p>
+<h3 id="Hardware-Configurations"><a href="#Hardware-Configurations" class="headerlink" title="Hardware Configurations"></a>Hardware Configurations</h3><p>3种硬件配置：配置A在GPU集群中最常见，但是比较贵。为了照顾买不起的一些机构或个人，也在配置B与C中进行了测试。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402222411.png" alt=""></p>
+<p>软件版本：64bits CentOS + CUDA 9.0 + cuDNN v7.3 + NCCL 2.4.2 + TF-1.12</p>
+<h3 id="BatchSize-and-Training-Setup"><a href="#BatchSize-and-Training-Setup" class="headerlink" title="BatchSize and Training Setup"></a>BatchSize and Training Setup</h3><p>参考Table1的最后一列。</p>
+<h2 id="Planning-Results"><a href="#Planning-Results" class="headerlink" title="Planning Results"></a>Planning Results</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403113528.png" alt=""><br>表的解释：</p>
+<ul>
+<li>Plan：<ul>
+<li>P:Q 两个stage，第一个stage replicates到P个GPUs，第二个stage replicates到Q个GPUs</li>
+<li>DP Data Parallelism</li>
+<li>Straight 16个stages？</li>
+</ul>
+</li>
+<li>Split Position: 表示模型按照对应比例，切分成两个stages</li>
+<li>ACR： 没看懂</li>
+</ul>
+<p>结果：</p>
+<ul>
+<li>ResNet50： 全部DP，因为ResNet50的网络模型小（100MB），计算密集</li>
+<li>VGG-19： 在Config A&amp;B中采用DP，因为模型大小适中（548MB），内联带宽较大；在Config C中，根据15：1做切分（估计根据VGG-19的前15/16部分是计算，后1/16部分有大量的params和gradients）</li>
+<li>GNMT-16/BERT-48/XLNet-36等：暂略</li>
+<li>AmoebaNet-36： 暂略。</li>
+</ul>
+<h2 id="Performance-Analysis"><a href="#Performance-Analysis" class="headerlink" title="Performance Analysis"></a>Performance Analysis</h2><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>Q: DAPPLE中每个GPU的内存使用量的情况如何？<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403081827.png" alt=""><br>其中，红色、紫色、绿色分别表示DAPPLE组别中GPU0,GPU1,GPU2的Peak Memory Usage。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

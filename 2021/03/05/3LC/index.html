@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>3LC | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" deep learning , compression ">
+  <meta name="description" content="3LC | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/04/21/hexo/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-20T16:26:16.000Z">
+<meta property="article:modified_time" content="2021-04-20T16:32:01.213Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-3LC" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">3LC</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="papers">papers</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">deep learning</a>
+            
+            <a class="color2">compression</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-03-05 11:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#References-amp-Notations"><span class="toc-text">References &amp; Notations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-value-quantization-with-sparsity-multiplication"><span class="toc-text">3-value quantization with sparsity multiplication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quartic-encoding"><span class="toc-text">Quartic encoding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zero-run-encoding"><span class="toc-text">Zero-run encoding</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Distributed-ML-Background"><span class="toc-text">Distributed ML Background</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Design"><span class="toc-text">Design</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-value-Quantization-with-Sparsity-Multiplication"><span class="toc-text">3-value Quantization with Sparsity Multiplication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Alternative-quantization-techniques"><span class="toc-text">Alternative quantization techniques</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Stochastic-quantization"><span class="toc-text">Stochastic quantization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Squared-quantization-error-minimization"><span class="toc-text">Squared quantization error minimization</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alternative-sparsification-techniques"><span class="toc-text">Alternative sparsification techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convergence"><span class="toc-text">Convergence</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quartic-Encoding"><span class="toc-text">Quartic Encoding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zero-run-Encoding"><span class="toc-text">Zero-run Encoding</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evaluation"><span class="toc-text">Evaluation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Questions"><span class="toc-text">Questions</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="References-amp-Notations"><a href="#References-amp-Notations" class="headerlink" title="References &amp; Notations"></a>References &amp; Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>illustration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.07389.pdf">arXiv’18 3LC: Lightweight and Effective Traffic Compression for Distributed Machine Learning</a></td>
+</tr>
+<tr>
+<td>Authors</td>
+<td>Hyeontaek Lim, David G.Andersen, Michael Kaminsky</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>减少通信量的措施容易犯的错误：</p>
+<ol>
+<li>牺牲了最终的模型精度</li>
+<li>用其他ML技术弥补损失（例如DGC的4种compensation），限制了通用性</li>
+<li>导致高计算开销，只适用于计算能力&gt;&gt;通信能力的环境</li>
+</ol>
+<p>3LC尝试平衡以下4点：</p>
+<ol>
+<li>减少通信 traffic reduction</li>
+<li>精度 accuracy</li>
+<li>计算开销 computation overhead</li>
+<li>通用性 generality</li>
+</ol>
+<p>3LC结合了3个技术：</p>
+<ol>
+<li>(lossy) 3-value quantization with sparsity multiplication</li>
+<li>(lossless) quartic encoding</li>
+<li>(lossless) zero-run encoding</li>
+</ol>
+<p>3LC的结果：</p>
+<ol>
+<li>压缩率： 39-107x</li>
+<li>精度：几乎不变</li>
+<li>不需要修改现有算法</li>
+<li>ResNet-110的完整训练时间减少列16-23x</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>其他略过，看3LC结合的3个技术。</p>
+<h2 id="3-value-quantization-with-sparsity-multiplication"><a href="#3-value-quantization-with-sparsity-multiplication" class="headerlink" title="3-value quantization with sparsity multiplication"></a>3-value quantization with sparsity multiplication</h2><ul>
+<li>有损压缩成{-1,0,1}</li>
+<li>通过一个参数控制压缩程度</li>
+<li>用error accumulation来控制误差</li>
+</ul>
+<p>作者认为他<strong>对训练模型的精度影响很小</strong>，所以不需要修改ML算法来补偿潜在的精度损失？？？我直接疑惑，很多压缩算法都是这样的。</p>
+<h2 id="Quartic-encoding"><a href="#Quartic-encoding" class="headerlink" title="Quartic encoding"></a>Quartic encoding</h2><p>正常应该用2bit来表示3-value。<br>Quartic encoding将一组3-value一起压缩，可以节省大约20%空间。此外编码后的数据可以被进一步压缩。</p>
+<h2 id="Zero-run-encoding"><a href="#Zero-run-encoding" class="headerlink" title="Zero-run encoding"></a>Zero-run encoding</h2><p>利用0多的冗余性，对Quartic encoding得到的数据做进一步的压缩。可以得到2x或更高的压缩率。</p>
+<h1 id="Distributed-ML-Background"><a href="#Distributed-ML-Background" class="headerlink" title="Distributed ML Background"></a>Distributed ML Background</h1><p>略过</p>
+<h1 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210305133730.png" alt=""><br>详细说明见论文</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210305140402.png" alt=""></p>
+<h2 id="3-value-Quantization-with-Sparsity-Multiplication"><a href="#3-value-Quantization-with-Sparsity-Multiplication" class="headerlink" title="3-value Quantization with Sparsity Multiplication"></a>3-value Quantization with Sparsity Multiplication</h2><p>原梯度tensor T<sub>in</sub> —(compress)—&gt; 同样形状，由{-1,0,1}组成的tensor; 缩放因子M</p>
+<p>压缩：</p>
+<script type="math/tex; mode=display">M= max(|T_{in}|)·s \\
+T_{quantized} = round\left(T_{in}\over M\right)</script><p>解压缩：</p>
+<script type="math/tex; mode=display">T_{out} = M·T_{quantized}</script><p>$s$取值范围：1~2。 默认设置$s$为1，$s$越大，$T_{quantized}$中的0越少，则在最后Zero-run encoding阶段压缩率越高。$s$越大，误差越大。</p>
+<h3 id="Alternative-quantization-techniques"><a href="#Alternative-quantization-techniques" class="headerlink" title="Alternative quantization techniques"></a>Alternative quantization techniques</h3><h4 id="Stochastic-quantization"><a href="#Stochastic-quantization" class="headerlink" title="Stochastic quantization"></a>Stochastic quantization</h4><p>Stochastic quantization是一个好方法，TernGrad将用过。但是3LC中没用的原因是：</p>
+<ol>
+<li>用round做压缩引入的bias误差可以通过error accumulation修正</li>
+<li>在evaluation中，error correction比stochastic quantization的精度高。采用stochastic quantization方法需要更多的bit来表示，或者用额外的技术来补足精度。</li>
+<li>stochastic quantization + error accumulation 在实验中无法收敛。</li>
+</ol>
+<h4 id="Squared-quantization-error-minimization"><a href="#Squared-quantization-error-minimization" class="headerlink" title="Squared quantization error minimization"></a>Squared quantization error minimization</h4><p>略过</p>
+<h3 id="Alternative-sparsification-techniques"><a href="#Alternative-sparsification-techniques" class="headerlink" title="Alternative sparsification techniques"></a>Alternative sparsification techniques</h3><p>略过</p>
+<h3 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h3><p>略过</p>
+<h2 id="Quartic-Encoding"><a href="#Quartic-Encoding" class="headerlink" title="Quartic Encoding"></a>Quartic Encoding</h2><p>将5个3-value压缩成1byte。<br>5个3-value的最多信息量： $log_23^5 = 7.92 &lt; 8$</p>
+<p>压缩流程：</p>
+<ol>
+<li>+1: {-1,0,1} —&gt; {0,1,2}</li>
+<li>type cast: 3-value —&gt; uint8</li>
+<li>flatten: matrix —&gt; vector</li>
+<li>pad 0: len(T) mod 5 == 0</li>
+<li>$a=p_0·81+p_1·27+p_2·9+p_3·3+p_4$</li>
+</ol>
+<h2 id="Zero-run-Encoding"><a href="#Zero-run-Encoding" class="headerlink" title="Zero-run Encoding"></a>Zero-run Encoding</h2><p>利用了两个特点：</p>
+<ol>
+<li>Quartic Encoding中，5个3-value占用一个字节，一个字节最多能表示256中状态，而原数据最多只有$3^5=243$种状态。</li>
+<li>Quartic Encoding后有很多0（稀疏性）</li>
+</ol>
+<p>现在有5个0，先通过Quartic Encoding压缩，得到121，流程如下：</p>
+<ol>
+<li>+1： 00000-&gt;11111</li>
+<li>type cast, flatten, pad0</li>
+<li>81+27+9+3+1 = 121</li>
+</ol>
+<p>若检测到压缩后的数据中有连续k(2&lt;=k&lt;=14)个121，则将这些连续的121替换成单字节，其值为243+k-2。</p>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><ul>
+<li>Traffic Reduction: 每个阶段节省了多少</li>
+<li>Training time: 完整训练时间节省了多少</li>
+<li>Accuracy</li>
+<li>Convergence speed</li>
+<li>Computation overhead</li>
+</ul>
+<p>乱的很，在图表中没找到压缩耗时的结果图。</p>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ol>
+<li>这些压缩算法能否通过自己之前设计的common operators(reduce, map, filter, random, sort, concat, extract)来实现？<ul>
+<li>3-value Quantization with Sparsity Multiplication<br>压缩: reduce, map, concat<br>解压: extract, map</li>
+<li>Quartic Encoding<br>压缩: map,  concat<br>解压: map, extract</li>
+<li>Zero-run Encoding<br>无法利用先进硬件的向量化技术。相对的，在作者阐述Quartic Encoding时，特别指出了可以利用向量化技术。<br>明确一点：原作者此处肯定用的scan的方法做的。<br>压缩：map+filter+concat（效率偏低）<br>解压：分段解压+拼接？可能需要16倍于原大小的空间。如何拼接？</li>
+</ul>
+</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

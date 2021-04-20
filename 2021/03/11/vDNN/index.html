@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>vDNN | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" deep learning ">
+  <meta name="description" content="vDNN | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/04/21/hexo/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-20T16:26:16.000Z">
+<meta property="article:modified_time" content="2021-04-20T16:32:01.213Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-vDNN" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">vDNN</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="papers">papers</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">deep learning</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-03-11 15:44</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference-amp-Notations"><span class="toc-text">Reference &amp; Notations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Background-amp-Motivation"><span class="toc-text">Background &amp; Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DNN-Architecture"><span class="toc-text">DNN Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNN-Training-vs-Inference"><span class="toc-text">DNN Training vs. Inference</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Forward-Propagation"><span class="toc-text">Forward Propagation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backward-Propagation"><span class="toc-text">Backward Propagation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation-Scalable-and-Memory-Efficient-DNN-Design"><span class="toc-text">Motivation: Scalable and Memory-Efficient DNN Design</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualized-DNN"><span class="toc-text">Virtualized DNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Principle"><span class="toc-text">Design Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Forward-Propagation-1"><span class="toc-text">Forward Propagation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backward-Propagation-1"><span class="toc-text">Backward Propagation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Operations-And-Its-Design"><span class="toc-text">Core Operations And Its Design</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Allocation-Release"><span class="toc-text">Memory Allocation&#x2F;Release</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Offload"><span class="toc-text">Memory Offload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Memory-Prefetch"><span class="toc-text">Memory Prefetch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vDNN-Memory-Transfer-Policy"><span class="toc-text">vDNN Memory Transfer Policy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Static-vDNN"><span class="toc-text">Static vDNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dynamic-vDNN"><span class="toc-text">Dynamic vDNN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Methodology"><span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vDNN-Memory-Manager"><span class="toc-text">vDNN Memory Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-Node-Topology"><span class="toc-text">GPU Node Topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNN-Benchmarks"><span class="toc-text">DNN Benchmarks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Results"><span class="toc-text">Results</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-Memory-Usage"><span class="toc-text">GPU Memory Usage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Impact-on-Memory-System"><span class="toc-text">Impact on Memory System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Power"><span class="toc-text">Power</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Case-Study-Training-Very-Deep-Networks"><span class="toc-text">Case Study: Training Very Deep Networks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Reference-amp-Notations"><a href="#Reference-amp-Notations" class="headerlink" title="Reference &amp; Notations"></a>Reference &amp; Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/7783721">vDNN: Virtualized Deep Neural Networks for Scalable Memory-Efficient Neural Network Design</a></td>
+</tr>
+<tr>
+<td>Authors</td>
+<td>Minsoo Rhu, Natalia Gimelshein, Jason Clemons, Arslan Zulfiqar, Stephen W. Keckler</td>
+</tr>
+<tr>
+<td>Conference</td>
+<td>MICRO’16</td>
+</tr>
+<tr>
+<td>vDNN</td>
+<td>virtualized Deep Neural Network</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>a runtime memory manager: 虚拟化DNN的内存，可以同时使用CPU和GPU内存来训练更大的DNNs。<br>vDNN的成果：</p>
+<ul>
+<li>降低了AlexNet 89%的显存占用量</li>
+<li>降低了OverFeat 91%的显存占用量</li>
+<li>降低了GoogLeNet 95%的显存占用量。</li>
+<li>在显存为12GB的Titan X GPU卡上，用batchsize=256训练了vgg16（需要总计28G内存），性能损失只有18%。</li>
+</ul>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>模型占用的内存越来越大。</p>
+<p>vDNN的特点：</p>
+<ol>
+<li>GPU memory + CPU memory</li>
+<li>transparent to ML practitioners.</li>
+</ol>
+<p>vDNN的观察：</p>
+<ol>
+<li>DNN有很多个layers租场</li>
+<li>这些layer有很多，排列顺序等是提前固定的</li>
+<li>GPU一次只能执行一个。但是现在的ML框架直接把所有layers的内存全塞进显存中。DNN越深，浪费越严重。</li>
+</ol>
+<p>vDNN的目标：只给当前需要用的layer保守分配显存，降低显存的最大/平均占用量。</p>
+<p>vDNN的手段：研究了allocated data structures的数据依赖，特别是占了大部分的intermediate feature maps；将这些数据在GPU与CPU之间倒腾。具体如下：</p>
+<ol>
+<li>不用的直接释放</li>
+<li>短期内不用的暂存到CPU memory中</li>
+<li>overlap传输与计算。</li>
+</ol>
+<p>贡献：</p>
+<ol>
+<li>第一篇对GPU-based DNN训练做详细、量化分析的。</li>
+<li>第一篇从架构角度对DNN的内存访问特性与其对显存系统的影响进行深入的研究。</li>
+<li>指出了现有ML框架的内存管理问题。</li>
+<li>实现了vDNN，将6个模型的显存占用降低了73%~98%，使得可以在单张titan X卡上训练。性能损失在1%~18%。</li>
+</ol>
+<h1 id="Background-amp-Motivation"><a href="#Background-amp-Motivation" class="headerlink" title="Background &amp; Motivation"></a>Background &amp; Motivation</h1><h2 id="DNN-Architecture"><a href="#DNN-Architecture" class="headerlink" title="DNN Architecture"></a>DNN Architecture</h2><p>主要关注feedforward style convolutional neural networks（例如AlexNet, OverFeat, GoogLeNet, VGG）。</p>
+<p>CV领域的DNN的layers组成：</p>
+<ul>
+<li>CONV</li>
+<li>ACTV</li>
+<li>POOL</li>
+<li>FC</li>
+</ul>
+<p>其中，CONV, ACTV, POOL组成 _feature extraction layers_，FC组成 _classification layers_。趋势是feature extraction layers越来越大。</p>
+<h2 id="DNN-Training-vs-Inference"><a href="#DNN-Training-vs-Inference" class="headerlink" title="DNN Training vs. Inference"></a>DNN Training vs. Inference</h2><h3 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a>Forward Propagation</h3><p>略过</p>
+<h3 id="Backward-Propagation"><a href="#Backward-Propagation" class="headerlink" title="Backward Propagation"></a>Backward Propagation</h3><p>也是layer-wise的。</p>
+<h2 id="Motivation-Scalable-and-Memory-Efficient-DNN-Design"><a href="#Motivation-Scalable-and-Memory-Efficient-DNN-Design" class="headerlink" title="Motivation: Scalable and Memory-Efficient DNN Design"></a>Motivation: Scalable and Memory-Efficient DNN Design</h2><p>现有page-migration based virtualization solutions的限制：通过PCIe来传输pages的延迟太高了（CPU interrupts for system calls, page-table updates, TLB updates/shootdowns, actual page transfer）。<br>之前的研究表明：将一个4KB的page通过PCIe传输到GPU中需要20~50us $\leftrightarrow$ page-migration的PCIe带宽利用率为80~200MB/sec， 而 _cudaMemcpy_ 的传输速度为12.8GB/sec。</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210312153749.png" alt=""></p>
+<script type="math/tex; mode=display">图5\ \ VGG-16中各个layers的内存占用情况</script><p>基于图5的观察：</p>
+<ol>
+<li>内存占用： intermediate feature maps&gt;&gt;weights</li>
+<li>中间数据大多与feature extraction maps相关，与后面的classifier layers无关。</li>
+<li>weights与classifier layer非常相关。</li>
+<li>每层的内存使用量远小于28G（VGG-16的总显存占用量）。</li>
+</ol>
+<h1 id="Virtualized-DNN"><a href="#Virtualized-DNN" class="headerlink" title="Virtualized DNN"></a>Virtualized DNN</h1><p>feature extraction layers占用最大：</p>
+<ul>
+<li>AlexNet中81%</li>
+<li>VGG-16(256)中96%</li>
+</ul>
+<p>vDNN关注feature extraction layers中的feature map.</p>
+<h2 id="Design-Principle"><a href="#Design-Principle" class="headerlink" title="Design Principle"></a>Design Principle</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210312163227.png" alt=""></p>
+<script type="math/tex; mode=display">图9\ \ vDNN调度图</script><h3 id="Forward-Propagation-1"><a href="#Forward-Propagation-1" class="headerlink" title="Forward Propagation"></a>Forward Propagation</h3><p>前向计算中的$X$s用完后要一直等到反向计算到当前layer才会重新启用。AlexNet第一层的前向反向间隔时间60ms+，VGG16(64)第一层的前向反向间隔时间1200ms+。</p>
+<h3 id="Backward-Propagation-1"><a href="#Backward-Propagation-1" class="headerlink" title="Backward Propagation"></a>Backward Propagation</h3><p>没啥好说的，就是用prefetch来做overlap</p>
+<h2 id="Core-Operations-And-Its-Design"><a href="#Core-Operations-And-Its-Design" class="headerlink" title="Core Operations And Its Design"></a>Core Operations And Its Design</h2><p>有两个cuda stream，分别是$stream_{compute}$, $stream_{memory}$.</p>
+<h3 id="Memory-Allocation-Release"><a href="#Memory-Allocation-Release" class="headerlink" title="Memory Allocation/Release"></a>Memory Allocation/Release</h3><p>旨在解决$\mathtt {cudaMalloc}$和$\mathtt {cudaFree}$带来的同步问题。<br>采用了NVIDIA发布的一个异步库，内存申请释放操作时不需要调用$\mathtt {cudaMalloc}$和$\mathtt {cudaFree}$.</p>
+<h3 id="Memory-Offload"><a href="#Memory-Offload" class="headerlink" title="Memory Offload"></a>Memory Offload</h3><ol>
+<li>使用$\mathtt {cudaMallocHost}$在host端申请固定内存块。</li>
+<li>调用$\mathtt {cudaMemcpyAsync}$对$X$做GPU-CPU之间的拷贝，以使当前layer前向计算与传输overlap（对于CONV/POOL层，$X$是只读的，所以可以做overlap）。</li>
+<li>vDNN在每个layer前向结束后会对$stream_{compute}$和$stream_{memory}$做一次同步：保证了offloaded data拷贝到了host端，最大化memory saving.</li>
+</ol>
+<h3 id="Memory-Prefetch"><a href="#Memory-Prefetch" class="headerlink" title="Memory Prefetch"></a>Memory Prefetch</h3><p>略过（搜索的伪代码很无语，就是找最近需要预取的layer）</p>
+<h2 id="vDNN-Memory-Transfer-Policy"><a href="#vDNN-Memory-Transfer-Policy" class="headerlink" title="vDNN Memory Transfer Policy"></a>vDNN Memory Transfer Policy</h2><p>决定哪些layers中的feature maps需要offload，需要考虑：</p>
+<ol>
+<li>显存大小</li>
+<li>卷积算法（有临时占用）与整体的layer-wise内存占用</li>
+<li>network-wide性能</li>
+</ol>
+<h3 id="Static-vDNN"><a href="#Static-vDNN" class="headerlink" title="Static vDNN"></a>Static vDNN</h3><ol>
+<li>${vDNN}_{all}$: offload所有layer的$X$s: 有最低的显存占用。</li>
+<li>$vDNN_{conv}$: offload所有conv层的$X$s: CONV层比ACTV/POOL层有更长的计算延迟，可以更好的hide offload/prefetch的延迟，有更好的性能表现。</li>
+</ol>
+<h3 id="Dynamic-vDNN"><a href="#Dynamic-vDNN" class="headerlink" title="Dynamic vDNN"></a>Dynamic vDNN</h3><p>平衡trainability和performance.<br>首先，明确一点，卷积算法有很多种，朴素方法算的慢，不需要额外内存；FFT-卷积算法算的快，但是需要额外空间辅助计算。<br>利用cuDNN提供的一套运行时API来做性能分析，决定每个CONV层用哪种卷积算法。然后vDNN做如下操作：</p>
+<ol>
+<li>所有CONV层都用朴素卷积方法。测试一遍$vDNN_{all}$。以确认trainability</li>
+<li>如果步骤1中能运行，则将所有CONV层换成FFT-卷积算法，并且不offload任意layer。若过了，则用此策略；否则先后采用$vDNN_{conv}$与$vDNN_{all}$来测试能否正常运行，若能运行，则采用对应策略。若失败，则进入步骤3.</li>
+<li>一点一点降低卷积算法的内存占用，一点一点减少需要offload的layers。能fit进显存后就选用对应策略。（greedy-based, 无法保证最优性）</li>
+</ol>
+<h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><h2 id="vDNN-Memory-Manager"><a href="#vDNN-Memory-Manager" class="headerlink" title="vDNN Memory Manager"></a>vDNN Memory Manager</h2><h2 id="GPU-Node-Topology"><a href="#GPU-Node-Topology" class="headerlink" title="GPU Node Topology"></a>GPU Node Topology</h2><h2 id="DNN-Benchmarks"><a href="#DNN-Benchmarks" class="headerlink" title="DNN Benchmarks"></a>DNN Benchmarks</h2><h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><h2 id="GPU-Memory-Usage"><a href="#GPU-Memory-Usage" class="headerlink" title="GPU Memory Usage"></a>GPU Memory Usage</h2><h2 id="Impact-on-Memory-System"><a href="#Impact-on-Memory-System" class="headerlink" title="Impact on Memory System"></a>Impact on Memory System</h2><h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><h2 id="Power"><a href="#Power" class="headerlink" title="Power"></a>Power</h2><h2 id="Case-Study-Training-Very-Deep-Networks"><a href="#Case-Study-Training-Very-Deep-Networks" class="headerlink" title="Case Study: Training Very Deep Networks"></a>Case Study: Training Very Deep Networks</h2><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

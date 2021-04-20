@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ZeRO-Offload | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" deep learning , offload ">
+  <meta name="description" content="ZeRO-Offload | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/04/21/hexo/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="环境搭建安装最新的node与npm1234567891011121314apt updateapt install npm# ln -s xxx&#x2F;node xxx&#x2F;nodejsnpm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org # 换源npm install n -g # 用来管理nodejs版本n stable # 更新# 重进bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-20T16:26:16.000Z">
+<meta property="article:modified_time" content="2021-04-20T16:32:01.213Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-ZeRO-Offload" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">ZeRO-Offload</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="papers">papers</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">deep learning</a>
+            
+            <a class="color3">offload</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-03-01 11:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#References-amp-Notations"><span class="toc-text">References &amp; Notations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heterogeneous-DL-training"><span class="toc-text">Heterogeneous DL training</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Contributions"><span class="toc-text">Contributions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Background-amp-Related-Work"><span class="toc-text">Background &amp; Related Work</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-consumption-in-large-model-training"><span class="toc-text">Memory consumption in large model training</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scale-out-large-model-training"><span class="toc-text">Scale out large model training</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scale-up-large-model-training"><span class="toc-text">Scale up large model training</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ZeRO-powered-data-parallel-training"><span class="toc-text">ZeRO powered data parallel training.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unique-Optimal-Offload-Strategy"><span class="toc-text">Unique Optimal Offload Strategy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DL-Training-as-a-data-flow-graph"><span class="toc-text">DL Training as a data-flow graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Limiting-CPU-Computation"><span class="toc-text">Limiting CPU Computation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Minimizing-Communication-Volume"><span class="toc-text">Minimizing Communication Volume</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximize-Memory-Savings"><span class="toc-text">Maximize Memory Savings.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-unique-and-optimal-offload-strategy"><span class="toc-text">A unique and optimal offload strategy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ZeRO-Offload-Schedule"><span class="toc-text">ZeRO-Offload Schedule</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-GPU-Schedule"><span class="toc-text">Single GPU Schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-GPUs-Schedule-Scaling-to-Multi-GPUs"><span class="toc-text">Multi GPUs Schedule( Scaling to Multi-GPUs)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-Parallel-Training"><span class="toc-text">Model Parallel Training</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimized-CPU-Execution"><span class="toc-text">Optimized CPU Execution</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementing-the-CPU-Optimizer"><span class="toc-text">Implementing the CPU Optimizer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mixed-Precision-Training-wight-Adam"><span class="toc-text">Mixed Precision Training wight Adam</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimized-Implementation"><span class="toc-text">Optimized Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Step-Delayed-Parameter-Update"><span class="toc-text">One-Step Delayed Parameter Update</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DPU-Training-Schedule"><span class="toc-text">DPU Training Schedule</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accuracy-Trade-off"><span class="toc-text">Accuracy Trade-off</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evaluation"><span class="toc-text">Evaluation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation-Methodology"><span class="toc-text">Evaluation Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Testbed"><span class="toc-text">Testbed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Workloads"><span class="toc-text">Workloads</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Performance-Evaluation"><span class="toc-text">Performance Evaluation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convergence-Analysis"><span class="toc-text">Convergence Analysis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Baseline"><span class="toc-text">Baseline</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experimental-Results"><span class="toc-text">Experimental Results</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Scale"><span class="toc-text">Model Scale</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Single-GPU"><span class="toc-text">Single GPU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-GPU-in-single-DGX-2"><span class="toc-text">Multi-GPU in single DGX-2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Training-throughput"><span class="toc-text">Training throughput</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Single-GPU-1"><span class="toc-text">Single GPU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multi-GPU-in-single-DGX-2-1"><span class="toc-text">Multi-GPU in single DGX-2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Throughput-Scalability"><span class="toc-text">Throughput Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimized-CPU-execution"><span class="toc-text">Optimized CPU execution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU-Adam-efficiency"><span class="toc-text">CPU-Adam efficiency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DPU"><span class="toc-text">DPU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Convergence-impact"><span class="toc-text">Convergence impact</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusions"><span class="toc-text">Conclusions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Questions"><span class="toc-text">Questions</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="References-amp-Notations"><a href="#References-amp-Notations" class="headerlink" title="References &amp; Notations"></a>References &amp; Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZeRO</td>
+<td>ZeRO Redundancy Optimizer</td>
+</tr>
+<tr>
+<td>ZeRO-Offload</td>
+<td>A novel heterogeneous DL training technology designed specifically for large model training</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Model Size</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Batch Size</td>
+</tr>
+<tr>
+<td>DPU</td>
+<td>One-Step Delayed Parameter Update</td>
+</tr>
+<tr>
+<td>unique optimal offload strategy</td>
+<td>在不增加CPU计算量或者CPU-GPU传输量的前提下，无法节省更多的显存</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>大规模训练需要的资源巨大—&gt;ZeRO-Offload</p>
+<p>ZeRO-Offload效果：</p>
+<ol>
+<li>在单张GPU上训练超过13B的参数（相比PyTorch是10倍的提升），不需要修改模型，不会牺牲计算效率。</li>
+<li>在单张V100上可以训练10B参数，达到40TFlops。与之相比，使用PyTorch最多只能训练1.4B参数，算力也只有30TFlops。</li>
+<li>支持多GPU，能在128卡下达到接近线性加速。</li>
+<li>与Model Parallelise结合可以在DGX-2上训练超过70B参数的模型（4.5x提升）。</li>
+<li>结合了易用性，使得穷人也能训练大模型。</li>
+</ol>
+<p>原理：将数据和计算offload到CPU。最小化数据移动，减少CPU计算时间的同时最大化GPU能节省的内存。</p>
+<p><code>Togo： 本文仅探讨了混合精度训练+Adam Optimizer的模型训练。</code></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Attention-based DL模型在2017年问世，参数越多，效果越好</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017</td>
+<td>100M</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>300M(BERT)</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Tens of billions(GPT-2, T5, Megatron-LM, Turing-NLG)</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>175B(GPT-3)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>最新研究表明：想要达到一个比较高的指定精度，训练大模型比训练小模型更高效。</p>
+<p>训练大模型的方法：</p>
+<ol>
+<li>Pipeline parallelism</li>
+<li>Model Parallelism</li>
+<li>ZeRO</li>
+</ol>
+<p>现有方法的限制：需要Aggregated GPU Memory能hold住整个模型。</p>
+<p>例子： 训练一个10B参数量大小的模型，需要16张V100的机器，花费超过100K dollars</p>
+<p>ZeRO-Offload的解决办法：用host memory代替显存。</p>
+<h2 id="Heterogeneous-DL-training"><a href="#Heterogeneous-DL-training" class="headerlink" title="Heterogeneous DL training"></a>Heterogeneous DL training</h2><p>之前的异构DL训练工作多关注在CNN based models, 内存瓶颈在activation memory。Model size很小（一般小于500M）。<br>但是对于最近的Attention based large model training来说，<strong>内存瓶颈在Model States</strong>， 而不是Activation Memory.</p>
+<p>（现有工作的）其他限制：</p>
+<ol>
+<li>利用了CPU Memory，但是没有利用好CPU Compute（利用好CPU算力主要是为了降低CPU-GPU通信）</li>
+<li>在单个GPU上设计/评测。对于扩展到集群上没有好的方法。</li>
+</ol>
+<p>ZeRO-Offload的优势：</p>
+<ol>
+<li>利用上了CPU memory和CPU compute</li>
+<li>扩展到了多GPU。</li>
+<li>理论上分析： 提供的offload strategy是<strong>unique optimal</strong>的。</li>
+</ol>
+<p>ZeRO-Offload的三个特点：</p>
+<ol>
+<li><p>Efficiency</p>
+<ul>
+<li>防止CPU计算成为新的瓶颈</li>
+<li>防止CPU-GPU之间的传输成为新的瓶颈</li>
+<li><p>unique optimal offload strategy</p>
+<p>通过分析得出的offload strategy：将gradients, optimizer states, optimizer computation卸载到CPU；GPU上保留parameters, forward and backward computation.</p>
+<p>效果：单个V100可以训练13B参数，吞吐量达到40TFLOPS（baseline：单个V100最多训练1.2B参数，吞吐量30TFLOPS）</p>
+<p>探讨对CPU造成的额外负担：</p>
+</li>
+</ul>
+<ol>
+<li>内存： 服务器内存扩展不成问题</li>
+<li><p>计算： 通过分析，在提供的offload strategy下，CPU的计算量为O(M)，GPU的计算量为O(MB)。一般B很大，所以CPU的计算量 &lt;&lt; GPU的计算量。当B很小时，CPU就可能成为一个瓶颈，这个时候需要加速/隐藏CPU上的计算</p>
+<p>如何加速/隐藏CPU上的计算：</p>
+</li>
+<li>加速：实现了一个高效的在CPU上的Adam Optimizer。6x于SOTA IMPLEMENTATION的性能。</li>
+<li>隐藏：设计了DPU，将CPU计算隐藏于GPU计算中。</li>
+</ol>
+</li>
+<li><p>Scalability</p>
+<p> 将offload strategy于ZeRO-数据并行结合。</p>
+<p> 好处：</p>
+<ol>
+<li>在CPU Memory上仅维护1个Optimizer states的副本。（传统数据并行有n个worker，就需要维护n个副本）</li>
+<li><p>使聚合的GPU-CPU间通信、CPU计算量为一个常量。（不会随着workers数量增多而增多）。</p>
+<p>结果：在128 GPUs上达到了很好的扩展性。并且可以结合模型并行。</p>
+</li>
+</ol>
+</li>
+<li><p>Usability</p>
+<p> 作为PyTorch的一个开源库。几行代码可采用。</p>
+</li>
+</ol>
+<h1 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h1><ol>
+<li>Scale Up: unique optimal offload strategy，可以在单个GPU上训练数倍于显存大小的模型。</li>
+<li>Scale Out: <ul>
+<li>unique optimal offload strategy + ZeRO powered data parallelism —&gt;  达到接近线性扩展</li>
+<li>结合模型并行</li>
+</ul>
+</li>
+<li>CPU计算的优化<ul>
+<li>加速</li>
+<li>隐藏</li>
+</ul>
+</li>
+<li>开源实现</li>
+<li>Extensive Evaluation</li>
+</ol>
+<h1 id="Background-amp-Related-Work"><a href="#Background-amp-Related-Work" class="headerlink" title="Background &amp; Related Work"></a>Background &amp; Related Work</h1><h2 id="Memory-consumption-in-large-model-training"><a href="#Memory-consumption-in-large-model-training" class="headerlink" title="Memory consumption in large model training"></a>Memory consumption in large model training</h2><p>DNN训练中内存消耗大头：</p>
+<ol>
+<li>Model States：parameters, gradients, optimizer states(such as momentum, variances in Adam)</li>
+<li>Residual States: activations, 临时缓冲区， 不可用的碎片内存。</li>
+</ol>
+<p>Model States时训练大模型的内存瓶颈主要来源。</p>
+<p>分析下各个模型占用的内存大小，考虑混合精度训练，模型中有M个参数：</p>
+<ul>
+<li>Parameters: fp16一份+fp32一份，6M Bytes</li>
+<li>Gradients： fp16, 2M Bytes</li>
+<li>Optimizer States<ul>
+<li>momentum: fp32, 4M Bytes</li>
+<li>variance: fp32, 4M Bytes</li>
+</ul>
+</li>
+<li>Sum up: 16M Bytes</li>
+</ul>
+<p>所以总结大模型需要的内存大小如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>参数量</th>
+<th>内存占用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Megatron-LM</td>
+<td>8 billion</td>
+<td>128GB</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>11 billion</td>
+<td>176GB</td>
+</tr>
+<tr>
+<td>Turing-NLG</td>
+<td>17.2 billion</td>
+<td>284GB</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>显卡-显存表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>显卡</th>
+<th>最大显存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V100</td>
+<td>16GB</td>
+</tr>
+<tr>
+<td>A100</td>
+<td>80GB</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>所以现有显卡单张都不能容纳以上模型。现有工作从以下两个方面来训练大模型：</p>
+<ol>
+<li>scale out</li>
+<li>scale up</li>
+</ol>
+<h2 id="Scale-out-large-model-training"><a href="#Scale-out-large-model-training" class="headerlink" title="Scale out large model training"></a>Scale out large model training</h2><p>用多张GPU来训练大模型。<br>两个经典方式：</p>
+<ol>
+<li>模型并行</li>
+<li>流水线并行。</li>
+</ol>
+<p>以上两种方式都需要修改user model才能work，限制了usability.</p>
+<p>ZeRO提供了另一种方式：将大模型沿着batch维度切分到不同的GPU上，但是并不会像传统数据并行一样在每个GPU上做replicate，而是将model states切分给所有GPUs上，在需要的时候用通信来收集需要的states。</p>
+<ul>
+<li>好处： 不需要修改模型</li>
+<li>限制： 仍然需要所有GPUs的聚合显存可以hold住整个模型。</li>
+</ul>
+<h2 id="Scale-up-large-model-training"><a href="#Scale-up-large-model-training" class="headerlink" title="Scale up large model training"></a>Scale up large model training</h2><p>在单个GPU上训练更大的模型。<br>三个典型方式：</p>
+<ol>
+<li>时间换空间（重复计算换内存占用）</li>
+<li>压缩model states和activations</li>
+<li>使用CPU内存作为GPU内存的额外扩展（之前的工作仅offload内存）</li>
+</ol>
+<p>ZeRO-Offload采用了第3种方式，并且还offload了部分计算。</p>
+<h2 id="ZeRO-powered-data-parallel-training"><a href="#ZeRO-powered-data-parallel-training" class="headerlink" title="ZeRO powered data parallel training."></a>ZeRO powered data parallel training.</h2><p>ZeRO提供了3种层次的策略：</p>
+<ol>
+<li>ZeRO-1: 仅切分optimizer states.</li>
+<li>ZeRO-2：切分optimizer states和gradients（ZeRO-Offload采用这个）</li>
+<li>ZeRO-3：切分所有model states（包括：optimizer states, gradient, parameters.）</li>
+</ol>
+<p>ZeRO-2详细介绍：<br>每个GPU都存储完整的parameters，但是每个GPU只更新其中的一部分(exclusive)。这样，每个GPU只用存储负责更新的parameters部分对应的optimizer states和gradients。在更新parameters后，用all-gather即可完成所有GPU上完整parameters的更新。</p>
+<p>流程表示：</p>
+<ol>
+<li>前向：计算loss</li>
+<li>反向：计算gradient，使用reduce平均</li>
+<li>更新：更新自己负责的部分parameters</li>
+<li>聚合： 使用all-gather更新完整的parameters。</li>
+</ol>
+<h1 id="Unique-Optimal-Offload-Strategy"><a href="#Unique-Optimal-Offload-Strategy" class="headerlink" title="Unique Optimal Offload Strategy"></a><strong>Unique Optimal</strong> Offload Strategy</h1><p>对DL training流程建模，得到一个data-flow graph, 并且根据以下划分原则对图进行划分：</p>
+<ol>
+<li>CPU计算量 &lt;&lt; GPU计算量</li>
+<li>使CPU-GPU传输的计算量最小</li>
+<li>在保证2的前提下，尽可能的降低显存占用。</li>
+</ol>
+<p>本文仅讨论了混合精度训练+Adam Optimizer的情况。</p>
+<h2 id="DL-Training-as-a-data-flow-graph"><a href="#DL-Training-as-a-data-flow-graph" class="headerlink" title="DL Training as a data-flow graph"></a>DL Training as a data-flow graph</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301135831.png" alt=""></p>
+<h2 id="Limiting-CPU-Computation"><a href="#Limiting-CPU-Computation" class="headerlink" title="Limiting CPU Computation"></a>Limiting CPU Computation</h2><p>复杂度分析：</p>
+<ul>
+<li>每次迭代： O(MB)<ul>
+<li>前向/反向复杂度：O(MB)</li>
+<li>norm calculations: O(M)</li>
+<li>weight updates: O(M)</li>
+</ul>
+</li>
+</ul>
+<p>结论：前向/反向不能offload到CPU。<br>绑定前向和反向为 _FWD-BWD Super Node_，并且必须分配个GPU。</p>
+<h2 id="Minimizing-Communication-Volume"><a href="#Minimizing-Communication-Volume" class="headerlink" title="Minimizing Communication Volume"></a>Minimizing Communication Volume</h2><p>显存带宽 &gt;&gt; CPU memory带宽 &gt;&gt; PCI-E带宽（CPU-GPU， GPU-GPU）</p>
+<p>目标： 最小化PIC-E上的通信量，即最小化CPU-GPU之间的通信量。</p>
+<p>建模图中的edge最小都是2M，所以，如果将图划分成CPU与GPU两部分，则两部分之间必然最少有两条edges，权重相加最小为4M（理论最小通信量）</p>
+<p>达到4M最小通信量的必要条件：</p>
+<ol>
+<li>co-locate所有fp32的节点 —&gt; 将所有fp32节点聚合为一个 _Update Super Node_ —&gt; 建模图中仅剩下4个点： FWD-BWD Super Node, Update Super Node, gradient fp16 Node, parameter fp16 Node.</li>
+<li>parameter fp16 Node必须与FWD-BWD Super Node在同一个设备上（GPU）。</li>
+</ol>
+<p>此时仅剩下Update Super Node和gradient fp16 Node尚未决定放在GPU还是CPU上。</p>
+<h2 id="Maximize-Memory-Savings"><a href="#Maximize-Memory-Savings" class="headerlink" title="Maximize Memory Savings."></a>Maximize Memory Savings.</h2><p>穷举Update Super Node与gradient fp16 Node的放置设备。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301140901.png" alt=""></p>
+<p>Update Super Node与gradient fp16 Node均放置在CPU上能达到节省最多的显存。</p>
+<h2 id="A-unique-and-optimal-offload-strategy"><a href="#A-unique-and-optimal-offload-strategy" class="headerlink" title="A unique and optimal offload strategy"></a>A unique and optimal offload strategy</h2><p>略过</p>
+<h1 id="ZeRO-Offload-Schedule"><a href="#ZeRO-Offload-Schedule" class="headerlink" title="ZeRO-Offload Schedule"></a>ZeRO-Offload Schedule</h1><h2 id="Single-GPU-Schedule"><a href="#Single-GPU-Schedule" class="headerlink" title="Single GPU Schedule"></a>Single GPU Schedule</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301140953.png" alt=""></p>
+<p>反向计算生成的gradient立马（小批量）传送给CPU： 可以隐藏传输开销，并且GPU只需要hold住一小部分缓存的gradient fp16。</p>
+<p>Update生成的parameter也类似。</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301141250.png" alt=""></p>
+<h2 id="Multi-GPUs-Schedule-Scaling-to-Multi-GPUs"><a href="#Multi-GPUs-Schedule-Scaling-to-Multi-GPUs" class="headerlink" title="Multi GPUs Schedule( Scaling to Multi-GPUs)"></a>Multi GPUs Schedule( Scaling to Multi-GPUs)</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301141343.png" alt=""></p>
+<p>一个GPU对应一个DP（Data Parallel Process）：GPU<sub>0-N</sub>与CPU<sub>0</sub>之间的聚合通信量是一个与N无关的常量。</p>
+<p>GPU之间的通信被转移到了CPU上的reduction。</p>
+<h2 id="Model-Parallel-Training"><a href="#Model-Parallel-Training" class="headerlink" title="Model Parallel Training"></a>Model Parallel Training</h2><p>可以与基于tensor-slicing的模型并行框架协同工作。</p>
+<h1 id="Optimized-CPU-Execution"><a href="#Optimized-CPU-Execution" class="headerlink" title="Optimized CPU Execution"></a>Optimized CPU Execution</h1><ol>
+<li>加速：自己在CPU上实现了一个更快的Adam Optimizer</li>
+<li>隐藏：引入staleness来做overlap。</li>
+</ol>
+<h2 id="Implementing-the-CPU-Optimizer"><a href="#Implementing-the-CPU-Optimizer" class="headerlink" title="Implementing the CPU Optimizer"></a>Implementing the CPU Optimizer</h2><p>3个优化：</p>
+<ol>
+<li>SIMD vector instruction</li>
+<li>Loop Unrolling</li>
+<li>OMP<h3 id="Mixed-Precision-Training-wight-Adam"><a href="#Mixed-Precision-Training-wight-Adam" class="headerlink" title="Mixed Precision Training wight Adam"></a>Mixed Precision Training wight Adam</h3>略过<h3 id="Optimized-Implementation"><a href="#Optimized-Implementation" class="headerlink" title="Optimized Implementation"></a>Optimized Implementation</h3>略过</li>
+</ol>
+<h2 id="One-Step-Delayed-Parameter-Update"><a href="#One-Step-Delayed-Parameter-Update" class="headerlink" title="One-Step Delayed Parameter Update"></a>One-Step Delayed Parameter Update</h2><p>batch小 —&gt; GPU计算时间(MB)不会远大于CPU计算时间(M) —&gt; CPU计算可能成为一个瓶颈 </p>
+<p>DPU： staleness换overlap。通过实验验证不会影响最终精度。</p>
+<h3 id="DPU-Training-Schedule"><a href="#DPU-Training-Schedule" class="headerlink" title="DPU Training Schedule"></a>DPU Training Schedule</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301142533.png" alt=""></p>
+<ol>
+<li>前N-1个steps不用DPU：启动阶段梯度变化很大，不适合启用（启用后可能不收敛）</li>
+<li>第i+1轮训练用的parameters更新自第i-1轮（正常应该是第i轮）；第i-1轮的CPU上的参数更新与第i轮的GPU上前向/反向做了overlap。</li>
+</ol>
+<h3 id="Accuracy-Trade-off"><a href="#Accuracy-Trade-off" class="headerlink" title="Accuracy Trade-off"></a>Accuracy Trade-off</h3><p>均是一些经验性论述：</p>
+<ul>
+<li>在训练初始就启用DPu会影响收敛性</li>
+<li>在若干个steps之后启用DPU不会影响最终精度，并且有更高的吞吐量。</li>
+</ul>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>旨在通过Evaluation来论述以下4个问题：</p>
+<ol>
+<li>ZeRO-Offload如何扩大可训练模型的size</li>
+<li>ZeRO-Offload在单个GPU/DGX-2节点上的表现</li>
+<li>ZeRO-Offload在128个GPUs上的表现</li>
+<li>CPU上做的优化的贡献是多少？DPU是否影响模型收敛性？</li>
+</ol>
+<h2 id="Evaluation-Methodology"><a href="#Evaluation-Methodology" class="headerlink" title="Evaluation Methodology"></a>Evaluation Methodology</h2><h3 id="Testbed"><a href="#Testbed" class="headerlink" title="Testbed"></a>Testbed</h3><p>单个DGX-2：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301143036.png" alt=""></p>
+<p>多个DGX-2：<br>互联使用648-port Mellanox MLNX-OS CS7500 switch</p>
+<h3 id="Workloads"><a href="#Workloads" class="headerlink" title="Workloads"></a>Workloads</h3><h4 id="Performance-Evaluation"><a href="#Performance-Evaluation" class="headerlink" title="Performance Evaluation"></a>Performance Evaluation</h4><p>测试的模型： GPT-2 like Transformer based models，通过改变hidden dimension 和Transformer blocks个数来获得不同参数的模型（不能仅仅扩展深度，防止训练变得困难）。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301143351.png" alt=""></p>
+<h4 id="Convergence-Analysis"><a href="#Convergence-Analysis" class="headerlink" title="Convergence Analysis"></a>Convergence Analysis</h4><p>测试的模型： </p>
+<ul>
+<li>GPT-2</li>
+<li>BERT-large （为什么Performance Evaluation种不测试BERT？）</li>
+</ul>
+<h3 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h3><p>比较对象：</p>
+<ol>
+<li>PyTorch DDP：现有的PyTorch Transformer implementation using DistributedDataParallel</li>
+<li>Megatron: 采用模型并行，可以在512GPUs上训练8.3B个参数的模型</li>
+<li>L2L： GPU内存种统一时间仅保存一个Transformer block</li>
+<li>ZeRO： 通过消除GPU间的memory redundancies来增强数据并行。</li>
+</ol>
+<h2 id="Experimental-Results"><a href="#Experimental-Results" class="headerlink" title="Experimental Results"></a>Experimental Results</h2><h3 id="Model-Scale"><a href="#Model-Scale" class="headerlink" title="Model Scale"></a>Model Scale</h3><p>测试了在single GPU / single DGX-2 node上能训练的最大的模型的size。</p>
+<p>结果：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301143932.png" alt=""></p>
+<p>以下为分析：</p>
+<h4 id="Single-GPU"><a href="#Single-GPU" class="headerlink" title="Single GPU"></a>Single GPU</h4><p>PyTorch DDP, Megatron, ZeRO-2均为1.4B，因为他们都是利用聚合显存来放置更大的模型。<br>L2L通过频繁在CPU-GPU间swap weights，成功训练了最大的模型（17B）。但是增加GPU后，L2L的17B不会再增加了。</p>
+<h4 id="Multi-GPU-in-single-DGX-2"><a href="#Multi-GPU-in-single-DGX-2" class="headerlink" title="Multi-GPU in single DGX-2"></a>Multi-GPU in single DGX-2</h4><p>PyTorch DDP与L2L的可训练最大model size与Single GPU一样：并没有利用好数据并行下的memory redundancies. </p>
+<p>Megatron与ZeRO-2可以利用更多的GPU训练更大的模型，但是扩展性不好（最多到15B）。ZeRO-2不好的原因: 没有处理好model weights的冗余。</p>
+<h3 id="Training-throughput"><a href="#Training-throughput" class="headerlink" title="Training throughput"></a>Training throughput</h3><h4 id="Single-GPU-1"><a href="#Single-GPU-1" class="headerlink" title="Single GPU"></a>Single GPU</h4><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301145313.png" alt=""><br>图中没有Megatron和ZeRO-2的原因：训练超过1.4B大小的模型触发OOM。</p>
+<p>本实验中没有开启DPU。</p>
+<p>ZeRO-Offload比L2L平均高22%吞吐量，原因：</p>
+<ol>
+<li>有更低的CPU-GPU通信量：L2L为28M，ZeRO-Offload为4M</li>
+<li>ZeRO-Offload的parameter update在CPU上，经过优化后，相比L2L在GPU上的parameter update仅慢一点（慢多少在Evaluation中有）。</li>
+</ol>
+<p>上述原因中第1点加快，第二点减慢，两者结合得到结果：ZeRO-Offload的性能比L2L好一点。</p>
+<h4 id="Multi-GPU-in-single-DGX-2-1"><a href="#Multi-GPU-in-single-DGX-2-1" class="headerlink" title="Multi-GPU in single DGX-2"></a>Multi-GPU in single DGX-2</h4><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301150743.png" alt=""></p>
+<p>没考虑L2L：L2L的实现没考虑多GPU训练。</p>
+<p>实验结果：</p>
+<ol>
+<li>1B-15B的模型，ZeRO-Offload的性能最高。</li>
+<li>ZeRO-Offload w/o MP能训练的最大模型比ZeRO-2好，因为它offload了optimizer states与大部分gradients到了CPU上。</li>
+<li>ZeRO-Offload w/ MP最大能训练70B参数的模型。Megatron仅利用模型并行，只能训练15B参数的模型（说明ZeRO-Offload的策略很重要）</li>
+<li>ZeRO-Offload比Megatron快的原因：消除了GPU间频繁的通信，可以用更大的micro batch sizes训练；ZeRO-Offload比ZeRO-2快的原因: 用更大的micro batch sizes训练。</li>
+</ol>
+<h3 id="Throughput-Scalability"><a href="#Throughput-Scalability" class="headerlink" title="Throughput Scalability"></a>Throughput Scalability</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301154258.png" alt=""></p>
+<p>结果：</p>
+<ol>
+<li>ZeRO-Offload的聚合吞吐量接近线性。</li>
+<li>ZeRO-2在1-16GPUs上跑不起来</li>
+<li>32GPUs上ZeRO-Offload通过节省了额外的内存，使得可以用更大的batch sizes做训练，得到相比ZeRO-2更高的性能。</li>
+<li>在64/128GPUs上，ZeRO-2的性能更好，因为：ZeRO-2没有额外的CPU-GPU间通信。</li>
+</ol>
+<p>总结：ZeRO-Offload补足了ZeRO-2。</p>
+<h3 id="Optimized-CPU-execution"><a href="#Optimized-CPU-execution" class="headerlink" title="Optimized CPU execution"></a>Optimized CPU execution</h3><h4 id="CPU-Adam-efficiency"><a href="#CPU-Adam-efficiency" class="headerlink" title="CPU-Adam efficiency"></a>CPU-Adam efficiency</h4><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301155037.png" alt=""></p>
+<ol>
+<li>显著快于PT-CPU</li>
+<li>与PT-GPU差距不大，不会导致CPU-Adam成为整个训练的瓶颈。</li>
+</ol>
+<h4 id="DPU"><a href="#DPU" class="headerlink" title="DPU"></a>DPU</h4><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301155320.png" alt=""></p>
+<p>训练速度更快：1.12-1.59x</p>
+<h5 id="Convergence-impact"><a href="#Convergence-impact" class="headerlink" title="Convergence impact"></a>Convergence impact</h5><p>在GPT-2和BERT上做了实验验证（为什么不展示BERT的throughput结果？）。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210301155825.png" alt=""></p>
+<ul>
+<li>GPT组：<ol>
+<li>unmodified GPT-2与ZeRO-Offload w/o DPU的loss曲线完全一致：ZeRO-Offload w/o DPU没有对模型做修改。</li>
+<li>ZeRO-Offload w/ DPU在开启DPU后落后一点，后面赶上，随后几乎一致。</li>
+</ol>
+</li>
+<li>BERT组：<ol>
+<li>大部分都是overlap的，并且收敛趋势一致。</li>
+<li>ZeRO-Offload+DPU的最终训练精度与baseline一致。</li>
+</ol>
+</li>
+</ul>
+<p>结论： </p>
+<ul>
+<li>经验性的证明DPU不会影响精度。</li>
+<li>1step的staleness可以忍受。</li>
+<li>DPU不能在一开始就开启。</li>
+</ul>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><p>ZeRO-Offload: a powerful <strong>GPU-CPU hybrid</strong> DL training technology with high compute efficiency and <strong>near linear throughput scalability</strong>, that can allow data scientists to train models with multi-billion parameter models even on a single GPU, <strong>without requiring any model refactoring</strong>.<br>Open-sourced ZeRO-Offload as part of the DeepSpeed library with the hope to democratize large model training, allowing data scientist everywhere to harness the potential of truly massive DL models.</p>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ol>
+<li>BERT组别为什么展示了精度，不展示吞吐量，这样子看起来很奇怪。</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
