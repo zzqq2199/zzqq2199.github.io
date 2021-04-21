@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>DAPPLE | Togo&#39;s Blog</title>
-  <meta name="keywords" content=" deep learning , pipeline parallelism , hybrid parallelism , schedule ">
-  <meta name="description" content="DAPPLE | Togo&#39;s Blog">
+  <title>mail | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" windows ">
+  <meta name="description" content="mail | Togo&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="记录一下如何配置Win10下的mail，同时连接学校邮箱与QQ邮箱。 学校邮箱添加账户 — 其他账户 — 输入邮箱账号与密码并登录 不出意外，已经可以同步了。 QQ邮箱我还用QQ邮箱用来做日历同步，所以采用的是Exchange服务。需要先到QQ邮箱中获取Exchange服务的token。登录QQ邮箱 — 设置 — 账户 — POP3&#x2F;IMAP&#x2F;SMTP&#x2F;Exchange&#x2F;CardDAV&#x2F;CalDA">
 <meta property="og:type" content="article">
@@ -600,9 +600,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-DAPPLE" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-mail" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">DAPPLE</h1>
+        <h1 class="article-title">mail</h1>
     
     <div class="article-meta">
         
@@ -612,7 +612,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="paper">paper</a>
+            <a  data-rel="tool">tool</a>
             
         </span>
         
@@ -620,20 +620,14 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">deep learning</a>
-            
-            <a class="color1">pipeline parallelism</a>
-            
-            <a class="color4">hybrid parallelism</a>
-            
-            <a class="color4">schedule</a>
+            <a class="color3">windows</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-04-02 16:18</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-21 16:40:58'>2021-04-21 16:09</time>
         
     </div>
     <div class="article-meta">
@@ -666,7 +660,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#References-amp-Notations"><span class="toc-text">References &amp; Notations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Notations"><span class="toc-text">Notations</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Previous-Work"><span class="toc-text">Previous Work</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Previous-Problem"><span class="toc-text">Previous Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution-amp-Challenge"><span class="toc-text">Solution &amp; Challenge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation"><span class="toc-text">Evaluation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributions"><span class="toc-text">Contributions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-DAPPLE-Approach-Overview"><span class="toc-text">The DAPPLE Approach Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DAPPLE-Schedule"><span class="toc-text">DAPPLE Schedule</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Limitations-of-GPipe-Schedule"><span class="toc-text">Limitations of GPipe Schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Device-Assignment"><span class="toc-text">Device Assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning-Algorithm"><span class="toc-text">Planning Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Determining-The-Pivot-Stage-Q"><span class="toc-text">Determining The Pivot Stage Q.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Algorithm-Formula"><span class="toc-text">Algorithm Formula</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributions-over-previous-work"><span class="toc-text">Contributions over previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Uneven-Pipeline-Partitioning-with-Fewer-Stages"><span class="toc-text">Uneven Pipeline Partitioning with Fewer Stages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Versatile-Device-Placement"><span class="toc-text">Versatile Device Placement</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DAPPLE-Runtime"><span class="toc-text">DAPPLE Runtime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Evaluation-1"><span class="toc-text">Evaluation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Experimental-Setup"><span class="toc-text">Experimental Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Benchmarks"><span class="toc-text">Benchmarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hardware-Configurations"><span class="toc-text">Hardware Configurations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BatchSize-and-Training-Setup"><span class="toc-text">BatchSize and Training Setup</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning-Results"><span class="toc-text">Planning Results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-Analysis"><span class="toc-text">Performance Analysis</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E6%A0%A1%E9%82%AE%E7%AE%B1"><span class="toc-text">学校邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#QQ%E9%82%AE%E7%AE%B1"><span class="toc-text">QQ邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-text">手机端配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -682,216 +676,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="References-amp-Notations"><a href="#References-amp-Notations" class="headerlink" title="References &amp; Notations"></a>References &amp; Notations</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Instructions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Title</td>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3437801.3441593">DAPPLE: A Pipelined Data Parallel Approach for Training Large Models</a></td>
-</tr>
-<tr>
-<td>Authors</td>
-<td>Shiqing Fan, Yi Rong, Chen Meng, Zongyan Cao, Siyu Wang, Zhen Zheng, Chuan Wu, Guoping Long, Jun Yang, Lixue Xia, Lansong Diao, Xiaoyong Liu, Wei Lin</td>
-</tr>
-<tr>
-<td>Conference</td>
-<td>PPoPP’21</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Instructions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>M</td>
-<td>将global batchsize 切分成 M个micro batchsize</td>
-</tr>
-<tr>
-<td>L</td>
-<td>Pipeline Latency: a single global batch的执行时间</td>
-</tr>
-<tr>
-<td>pivot stage</td>
-<td>有最少的bubble的stage</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>id of pivot stage</td>
-</tr>
-<tr>
-<td>$T_w$</td>
-<td>warmup阶段的时间</td>
-</tr>
-<tr>
-<td>$T_s$</td>
-<td>steady阶段的时间</td>
-</tr>
-<tr>
-<td>$T_e$</td>
-<td>ending阶段的时间</td>
-</tr>
-<tr>
-<td>$F_i$</td>
-<td>第i个stage的前向计算时间</td>
-</tr>
-<tr>
-<td>$B_i$</td>
-<td>第i个stage的反向计算时间</td>
-</tr>
-<tr>
-<td>$P_i$</td>
-<td>第i个stage的参数</td>
-</tr>
-<tr>
-<td>$g_s$</td>
-<td>第i个stage的梯度</td>
-</tr>
-<tr>
-<td>$AR(P_i, g_i)$</td>
-<td>对第i个stage做Allreduce的时间</td>
-</tr>
-<tr>
-<td>$T_{PL}(j,m,\cal{g})$</td>
-<td>对前j个layers，使用m个GPUs，这m个GPUs的id set是$\cal{g}$，得到的最小的$L$，剩下的layers组成最后一个stages，并且replicate到剩下的(G-m)个GPUs</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>流水线并行的两个问题：</p>
-<ol>
-<li>如何在确保收敛的同时提高计算效率</li>
-<li>如何在不增加计算的情况下减少内存使用</li>
-</ol>
-<p>作者提出了DAPPLE：结合数据并行与流水线并行的一个同步训练框架。</p>
-<ol>
-<li>a novel parallelization strategy _planner_: 解决partition和placement问题，探索DP与PP结合的最佳方案（对应上面的问题1）</li>
-<li>a new runtime scheduling algorithm: 降低内存占用，同时与重计算方式正交，并且不影响吞吐量。（对应上面的问题2）</li>
-</ol>
-<p>DAPPLE的实验结果：</p>
-<ol>
-<li>相比于PipeDream，有3.23x的提升（啥的提升，没写清楚）</li>
-<li>相比于GPipe，吞吐量有1.6x的提升，内存节省12%。</li>
-</ol>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Previous-Work"><a href="#Previous-Work" class="headerlink" title="Previous Work"></a>Previous Work</h2><p>现有的Pipeline Parallelism工作大致可以分为以下两类</p>
-<ol>
-<li>sync，代表工作有Gpipe，Pipe-Torch。需要在相邻两个iteration之间插入梯度同步操作以确保收敛。会有显著的内存峰值过高的问题，重计算等工作可以解决这类问题。</li>
-<li>async, 代表工作有PipeDream。</li>
-</ol>
-<h2 id="Previous-Problem"><a href="#Previous-Problem" class="headerlink" title="Previous Problem"></a>Previous Problem</h2><ol>
-<li>对于async类，PipeDream改善了time-to-accuracy的性能，但是由于采用的异步训练，考虑到收敛性问题，工业界不常用这个，这个在<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9042047/">阿里巴巴报告</a>中有展示；另外异步训练需要存储多个版本的Weights。</li>
-<li>对于sync类，均需要非常高的内存占用：因为前向的所有小批次结束前不能调度反向传播。用重计算解决会降低训练速度。</li>
-</ol>
-<h2 id="Solution-amp-Challenge"><a href="#Solution-amp-Challenge" class="headerlink" title="Solution &amp; Challenge"></a>Solution &amp; Challenge</h2><p>DAPPLE：结合了Pipeline Parallelism &amp; Data Parallelism。属于sync类，<strong>保证了收敛性</strong>，用async的方法，<strong>避免存储多个版本的参数</strong>。</p>
-<p>总结一下，DAAPLE解决了两个挑战：</p>
-<ol>
-<li>（模型结构+硬件配置）—&gt; 最优的并行策略。其中目标空间：DP,PP,DP+PP。<br>提出了a _sync_ pipeline planner: 自动生成最优的并行策略，可以最小化一次迭代训练的执行时间；将layer划分成多个stages。</li>
-<li>如何调度流水线阶段的计算。<br>提出了<em>DAPPLE</em> schedule：以低的内存峰值来实现较高的执行效率；关键是以deterministic and interleaved方式来调度前后向阶段，尽早释放内存。</li>
-</ol>
-<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><ol>
-<li>模型类型： image classification, machine translation, language modeling.</li>
-<li>硬件环境：3种</li>
-</ol>
-<p>此外，DAPPLE也适用于VGG这种大weights小activations的模型。</p>
-<h2 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h2><ol>
-<li>探索了结合DP与PP。</li>
-<li>提出了DAPPLE planner，解决了partition和placement问题，并探索了数据和流水线并行的最佳混合策略。</li>
-<li>不需要存储多个版本的参数，不增加计算的前提下降低内存占用量，并且可以结合重计算进一步降低。</li>
-</ol>
-<h1 id="The-DAPPLE-Approach-Overview"><a href="#The-DAPPLE-Approach-Overview" class="headerlink" title="The DAPPLE Approach Overview"></a>The DAPPLE Approach Overview</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402201324.png" alt=""></p>
-<ul>
-<li>Profiler: (DNN model) $\rightarrow$ (每个层的执行时间、ACTIVATION大小、Parameters大小)</li>
-<li>Planner: (Profiler的结果、_global batch size_) $\rightarrow$ (parallelization plan)</li>
-<li>Runtime: (Planner的结果, 原始model graph) $\rightarrow$ pipelined parallel graph.</li>
-</ul>
-<h1 id="DAPPLE-Schedule"><a href="#DAPPLE-Schedule" class="headerlink" title="DAPPLE Schedule"></a>DAPPLE Schedule</h1><h2 id="Limitations-of-GPipe-Schedule"><a href="#Limitations-of-GPipe-Schedule" class="headerlink" title="Limitations of GPipe Schedule"></a>Limitations of GPipe Schedule</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402203458.png" alt=""></p>
-<center>GPipe的原理</center>
-中间的Activations必须在反向结束后才能释放，会占用大量内存。DAPPLE采取重计算来节约内存，但是带来了的20%的额外计算。
-
-DAPPLE的解决方法:  _early backward scheduling_ 
-
-## Early backward scheduling
-
-![](https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402203946.png)
-
-1. 不一次性将所有M个micro-batches注入，而是注入K（K<M）个。
-2. 一个FW后紧跟一个BW
-3. 在和GPipe同样的执行效率的前提下，峰值内存占用下降了。
-
-
-# DAPPLE Planner
-## The Optimization Objective
-![](https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402210036.png)
-<center>一个调度示意图</center>
-
-<p>_pivot stage_： 拥有最少bubble的stage。<br>_warmup phase_: 开始$\rightarrow$ _pivot stage_ 的第一个前向阶段<br>_ending phase_: _pivot stage_ 的最后一个反向阶段 $\rightarrow$ 最后<br>_steady phase_: 介于 _warmup phase_ 和 _ending phase_ 之间的阶段。<br>_L_: 上述三个阶段的和。</p>
-<p>有如下公式：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-L&= T_w + T_s + T_e \\
-T_w &= \Sigma_{s=0}^{Q}F_s \\
-T_s &= (M-1)·(F_Q + B_Q) \\
-T_e& = \max_{s=0}^{S-1}(AR(P_s, g_s)+
-\begin{cases}
--\Sigma_{a=Q}^sB_a, &s>Q \\
-\Sigma_{a=s}^QB_a, &s\le Q
-\end{cases}
-)
-\end{aligned}</script><p>其中$T_s$的估计中忽略了其中存在的bubble</p>
-<h2 id="Device-Assignment"><a href="#Device-Assignment" class="headerlink" title="Device Assignment"></a>Device Assignment</h2><p>对于异步类的（PipeDream），决定整体性能的是单个stage的速度；<br>对于同步类的，决定整体性能的是单个iteration的速度。</p>
-<p>提供了3种分配设备的方式：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403093945.png" alt=""></p>
-<h2 id="Planning-Algorithm"><a href="#Planning-Algorithm" class="headerlink" title="Planning Algorithm"></a>Planning Algorithm</h2><p>寻找最优的(partition, replication, placement strategy) $\rightarrow$ minimize $L$.</p>
-<h3 id="Determining-The-Pivot-Stage-Q"><a href="#Determining-The-Pivot-Stage-Q" class="headerlink" title="Determining The Pivot Stage Q."></a>Determining The Pivot Stage Q.</h3><p>估计Q的公式（heuristic)<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402215754.png" alt=""></p>
-<h3 id="Algorithm-Formula"><a href="#Algorithm-Formula" class="headerlink" title="Algorithm Formula"></a>Algorithm Formula</h3><p>使用$T_{PL}(N,G,\cal{G})$来表示结果，于是可以采用动态规划的方式求解。(实际上就是穷举$N,G,\cal{G}$的组合，避免重复计算)</p>
-<script type="math/tex; mode=display">T_{PL}(N,G,{\cal{G}}) = \min_{1\le j \lt N}\min_{1\le m\lt G}\min_{g\in D({\cal G},m)}T_{PL}(j,m,{\cal{g}})</script><p>显而易见，$T_{PL}$可以用动态规划来解决。</p>
-<h2 id="Contributions-over-previous-work"><a href="#Contributions-over-previous-work" class="headerlink" title="Contributions over previous work"></a>Contributions over previous work</h2><h3 id="Uneven-Pipeline-Partitioning-with-Fewer-Stages"><a href="#Uneven-Pipeline-Partitioning-with-Fewer-Stages" class="headerlink" title="Uneven Pipeline Partitioning with Fewer Stages"></a>Uneven Pipeline Partitioning with Fewer Stages</h3><p>按以下方法对模型进行划分会得到更好的性能：</p>
-<ol>
-<li>尽可能少的stages（GPipe也提出）</li>
-<li>不必严格均分<br>参考下图：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403083238.png" alt=""></li>
-</ol>
-<h3 id="Versatile-Device-Placement"><a href="#Versatile-Device-Placement" class="headerlink" title="Versatile Device Placement"></a>Versatile Device Placement</h3><p>这里前面没看懂，但是举得例子看懂了。<br>对于一些Activation size &gt;&gt; Weights size的模型，利用高速NVLink来传输activation，利用低速的Ethernet来做Allreduce。</p>
-<h1 id="DAPPLE-Runtime"><a href="#DAPPLE-Runtime" class="headerlink" title="DAPPLE Runtime"></a>DAPPLE Runtime</h1><p>实现在TF1.12中，TF1.12能根据DAG与其中的数据/控制依赖来调度整个图的执行。</p>
-<p>DAPPLE Runtime： (模型，Planner的结果) $\rightarrow$ (流水行并行的图，并将之执行在分布式设备上)<br>流程：</p>
-<ol>
-<li>对于每个pipeline stage，构建一个前向/反向的图</li>
-<li>相邻层之间需要对activation做通信，所以在相邻层之间加入额外的split/concat节点（为什么是这两个类型？）</li>
-<li>构建一个子图用来执行weights updates.</li>
-</ol>
-<p>后面为实现细节，暂时略过。</p>
-<h1 id="Evaluation-1"><a href="#Evaluation-1" class="headerlink" title="Evaluation"></a>Evaluation</h1><h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><h3 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h3><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402222301.png" alt=""><br>用到的数据集分别是WMT16 En-DE(Translation), SQuAD2.0(Language Model), ImageNet(Image Classification)。</p>
-<h3 id="Hardware-Configurations"><a href="#Hardware-Configurations" class="headerlink" title="Hardware Configurations"></a>Hardware Configurations</h3><p>3种硬件配置：配置A在GPU集群中最常见，但是比较贵。为了照顾买不起的一些机构或个人，也在配置B与C中进行了测试。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210402222411.png" alt=""></p>
-<p>软件版本：64bits CentOS + CUDA 9.0 + cuDNN v7.3 + NCCL 2.4.2 + TF-1.12</p>
-<h3 id="BatchSize-and-Training-Setup"><a href="#BatchSize-and-Training-Setup" class="headerlink" title="BatchSize and Training Setup"></a>BatchSize and Training Setup</h3><p>参考Table1的最后一列。</p>
-<h2 id="Planning-Results"><a href="#Planning-Results" class="headerlink" title="Planning Results"></a>Planning Results</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403113528.png" alt=""><br>表的解释：</p>
-<ul>
-<li>Plan：<ul>
-<li>P:Q 两个stage，第一个stage replicates到P个GPUs，第二个stage replicates到Q个GPUs</li>
-<li>DP Data Parallelism</li>
-<li>Straight 16个stages？</li>
-</ul>
-</li>
-<li>Split Position: 表示模型按照对应比例，切分成两个stages</li>
-<li>ACR： 没看懂</li>
-</ul>
-<p>结果：</p>
-<ul>
-<li>ResNet50： 全部DP，因为ResNet50的网络模型小（100MB），计算密集</li>
-<li>VGG-19： 在Config A&amp;B中采用DP，因为模型大小适中（548MB），内联带宽较大；在Config C中，根据15：1做切分（估计根据VGG-19的前15/16部分是计算，后1/16部分有大量的params和gradients）</li>
-<li>GNMT-16/BERT-48/XLNet-36等：暂略</li>
-<li>AmoebaNet-36： 暂略。</li>
-</ul>
-<h2 id="Performance-Analysis"><a href="#Performance-Analysis" class="headerlink" title="Performance Analysis"></a>Performance Analysis</h2><h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>Q: DAPPLE中每个GPU的内存使用量的情况如何？<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210403081827.png" alt=""><br>其中，红色、紫色、绿色分别表示DAPPLE组别中GPU0,GPU1,GPU2的Peak Memory Usage。</p>
+        <p>记录一下如何配置Win10下的mail，同时连接学校邮箱与QQ邮箱。</p>
+<h1 id="学校邮箱"><a href="#学校邮箱" class="headerlink" title="学校邮箱"></a>学校邮箱</h1><p>添加账户 — 其他账户 — 输入邮箱账号与密码并登录<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421162851.png" alt=""><br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421163024.png" alt=""></p>
+<p>不出意外，已经可以同步了。</p>
+<h1 id="QQ邮箱"><a href="#QQ邮箱" class="headerlink" title="QQ邮箱"></a>QQ邮箱</h1><p>我还用QQ邮箱用来做日历同步，所以采用的是Exchange服务。需要先到QQ邮箱中获取Exchange服务的token。<br>登录QQ邮箱 — 设置 — 账户 — POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 — Exchange服务</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421163651.png" alt=""></p>
+<p>添加账户 — 高级设置 — Exchange ActiveSync</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421163311.png" alt=""><br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421163335.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210421163946.png" alt=""></p>
+<h1 id="手机端配置"><a href="#手机端配置" class="headerlink" title="手机端配置"></a>手机端配置</h1><p>等下次需要重新配置的时候再记录</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=20019&amp;&amp;no=1000706">如何在移动终端上使用QQ邮箱Exchange移动终端同步服务？</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
