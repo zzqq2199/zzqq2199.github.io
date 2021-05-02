@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>References Summary | Togo&#39;s Blog</title>
-  <meta name="keywords" content=" notes ">
-  <meta name="description" content="References Summary | Togo&#39;s Blog">
+  <title>What does this column mean? | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" cmd ">
+  <meta name="description" content="What does this column mean? | Togo&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ReferenceGradient Compression Support Motivation NCCL中提供的Reduction类操作（Sum，Prod）等，对于压缩后的数据不适合。 节点间通信才是瓶颈。一开始不需要高度压缩（可能会影响精度）。  Design Overview 节点内通信：FP32 $\rightarrow$ FP16 节点间通信：需要大幅度的压缩。与框架相关，需要实现在By">
 <meta property="og:type" content="article">
@@ -650,9 +650,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-References-Summary" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-column" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">References Summary</h1>
+        <h1 class="article-title">What does this column mean?</h1>
     
     <div class="article-meta">
         
@@ -662,7 +662,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="papers">papers</a>
+            <a  data-rel="tool">tool</a>
             
         </span>
         
@@ -670,14 +670,14 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">notes</a>
+            <a class="color4">cmd</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-03-02 17:42</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-29 14:27:35'>2021-04-25 16:50</time>
         
     </div>
     <div class="article-meta">
@@ -710,7 +710,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Points"><span class="toc-text">Points</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Work-on-Pipeline-Paralleism"><span class="toc-text">Work on Pipeline Paralleism</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Work-on-GPU-memory-gt-CPU-memory"><span class="toc-text">Work on GPU memory -&gt; CPU memory</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Models"><span class="toc-text">Models</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#top"><span class="toc-text">top</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-text">常用实例：</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -726,117 +726,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Points"><a href="#Points" class="headerlink" title="Points"></a>Points</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>item</th>
-<th>Source</th>
-<th>Reference</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SOTA的神经网络的参数大致每2.4年翻一番</td>
-<td><a target="_blank" rel="noopener" href="http://www.news.cs.nyu.edu/~jinyang/pub/swapadvisor-asplos20.pdf">Ref 10</a></td>
-<td>Ian Goodfellow, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press. <a target="_blank" rel="noopener" href="http://www.deeplearningbook.org">http://www.deeplearningbook.org</a>.</td>
-</tr>
-<tr>
-<td>更大的DNN模型在复杂任务上能获得更好的精度</td>
-<td><a target="_blank" rel="noopener" href="http://www.news.cs.nyu.edu/~jinyang/pub/swapadvisor-asplos20.pdf">Ref 16,47,55,58,60</a></td>
-<td></td>
-</tr>
-<tr>
-<td>考虑到收敛性，工业界一般很少用异步训练</td>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3437801.3441593">Ref 47</a></td>
-<td>Mengdi Wang, Chen Meng, Guoping Long, Chuan Wu, Jun Yang, Wei Lin, and Yangqing Jia. 2019. Characterizing Deep Learning Training Workloads on Alibaba-PAI. arXiv preprint arXiv:1910.05930 (2019).</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Work-on-Pipeline-Paralleism"><a href="#Work-on-Pipeline-Paralleism" class="headerlink" title="Work on Pipeline Paralleism"></a>Work on Pipeline Paralleism</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Papers</th>
-<th>Illustration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener" href="http://papers.neurips.cc/paper/8305-gpipe-efficient-training-of-giant-neural-networks-using-pipeline-parallelism.pdf">NIPS’19 Gpipe</a></td>
-<td>将全局batch size切分成多个micro-batches，注入到pipeline中提高效率</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3437801.3441593">PPoPP’21 DAPPLE</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3341301.3359646">SOSP’19 PipeDream</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Work-on-GPU-memory-gt-CPU-memory"><a href="#Work-on-GPU-memory-gt-CPU-memory" class="headerlink" title="Work on GPU memory -&gt; CPU memory"></a>Work on GPU memory -&gt; CPU memory</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Papers</th>
-<th>Illustration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.06840">arXiv’21 ZeRO-Offload</a></td>
-<td>在ZeRO工作的基础之上增加了Offload，支持多机多GPU</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3373376.3378530">ASPLOS’20 SwapAdvisor</a></td>
-<td>扩大搜索空间，结合scheduling和memory allocation，给出一个swap plan。不适用于多GPU，仅适合静态图</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.08053">CoRR’19 Megatron-LM</a></td>
-<td>从用模型并行，可以训练数百亿个参数的模型</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2002.05645">arXiv’20 L2L</a></td>
-<td>支持训练很深的Transformer网络，原理是同一时间仅在显存中保留一个Transformer块</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9355301/">SC’20 ZeRO</a></td>
-<td>通过消除GPU之间的数据冗余，增强了数据并行，可以训练更大的模型</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3190508.3190551">EuroSys’18 TensorFlow’s swap extension</a></td>
-<td>swap工作，没有利用DNN中已知的flow信息来优化swap</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.02037">arXiv’18 TFLMS</a>, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/7783721/">MICRO’16 vDNN</a></td>
-<td>swap工作，仅交换了根据拓扑排序确定的激活Tensor</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3178487.3178491">PPoPP’18 SuperNeurons</a></td>
-<td>swap工作，仅交换了卷积操作的数据</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Illustration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1605.07146">Wide ResNet</a></td>
-<td>加宽了的ResNet，模型很大</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <h1 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210425165052.png" alt=""></p>
+<h1 id="top"><a href="#top" class="headerlink" title="top"></a>top</h1><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210427140032.png" alt=""></p>
+<ul>
+<li>CPU<ul>
+<li>us: user cpu time (or) % CPU time spent in user space</li>
+<li>sy: system cpu time (or) % CPU time spent in kernel space</li>
+<li>ni: user nice cpu time (or) % CPU time spent on low priority processes</li>
+<li>id: idle cpu time (or) % CPU time spent idle</li>
+<li>wa: io wait cpu time (or) % CPU time spent in wait (on disk)</li>
+<li>hi: hardware irq (or) % CPU time spent servicing/handling hardware interrupts</li>
+<li>si: software irq (or) % CPU time spent servicing/handling software interrupts</li>
+<li>st: steal time - - % CPU time in involuntary wait by virtual cpu while hypervisor is servicing another processor (or) % CPU time stolen from a virtual machine</li>
+</ul>
+</li>
+<li>top<ul>
+<li>PID</li>
+<li>USER</li>
+<li>PR: 优先级，数值越小优先级越高（不可以被top修改）</li>
+<li>NI：优先级，数值越小优先级越高（可以被top修改）</li>
+<li>VIRT: 使用的虚拟内存大小（KB）</li>
+<li>RES:  使用的物理内存大小（KB）</li>
+<li>SHR： 使用的共享内存大小（KB）</li>
+<li>%CPU</li>
+<li>%MEM：  占用的内存百分比</li>
+<li>TIME+： 占用的CPU时间</li>
+<li>COMMAND</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用实例："><a href="#常用实例：" class="headerlink" title="常用实例："></a>常用实例：</h2><ol>
+<li><code>top -p 999</code> # 只查看PID为999的进程</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
@@ -871,6 +792,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 
