@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>What does this column mean? | Togo&#39;s Blog</title>
+  <title>Commnads in Linux | Togo&#39;s Blog</title>
   <meta name="keywords" content=" cmd ">
-  <meta name="description" content="What does this column mean? | Togo&#39;s Blog">
+  <meta name="description" content="Commnads in Linux | Togo&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ReferenceGradient Compression Support Motivation NCCL中提供的Reduction类操作（Sum，Prod）等，对于压缩后的数据不适合。 节点间通信才是瓶颈。一开始不需要高度压缩（可能会影响精度）。  Design Overview 节点内通信：FP32 $\rightarrow$ FP16 节点间通信：需要大幅度的压缩。与框架相关，需要实现在By">
 <meta property="og:type" content="article">
@@ -425,10 +425,10 @@
         </a>
         
         <a  class="全部文章 tool "
-           href="/2021/04/25/column/"
+           href="/2021/04/25/Cmds/"
            data-tag="cmd"
            data-author="" >
-            <span class="post-title" title="What does this column mean?">What does this column mean?</span>
+            <span class="post-title" title="Commnads in Linux">Commnads in Linux</span>
             <span class="post-date" title="2021-04-25 16:50:04">2021/04/25</span>
         </a>
         
@@ -650,9 +650,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-column" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Cmds" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">What does this column mean?</h1>
+        <h1 class="article-title">Commnads in Linux</h1>
     
     <div class="article-meta">
         
@@ -677,7 +677,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-29 14:27:35'>2021-04-25 16:50</time>
+            发布时间 : <time class="date" title='最后更新: 2021-05-06 16:41:42'>2021-04-25 16:50</time>
         
     </div>
     <div class="article-meta">
@@ -710,7 +710,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#top"><span class="toc-text">top</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-text">常用实例：</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#top"><span class="toc-text">top</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-text">常用实例：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mount"><span class="toc-text">mount</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -758,6 +758,7 @@
 <h2 id="常用实例："><a href="#常用实例：" class="headerlink" title="常用实例："></a>常用实例：</h2><ol>
 <li><code>top -p 999</code> # 只查看PID为999的进程</li>
 </ol>
+<h1 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42053049/article/details/102826059">Ubuntu硬盘挂载</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ext4 /dev/sdc /data/sdc <span class="comment"># -t 表明type</span></span><br></pre></td></tr></table></figure><br>挂载旧硬盘时有可能会出现挂载失败错误，这个时候一般搭配<strong>硬盘格式化</strong>使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs -t ext4 /dev/sdc</span><br></pre></td></tr></table></figure></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
