@@ -679,7 +679,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-05-11 16:29:28'>2021-03-02 17:35</time>
+            发布时间 : <time class="date" title='最后更新: 2021-05-12 13:10:29'>2021-03-02 17:35</time>
         
     </div>
     <div class="article-meta">
@@ -1100,10 +1100,7 @@
 <h3 id="Comparing-with-TFLMS"><a href="#Comparing-with-TFLMS" class="headerlink" title="Comparing with TFLMS"></a>Comparing with <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.02037">TFLMS</a></h3><p>TFLMS：TensorFlow的一个插件，使TF支持swap。</p>
 <p>但是TFLMS对于Figure6中的所有模型均不支持，所以只测试了WResNet-152-4.</p>
 <p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210511150301.png" alt=""></p>
-<p>TFLMS表现很差，因为它不支持swap parameter tensors（在WResNet-152-4中很大），TFLMS好像只支持交换activation tensors?</p>
-<blockquote>
-<p>Togo: 待确认。</p>
-</blockquote>
+<p>TFLMS表现很差，因为它不支持swap parameter tensors（在WResNet-152-4中很大），TFLMS只支持交换activation tensors</p>
 <h2 id="DNN-models-inference-evaluation"><a href="#DNN-models-inference-evaluation" class="headerlink" title="DNN models inference evaluation"></a>DNN models inference evaluation</h2><p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210511153629.png" alt=""></p>
 <p>粗体：得用swap才能运行<br>斜体：运行时间与理想时间相差不超过1%。</p>
 <h3 id="低端机器上的推理"><a href="#低端机器上的推理" class="headerlink" title="低端机器上的推理"></a>低端机器上的推理</h3><p>基本上就对应Table2中的batchsize=1的组别，可以用swap advisor来大大降低显存占用量。</p>
