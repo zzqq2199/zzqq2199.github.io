@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Run dapple | Togo&#39;s Blog</title>
+  <meta name="keywords" content=" machine learning ">
+  <meta name="description" content="Run dapple | Togo&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="以运行VGG模型为例，启动脚本代码为：1234python main_with_runtime.py --module models.vgg16.gpus&#x3D;4_straight --recompute -b 32 --data_dir &#x2F;data&#x2F;DNN_Dataset&#x2F;imagenet&#x2F;full&#x2F;pytorch-imagenet-data --rank 0 --local_rank 0 --ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PipeDream源码理解">
+<meta property="og:url" content="http://zzqq2199.github.io/2021/06/16/pipedream-read/index.html">
+<meta property="og:site_name" content="Togo&#39;s Blog">
+<meta property="og:description" content="以运行VGG模型为例，启动脚本代码为：1234python main_with_runtime.py --module models.vgg16.gpus&#x3D;4_straight --recompute -b 32 --data_dir &#x2F;data&#x2F;DNN_Dataset&#x2F;imagenet&#x2F;full&#x2F;pytorch-imagenet-data --rank 0 --local_rank 0 --ma">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210617153344.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/IMG_20210618_163803.jpg">
+<meta property="article:published_time" content="2021-06-16T08:48:01.000Z">
+<meta property="article:modified_time" content="2021-06-18T08:39:12.706Z">
+<meta property="article:author" content="Togo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210617153344.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Togo</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(31)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="具体数学">
+                        
+                        具体数学
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="deep learning">
+                        
+                        deep learning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="machine learning">
+                        
+                        machine learning
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="paper">
+                        
+                        paper
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="papers">
+                        
+                        papers
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="project">
+                        
+                        project
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="record">
+                        
+                        record
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="tool">
+                        
+                        tool
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="writing">
+                        
+                        writing
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="31">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>和式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>性能分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>整值函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>aws</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>byteps</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>compression</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>dataset</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hybrid parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Josephus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>keyboard enhancement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>machine learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mirror</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>monitor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>notes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offload</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>performance analysis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pipeline parallelism</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>schedule</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SSR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>swap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tracing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>windows</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>writing</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/06/16/pipedream-read/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PipeDream源码理解">PipeDream源码理解</span>
+            <span class="post-date" title="2021-06-16 16:48:01">2021/06/16</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2021/06/01/license/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="license">license</span>
+            <span class="post-date" title="2021-06-01 15:18:38">2021/06/01</span>
+        </a>
+        
+        <a  class="全部文章 record "
+           href="/2021/06/01/Run-dapple/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Run dapple">Run dapple</span>
+            <span class="post-date" title="2021-06-01 10:11:19">2021/06/01</span>
+        </a>
+        
+        <a  class="全部文章 record "
+           href="/2021/05/30/AWS-Server-Renting/"
+           data-tag="aws"
+           data-author="" >
+            <span class="post-title" title="AWS Server Renting">AWS Server Renting</span>
+            <span class="post-date" title="2021-05-30 13:53:31">2021/05/30</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/05/02/Compression-in-BytePS/"
+           data-tag="compression,byteps"
+           data-author="" >
+            <span class="post-title" title="Compression in BytePS">Compression in BytePS</span>
+            <span class="post-date" title="2021-05-02 14:53:06">2021/05/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/25/Cmds/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="Commnads in Linux">Commnads in Linux</span>
+            <span class="post-date" title="2021-04-25 16:50:04">2021/04/25</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/24/integer-functions/"
+           data-tag="整值函数"
+           data-author="" >
+            <span class="post-title" title="integer functions">integer functions</span>
+            <span class="post-date" title="2021-04-24 15:02:10">2021/04/24</span>
+        </a>
+        
+        <a  class="全部文章 project "
+           href="/2021/04/23/pipedream/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="pipedream">pipedream</span>
+            <span class="post-date" title="2021-04-23 16:36:38">2021/04/23</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/21/mail/"
+           data-tag="windows"
+           data-author="" >
+            <span class="post-title" title="mail">mail</span>
+            <span class="post-date" title="2021-04-21 16:09:10">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2021/04/21/hexo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hexo">hexo</span>
+            <span class="post-date" title="2021-04-21 00:26:16">2021/04/21</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/planning-tasks/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="planning tasks">planning tasks</span>
+            <span class="post-date" title="2021-04-19 16:00:44">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/19/mirror/"
+           data-tag="mirror"
+           data-author="" >
+            <span class="post-title" title="mirror">mirror</span>
+            <span class="post-date" title="2021-04-19 14:25:53">2021/04/19</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/15/monitor/"
+           data-tag="monitor,analysis,性能分析"
+           data-author="" >
+            <span class="post-title" title="monitor">monitor</span>
+            <span class="post-date" title="2021-04-15 15:06:07">2021/04/15</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/13/docker/"
+           data-tag="docker,cmd"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2021-04-13 16:55:38">2021/04/13</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/04/11/ssh/"
+           data-tag="cmd,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh">ssh</span>
+            <span class="post-date" title="2021-04-11 23:26:45">2021/04/11</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/04/10/SUMS/"
+           data-tag="和式"
+           data-author="" >
+            <span class="post-title" title="SUMS">SUMS</span>
+            <span class="post-date" title="2021-04-10 14:07:02">2021/04/10</span>
+        </a>
+        
+        <a  class="全部文章 writing "
+           href="/2021/04/09/markdown/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown">markdown</span>
+            <span class="post-date" title="2021-04-09 15:21:09">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 deep learning "
+           href="/2021/04/09/ILSVRC2012/"
+           data-tag="deep learning,dataset"
+           data-author="" >
+            <span class="post-title" title="ILSVRC2012">ILSVRC2012</span>
+            <span class="post-date" title="2021-04-09 15:17:45">2021/04/09</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2021/04/02/DAPPLE/"
+           data-tag="deep learning,pipeline parallelism,hybrid parallelism,schedule"
+           data-author="" >
+            <span class="post-title" title="DAPPLE">DAPPLE</span>
+            <span class="post-date" title="2021-04-02 16:18:49">2021/04/02</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/30/SSR/"
+           data-tag="proxy,SSR"
+           data-author="" >
+            <span class="post-title" title="Linux下配置SSR代理">Linux下配置SSR代理</span>
+            <span class="post-date" title="2021-03-30 16:48:29">2021/03/30</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/29/capslock/"
+           data-tag="tool,keyboard enhancement"
+           data-author="" >
+            <span class="post-title" title="capslock">capslock</span>
+            <span class="post-date" title="2021-03-29 16:45:19">2021/03/29</span>
+        </a>
+        
+        <a  class="全部文章 machine learning "
+           href="/2021/03/25/optimizer/"
+           data-tag="machine learning"
+           data-author="" >
+            <span class="post-title" title="Optimizer">Optimizer</span>
+            <span class="post-date" title="2021-03-25 16:20:31">2021/03/25</span>
+        </a>
+        
+        <a  class="全部文章 tool "
+           href="/2021/03/24/tracing/"
+           data-tag="tracing,performance analysis"
+           data-author="" >
+            <span class="post-title" title="Tracing日志分析">Tracing日志分析</span>
+            <span class="post-date" title="2021-03-24 16:16:51">2021/03/24</span>
+        </a>
+        
+        <a  class="全部文章 具体数学 "
+           href="/2021/03/20/Josephus/"
+           data-tag="Josephus"
+           data-author="" >
+            <span class="post-title" title="Josephus">Josephus</span>
+            <span class="post-date" title="2021-03-20 15:12:37">2021/03/20</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/11/vDNN/"
+           data-tag="deep learning"
+           data-author="" >
+            <span class="post-title" title="vDNN">vDNN</span>
+            <span class="post-date" title="2021-03-11 15:44:17">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/Mathematical-Formula/"
+           data-tag="markdown,writing"
+           data-author="" >
+            <span class="post-title" title="Mathematical Formula">Mathematical Formula</span>
+            <span class="post-date" title="2021-03-05 16:18:05">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/05/3LC/"
+           data-tag="deep learning,compression"
+           data-author="" >
+            <span class="post-title" title="3LC">3LC</span>
+            <span class="post-date" title="2021-03-05 11:54:27">2021/03/05</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/04/how-to-write-rebuttal/"
+           data-tag="writing"
+           data-author="" >
+            <span class="post-title" title="how to write rebuttal">how to write rebuttal</span>
+            <span class="post-date" title="2021-03-04 14:31:32">2021/03/04</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/References-Summary/"
+           data-tag="notes"
+           data-author="" >
+            <span class="post-title" title="References Summary">References Summary</span>
+            <span class="post-date" title="2021-03-02 17:42:16">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/02/SwapAdvisor/"
+           data-tag="deep learning,swap"
+           data-author="" >
+            <span class="post-title" title="SwapAdvisor">SwapAdvisor</span>
+            <span class="post-date" title="2021-03-02 17:35:28">2021/03/02</span>
+        </a>
+        
+        <a  class="全部文章 papers "
+           href="/2021/03/01/ZeRO-Offload/"
+           data-tag="deep learning,offload"
+           data-author="" >
+            <span class="post-title" title="ZeRO-Offload">ZeRO-Offload</span>
+            <span class="post-date" title="2021-03-01 11:37:17">2021/03/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Run-dapple" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Run dapple</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="record">record</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">machine learning</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-06-02 16:27:55'>2021-06-01 10:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference-and-Notations"><span class="toc-text">Reference and Notations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#README"><span class="toc-text">README</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#profiler%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">profiler的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#planner%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">planner的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#runtime-system%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">runtime system的使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-HPGO"><span class="toc-text">What is HPGO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-Started"><span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%90%88%E9%80%82%E7%9A%84docker"><span class="toc-text">选择一个合适的docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9vgg19-run-sh"><span class="toc-text">修改vgg19&#x2F;run.sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99-0"><span class="toc-text">报错-0</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-text">修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E4%B8%80%E4%B8%AAissue"><span class="toc-text">提交一个issue</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Reference-and-Notations"><a href="#Reference-and-Notations" class="headerlink" title="Reference and Notations"></a>Reference and Notations</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAPPLE</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/AlibabaPAI/DAPPLE">github</a></td>
+</tr>
+<tr>
+<td>HPGO</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/LER0ever/HPGO">github</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="README"><a href="#README" class="headerlink" title="README"></a>README</h1><p>DAPPLE的组成：</p>
+<ol>
+<li>profiler: 输入DNN model，输出execution time, activation, parameter sizes per layer</li>
+<li>planner: 输入profiling results, 根据全局batchsize，生成一个优化后的异构的并行策略</li>
+<li>runtime system：执行框架。</li>
+</ol>
+<p>Repo中包含了如下模型的实现：</p>
+<ul>
+<li>VGG19</li>
+<li>AmoebaNet</li>
+<li>BERT</li>
+<li>GNMT</li>
+<li>XLNET</li>
+</ul>
+<h2 id="profiler的使用"><a href="#profiler的使用" class="headerlink" title="profiler的使用"></a>profiler的使用</h2><p>README中没有提怎么使用，但是说给出了一些模型的<a target="_blank" rel="noopener" href="https://github.com/AlibabaPAI/DAPPLE/tree/master/profiling_results">profiling results</a></p>
+<p>repo中似乎没有提供复现profiler步骤的方法。</p>
+<h2 id="planner的使用"><a href="#planner的使用" class="headerlink" title="planner的使用"></a>planner的使用</h2><p>profiler的结果与机器有关，planner直接读取profiling results，所以planner复现结果与机器无关。</p>
+<p>GTTHUB中提供了<a target="_blank" rel="noopener" href="https://github.com/AlibabaPAI/DAPPLE/blob/master/PLANNER_REPRODUCTION.md">planner的使用的详细说明</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AlibabaPAI/DAPPLE/blob/master/PLANNER_REPRODUCTION.md">DAPPLE Planner Experiments Reproduction</a>中提到了<strong>Currently our profiling is done offline, and the results are cached within the <code>profiler</code> folder</strong>。</p>
+<p>单线程用Python API，多线程用Rust API。</p>
+<h2 id="runtime-system的使用"><a href="#runtime-system的使用" class="headerlink" title="runtime system的使用"></a>runtime system的使用</h2><p>参见每个模型中的<code>run.sh</code></p>
+<h1 id="What-is-HPGO"><a href="#What-is-HPGO" class="headerlink" title="What is HPGO"></a>What is HPGO</h1><p>DAPPLE中经常使用HPGO。那HPGO是什么呢？</p>
+<p>HPGO: Hybrid Parallelism Global Orchestration</p>
+<h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><h2 id="选择一个合适的docker"><a href="#选择一个合适的docker" class="headerlink" title="选择一个合适的docker"></a>选择一个合适的docker</h2><p>观察DAPPLE代码，在planner中调用HPGO部分要求python版本为3.6~3.7，这个可以通过conda虚拟环境解决。在vgg19的代码中用的是python2(python2.7)，而且其中导入了tensorflow, horovod.tensorflow。没有说明tensorflow版本，但是根据使用接口判断tensorflow是1.x版本。在<a target="_blank" rel="noopener" href="https://hub.docker.com/r/horovod/horovod/tags?page=1&amp;ordering=last_updated&amp;name=tf1">docker horovod</a>中寻找合适的镜像。</p>
+<p>我选择了<code>horovod/horovod:0.18.1-tf1.14.0-torch1.2.0-mxnet1.5.0-py2.7</code></p>
+<h2 id="修改vgg19-run-sh"><a href="#修改vgg19-run-sh" class="headerlink" title="修改vgg19/run.sh"></a>修改vgg19/run.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">diff --git a&#x2F;vgg19&#x2F;run.sh b&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">index 7617b7e..dc0a722 100755</span><br><span class="line">--- a&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">+++ b&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">@@ -4,8 +4,8 @@ device_num&#x3D;2</span><br><span class="line"> batch_size&#x3D;32 # max &#x3D; 190</span><br><span class="line"> batch_num&#x3D;12</span><br><span class="line"> replica&#x3D;2</span><br><span class="line">-remote_ip&#x3D;&lt;SET YOUR REMOTE IP&gt;</span><br><span class="line">-local_ip&#x3D;&lt;SET YOUR LOCAL IP&gt;</span><br><span class="line">+remote_ip&#x3D;none</span><br><span class="line">+local_ip&#x3D;localhost</span><br><span class="line"> local_test&#x3D;true</span><br></pre></td></tr></table></figure>
+<h2 id="报错-0"><a href="#报错-0" class="headerlink" title="报错-0"></a>报错-0</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;tf-keras-dapple.py&quot;, line 391, in &lt;module&gt;</span><br><span class="line">    est.train( input_fn &#x3D; fn_image_preprocess , steps &#x3D; FLAGS.num_batches) #, hooks &#x3D; hooks)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow_estimator&#x2F;python&#x2F;estimator&#x2F;estimator.py&quot;, line 367, in train</span><br><span class="line">    loss &#x3D; self._train_model(input_fn, hooks, saving_listeners)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow_estimator&#x2F;python&#x2F;estimator&#x2F;estimator.py&quot;, line 1158, in _train_model</span><br><span class="line">    return self._train_model_default(input_fn, hooks, saving_listeners)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow_estimator&#x2F;python&#x2F;estimator&#x2F;estimator.py&quot;, line 1188, in _train_model_default</span><br><span class="line">    features, labels, ModeKeys.TRAIN, self.config)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow_estimator&#x2F;python&#x2F;estimator&#x2F;estimator.py&quot;, line 1146, in _call_model_fn</span><br><span class="line">    model_fn_results &#x3D; self._model_fn(features&#x3D;features, **kwargs)</span><br><span class="line">  File &quot;tf-keras-dapple.py&quot;, line 254, in model_fn</span><br><span class="line">    total_loss, outputs &#x3D; model.build(features, labels)</span><br><span class="line">  File &quot;&#x2F;root&#x2F;source&#x2F;DAPPLE&#x2F;vgg19&#x2F;applications&#x2F;vgg19_slice_model.py&quot;, line 329, in build</span><br><span class="line">    x &#x3D; self.block4_conv1[0](x)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;engine&#x2F;base_layer.py&quot;, line 561, in __call__</span><br><span class="line">    base_layer_utils.create_keras_history(inputs)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;engine&#x2F;base_layer_utils.py&quot;, line 200, in create_keras_history</span><br><span class="line">    _, created_layers &#x3D; _create_keras_history_helper(tensors, set(), [])</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;engine&#x2F;base_layer_utils.py&quot;, line 244, in _create_keras_history_helper</span><br><span class="line">    constants[i] &#x3D; backend.function([], op_input)([])</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;backend.py&quot;, line 3253, in __call__</span><br><span class="line">    session &#x3D; get_session(inputs)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;backend.py&quot;, line 462, in get_session</span><br><span class="line">    _initialize_variables(session)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;keras&#x2F;backend.py&quot;, line 879, in _initialize_variables</span><br><span class="line">    [variables_module.is_variable_initialized(v) for v in candidate_vars])</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;client&#x2F;session.py&quot;, line 950, in run</span><br><span class="line">    run_metadata_ptr)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;client&#x2F;session.py&quot;, line 1173, in _run</span><br><span class="line">    feed_dict_tensor, options, run_metadata)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;client&#x2F;session.py&quot;, line 1350, in _do_run</span><br><span class="line">    run_metadata)</span><br><span class="line">  File &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;client&#x2F;session.py&quot;, line 1370, in _do_call</span><br><span class="line">    raise type(e)(node_def, op, message)</span><br><span class="line">tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot assign a device for operation block1_conv1&#x2F;kernel&#x2F;Initializer&#x2F;random_uniform&#x2F;RandomUniform: Could not satisfy explicit device specification &#39;&#39; because the node node block1_conv1&#x2F;kernel&#x2F;Initializer&#x2F;random_uniform&#x2F;RandomUniform (defined at &#x2F;root&#x2F;source&#x2F;DAPPLE&#x2F;vgg19&#x2F;applications&#x2F;vgg19_slice_model.py:280) placed on device Device assignments active during op &#39;block1_conv1&#x2F;kernel&#x2F;Initializer&#x2F;random_uniform&#x2F;RandomUniform&#39; creation:</span><br><span class="line">  with tf.device(None): &lt;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow&#x2F;python&#x2F;ops&#x2F;resource_variable_ops.py:602&gt;</span><br><span class="line">  with tf.device(&#x2F;job:worker&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:0): &lt;&#x2F;root&#x2F;source&#x2F;DAPPLE&#x2F;vgg19&#x2F;applications&#x2F;vgg19_slice_model.py:275&gt;</span><br><span class="line">  with tf.device(None): &lt;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;tensorflow_estimator&#x2F;python&#x2F;estimator&#x2F;estimator.py:1174&gt;  was colocated with a group of nodes that required incompatible device &#39;&#x2F;job:worker&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:0&#39;. All available devices [&#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:CPU:0, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:XLA_GPU:0, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:XLA_GPU:1, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:XLA_GPU:2, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:XLA_GPU:3, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:XLA_CPU:0, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:0, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:1, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:2, &#x2F;job:localhost&#x2F;replica:0&#x2F;task:0&#x2F;device:GPU:3].</span><br></pre></td></tr></table></figure>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">diff --git a&#x2F;vgg19&#x2F;run.sh b&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">index 7617b7e..dc0a722 100755</span><br><span class="line">--- a&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">+++ b&#x2F;vgg19&#x2F;run.sh</span><br><span class="line">@@ -4,8 +4,8 @@ device_num&#x3D;2</span><br><span class="line"> batch_size&#x3D;32 # max &#x3D; 190</span><br><span class="line"> batch_num&#x3D;12</span><br><span class="line"> replica&#x3D;2</span><br><span class="line">-remote_ip&#x3D;&lt;SET YOUR REMOTE IP&gt;</span><br><span class="line">-local_ip&#x3D;&lt;SET YOUR LOCAL IP&gt;</span><br><span class="line">+remote_ip&#x3D;none</span><br><span class="line">+local_ip&#x3D;localhost</span><br><span class="line"> local_test&#x3D;true</span><br></pre></td></tr></table></figure>
+<h2 id="提交一个issue"><a href="#提交一个issue" class="headerlink" title="提交一个issue"></a>提交一个issue</h2><p>Hello, I tried to run <code>DAPPLE</code> on my server, but encountered some odd problems.</p>
+<p>Following is hardware information of my environment.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>type/version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU</td>
+<td>1080Ti x 4</td>
+</tr>
+<tr>
+<td>CPU</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I pulled a docker image which is <code>horovod/horovod:0.18.1-tf1.14.0-torch1.2.0-mxnet1.5.0-py2.7</code> and use <code>nvidia-docker</code> to start the image.</p>
+<p>Following is software information of my environment.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>horovod</td>
+<td>0.18</td>
+</tr>
+<tr>
+<td>tensorflow</td>
+<td>1.14.0</td>
+</tr>
+<tr>
+<td>mpirun</td>
+<td>4.0.0</td>
+</tr>
+<tr>
+<td>cuda</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>nvidia driver</td>
+<td>418.197.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I found the codes are written for 8 cards, so I modify the codes, pasted below:</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">diff --git a/vgg19/run.sh b/vgg19/run.sh</span></span><br><span class="line"><span class="comment">index 7617b7e..57674f7 100755</span></span><br><span class="line"><span class="comment">--- a/vgg19/run.sh</span></span><br><span class="line"><span class="comment">+++ b/vgg19/run.sh</span></span><br><span class="line"><span class="meta">@@ -4,8 +4,8 @@</span> device_num=2</span><br><span class="line"> batch_size=32 # max = 190</span><br><span class="line"> batch_num=12</span><br><span class="line"> replica=2</span><br><span class="line"><span class="deletion">-remote_ip=&lt;SET YOUR REMOTE IP&gt;</span></span><br><span class="line"><span class="deletion">-local_ip=&lt;SET YOUR LOCAL IP&gt;</span></span><br><span class="line"><span class="addition">+remote_ip=none</span></span><br><span class="line"><span class="addition">+local_ip=localhost</span></span><br><span class="line"> local_test=true</span><br><span class="line"></span><br><span class="line"> export CUDA_VISIBLE_DEVICES=2,3</span><br><span class="line"><span class="meta">@@ -16,7 +16,7 @@</span> if [ $&#123;cross_node&#125; = &quot;0&quot; ]; then</span><br><span class="line"> python tf-keras-ds.py --fake_io=True --model=vgg19 --num_batches=10000 --batch_size=$&#123;batch_size&#125; --strategy=none</span><br><span class="line"></span><br><span class="line"> else</span><br><span class="line"><span class="deletion">-ip_list=&quot;localhost,localhost,localhost,localhost,localhost,localhost,localhost,localhost&quot;</span></span><br><span class="line"><span class="addition">+ip_list=&quot;localhost,localhost,localhost,localhost&quot;</span></span><br><span class="line"> worker_hosts=$&#123;local_ip&#125;</span><br><span class="line"> if [ $&#123;device_num&#125; != &quot;1&quot; ]; then</span><br><span class="line">   if [ $&#123;local_test&#125; != &quot;true&quot; ]; then</span><br><span class="line"><span class="meta">@@ -28,9 +28,9 @@</span> fi</span><br><span class="line"> echo $&#123;worker_hosts&#125;</span><br><span class="line"></span><br><span class="line"> if [ $&#123;local_test&#125; == &quot;true&quot; ]; then</span><br><span class="line"><span class="deletion">-CUDA_VISIBLE_DEVICES=4,5,6,7 mpirun -np $np --host $&#123;ip_list&#125; --allow-run-as-root -x NCCL_DEBUG=INFO nohup python tf-keras-dapple.py --fake_io=True --model=vgg19 --num_batches=10000 --batch_size=$&#123;batc</span></span><br><span class="line">h_size&#125; --strategy=none --cross_pipeline=True --pipeline_device_num=$&#123;device_num&#125; --micro_batch_num=$&#123;batch_num&#125; --job_name=worker --task_index=1 --worker_hosts=$&#123;worker_hosts&#125; &gt; $&#123;inst_id&#125;_2.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="addition">+CUDA_VISIBLE_DEVICES=2,3 mpirun -np $np --host $&#123;ip_list&#125; --allow-run-as-root -x NCCL_DEBUG=INFO nohup python tf-keras-dapple.py --fake_io=True --model=vgg19 --num_batches=10000 --batch_size=$&#123;ba</span></span><br><span class="line">tch_size&#125; --strategy=none --cross_pipeline=True --pipeline_device_num=$&#123;device_num&#125; --micro_batch_num=$&#123;batch_num&#125; --job_name=worker --task_index=1 --worker_hosts=$&#123;worker_hosts&#125; &gt; $&#123;inst_id&#125;_2.log 2&gt;&amp;1 &amp;</span><br><span class="line"> fi</span><br><span class="line"></span><br><span class="line"><span class="deletion">-CUDA_VISIBLE_DEVICES=0,1,2,3 mpirun -np $np --host $&#123;ip_list&#125; --allow-run-as-root -x NCCL_DEBUG=INFO python tf-keras-dapple.py --fake_io=True --model=vgg19 --num_batches=10000 --batch_size=$&#123;batch_size</span></span><br><span class="line">&#125; --strategy=none --cross_pipeline=True --pipeline_device_num=$&#123;device_num&#125; --micro_batch_num=$&#123;batch_num&#125; --num_replica=$&#123;replica&#125; --job_name=worker --task_index=0 --worker_hosts=$&#123;worker_hosts&#125; #&gt; $&#123;inst_</span><br><span class="line">id&#125;.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="addition">+CUDA_VISIBLE_DEVICES=0,1 mpirun -np $np --host $&#123;ip_list&#125; --allow-run-as-root -x NCCL_DEBUG=INFO python tf-keras-dapple.py --fake_io=True --model=vgg19 --num_batches=10000 --batch_size=$&#123;batch_si</span></span><br><span class="line">ze&#125; --strategy=none --cross_pipeline=True --pipeline_device_num=$&#123;device_num&#125; --micro_batch_num=$&#123;batch_num&#125; --num_replica=$&#123;replica&#125; --job_name=worker --task_index=0 --worker_hosts=$&#123;worker_hosts&#125; #&gt; $&#123;ins</span><br><span class="line">t_id&#125;.log 2&gt;&amp;1 &amp;</span><br><span class="line"> fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">diff --git a/vgg19/applications/cluster_utils.py b/vgg19/applications/cluster_utils.py</span></span><br><span class="line"><span class="comment">index c7bc21b..edf483d 100644</span></span><br><span class="line"><span class="comment">--- a/vgg19/applications/cluster_utils.py</span></span><br><span class="line"><span class="comment">+++ b/vgg19/applications/cluster_utils.py</span></span><br><span class="line"><span class="meta">@@ -2,7 +2,7 @@</span> import tensorflow as tf</span><br><span class="line"> import horovod.tensorflow as hvd</span><br><span class="line"> from tensorflow.python.platform import flags</span><br><span class="line"> FLAGS = flags.FLAGS</span><br><span class="line"><span class="deletion">-MAX_GPUS_PER_NODE = 8</span></span><br><span class="line"><span class="addition">+MAX_GPUS_PER_NODE = 4</span></span><br><span class="line"></span><br><span class="line"> def get_cluster_manager(config_proto):</span><br><span class="line">   &quot;&quot;&quot;Returns the cluster manager to be used.&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">diff --git a/vgg19/tf-keras-dapple.py b/vgg19/tf-keras-dapple.py</span></span><br><span class="line"><span class="comment">index 41bb661..a0cee41 100755</span></span><br><span class="line"><span class="comment">--- a/vgg19/tf-keras-dapple.py</span></span><br><span class="line"><span class="comment">+++ b/vgg19/tf-keras-dapple.py</span></span><br><span class="line"><span class="meta">@@ -100,7 +100,7 @@</span> def prepare_tf_config():</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> if __name__ == &#x27;__main__&#x27;:</span><br><span class="line"><span class="deletion">-    default_raw_data_dir = &#x27;/tmp/dataset/mini-imagenet/raw-data/train/n01440764/&#x27;</span></span><br><span class="line"><span class="addition">+    default_raw_data_dir = &#x27;/data/DNN_Dataset/imagenet/tiny/meshtf/mininet/mininet/mini-imagenet-sp2/train/n01532829/&#x27;</span></span><br><span class="line">     default_ckpt_dir = &#x27;mycheckpoint&#x27;</span><br><span class="line">     flags.DEFINE_string(&#x27;model&#x27;, &#x27;resnet50&#x27;, &#x27;imagenet model name.&#x27;)</span><br><span class="line">     flags.DEFINE_string(&#x27;strategy&#x27;, &#x27;none&#x27;, &#x27;strategy of variable updating&#x27;)</span><br></pre></td></tr></table></figure>
+<p>By executing <code>bash run.sh</code>, I got the following result. I tried to search it online, but fail to solve it. So I’m here to ask for your help. BTW, the runtime system should take the planner result as input, but I don’t see it in <code>run.sh</code> or somewhere else, can you point it out where the planner result is used?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bash run.sh</span><br><span class="line">localhost,localhost</span><br><span class="line">WARNING:tensorflow:From /usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/horovod/tensorflow/__init__.py:117: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From /usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/horovod/tensorflow/__init__.py:143: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.</span><br><span class="line"></span><br><span class="line">logdir = </span><br><span class="line">mkdir: missing operand</span><br><span class="line">Try <span class="string">&#x27;mkdir --help&#x27;</span> <span class="keyword">for</span> more information.</span><br><span class="line">(<span class="string">&#x27;Training model: &#x27;</span>, <span class="string">&#x27;vgg19&#x27;</span>)</span><br><span class="line">WARNING:tensorflow:From /usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow/python/ops/init_ops.py:1251: calling __init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">Instructions <span class="keyword">for</span> updating:</span><br><span class="line">Call initializer instance with the dtype argument instead of passing it to the constructor</span><br><span class="line">WARNING:tensorflow:From tf-keras-dapple.py:159: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From tf-keras-dapple.py:159: The name tf.logging.DEBUG is deprecated. Please use tf.compat.v1.logging.DEBUG instead.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From tf-keras-dapple.py:172: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From tf-keras-dapple.py:175: The name tf.GPUOptions is deprecated. Please use tf.compat.v1.GPUOptions instead.</span><br><span class="line"></span><br><span class="line">[<span class="string">&#x27;localhost:4000&#x27;</span>, <span class="string">&#x27;localhost:5000&#x27;</span>]</span><br><span class="line">WARNING:tensorflow:From /root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/cluster_utils.py:57: The name tf.train.replica_device_setter is deprecated. Please use tf.compat.v1.train.replica_device_setter instead.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From /root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/cluster_utils.py:80: The name tf.train.Server is deprecated. Please use tf.distribute.Server instead.</span><br><span class="line"></span><br><span class="line">2021-06-02 08:21:53.616519: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA</span><br><span class="line">2021-06-02 08:21:53.623581: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1</span><br><span class="line">2021-06-02 08:21:54.910991: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5591bba7fb30 executing computations on platform CUDA. Devices:</span><br><span class="line">2021-06-02 08:21:54.911022: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1</span><br><span class="line">2021-06-02 08:21:54.911028: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (1): GeForce GTX 1080 Ti, Compute Capability 6.1</span><br><span class="line">2021-06-02 08:21:54.936597: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095155000 Hz</span><br><span class="line">2021-06-02 08:21:54.936705: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5591bba8d3b0 executing computations on platform Host. Devices:</span><br><span class="line">2021-06-02 08:21:54.936718: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): &lt;undefined&gt;, &lt;undefined&gt;</span><br><span class="line">2021-06-02 08:21:54.939208: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: </span><br><span class="line">name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582</span><br><span class="line">pciBusID: 0000:03:00.0</span><br><span class="line">2021-06-02 08:21:54.940335: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 1 with properties: </span><br><span class="line">name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582</span><br><span class="line">pciBusID: 0000:04:00.0</span><br><span class="line">2021-06-02 08:21:54.940375: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0</span><br><span class="line">2021-06-02 08:21:54.941705: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0</span><br><span class="line">2021-06-02 08:21:54.942817: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0</span><br><span class="line">2021-06-02 08:21:54.943097: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0</span><br><span class="line">2021-06-02 08:21:54.944652: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0</span><br><span class="line">2021-06-02 08:21:54.945872: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0</span><br><span class="line">2021-06-02 08:21:54.950215: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7</span><br><span class="line">2021-06-02 08:21:54.955523: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0, 1</span><br><span class="line">2021-06-02 08:21:54.955562: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0</span><br><span class="line">2021-06-02 08:21:55.338971: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:</span><br><span class="line">2021-06-02 08:21:55.338998: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0 1 </span><br><span class="line">2021-06-02 08:21:55.339005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N Y </span><br><span class="line">2021-06-02 08:21:55.339009: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 1:   Y N </span><br><span class="line">2021-06-02 08:21:55.345703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:0 with 10452 MB memory) -&gt; physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)</span><br><span class="line">2021-06-02 08:21:55.347717: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:1 with 10470 MB memory) -&gt; physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:04:00.0, compute capability: 6.1)</span><br><span class="line">2021-06-02 08:21:55.350960: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:250] Initialize GrpcChannelCache <span class="keyword">for</span> job worker -&gt; &#123;0 -&gt; localhost:4000, 1 -&gt; localhost:5000&#125;</span><br><span class="line">2021-06-02 08:21:55.351616: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:365] Started server with target: grpc://localhost:4000</span><br><span class="line">INFO:tensorflow:TF_CONFIG environment variable: &#123;u<span class="string">&#x27;cluster&#x27;</span>: &#123;u<span class="string">&#x27;chief&#x27;</span>: [u<span class="string">&#x27;localhost:4000&#x27;</span>], u<span class="string">&#x27;worker&#x27;</span>: [u<span class="string">&#x27;localhost:5000&#x27;</span>]&#125;, u<span class="string">&#x27;task&#x27;</span>: &#123;u<span class="string">&#x27;index&#x27;</span>: 0, u<span class="string">&#x27;type&#x27;</span>: u<span class="string">&#x27;chief&#x27;</span>&#125;&#125;</span><br><span class="line">WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmp5c7pnu</span><br><span class="line">INFO:tensorflow:Using config: &#123;<span class="string">&#x27;_save_checkpoints_secs&#x27;</span>: None, <span class="string">&#x27;_session_config&#x27;</span>: gpu_options &#123;</span><br><span class="line">  allow_growth: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">allow_soft_placement: <span class="literal">true</span></span><br><span class="line">, <span class="string">&#x27;_keep_checkpoint_max&#x27;</span>: 5, <span class="string">&#x27;_task_type&#x27;</span>: u<span class="string">&#x27;chief&#x27;</span>, <span class="string">&#x27;_global_id_in_cluster&#x27;</span>: 0, <span class="string">&#x27;_is_chief&#x27;</span>: True, <span class="string">&#x27;_cluster_spec&#x27;</span>: &lt;tensorflow.python.training.server_lib.ClusterSpec object at 0x7fe074a88a90&gt;, <span class="string">&#x27;_model_dir&#x27;</span>: <span class="string">&#x27;/tmp/tmp5c7pnu&#x27;</span>, <span class="string">&#x27;_protocol&#x27;</span>: None, <span class="string">&#x27;_save_checkpoints_steps&#x27;</span>: None, <span class="string">&#x27;_keep_checkpoint_every_n_hours&#x27;</span>: 10000, <span class="string">&#x27;_service&#x27;</span>: None, <span class="string">&#x27;_num_ps_replicas&#x27;</span>: 0, <span class="string">&#x27;_tf_random_seed&#x27;</span>: None, <span class="string">&#x27;_save_summary_steps&#x27;</span>: 100, <span class="string">&#x27;_device_fn&#x27;</span>: None, <span class="string">&#x27;_experimental_distribute&#x27;</span>: None, <span class="string">&#x27;_num_worker_replicas&#x27;</span>: 2, <span class="string">&#x27;_task_id&#x27;</span>: 0, <span class="string">&#x27;_log_step_count_steps&#x27;</span>: 10, <span class="string">&#x27;_experimental_max_worker_delay_secs&#x27;</span>: None, <span class="string">&#x27;_evaluation_master&#x27;</span>: <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;_eval_distribute&#x27;</span>: None, <span class="string">&#x27;_train_distribute&#x27;</span>: None, <span class="string">&#x27;_master&#x27;</span>: u<span class="string">&#x27;grpc://localhost:4000&#x27;</span>&#125;</span><br><span class="line">Training starts.</span><br><span class="line">WARNING:tensorflow:From /usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow/python/training/training_util.py:236: initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">Instructions <span class="keyword">for</span> updating:</span><br><span class="line">Use Variable.read_value. Variables <span class="keyword">in</span> 2.X are initialized automatically both <span class="keyword">in</span> eager and graph (inside tf.defun) contexts.</span><br><span class="line">Using Fake IO</span><br><span class="line">((224, 224, 3), (224, 224))</span><br><span class="line">WARNING:tensorflow:</span><br><span class="line">The TensorFlow contrib module will not be included <span class="keyword">in</span> TensorFlow 2.0.</span><br><span class="line">For more information, please see:</span><br><span class="line">  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md</span><br><span class="line">  * https://github.com/tensorflow/addons</span><br><span class="line">  * https://github.com/tensorflow/io (<span class="keyword">for</span> I/O related ops)</span><br><span class="line">If you depend on functionality not listed there, please file an issue.</span><br><span class="line"></span><br><span class="line">WARNING:tensorflow:From tf-keras-dapple.py:73: prefetch_to_device (from tensorflow.contrib.data.python.ops.prefetching_ops) is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">Instructions <span class="keyword">for</span> updating:</span><br><span class="line">Use `tf.data.experimental.prefetch_to_device(...)`.</span><br><span class="line">INFO:tensorflow:Calling model_fn.</span><br><span class="line"><span class="comment">#### Devices ####</span></span><br><span class="line">hvd.local_rank() == 0</span><br><span class="line">[<span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:0&#x27;</span>, <span class="string">&#x27;/job:worker/replica:0/task:1/device:GPU:0&#x27;</span>]</span><br><span class="line"><span class="comment">#### Replica Devices ####</span></span><br><span class="line">[<span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:0&#x27;</span>, <span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:1&#x27;</span>]</span><br><span class="line">2021-06-02 08:22:00.197197: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: </span><br><span class="line">name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582</span><br><span class="line">pciBusID: 0000:03:00.0</span><br><span class="line">2021-06-02 08:22:00.198343: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 1 with properties: </span><br><span class="line">name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582</span><br><span class="line">pciBusID: 0000:04:00.0</span><br><span class="line">2021-06-02 08:22:00.198377: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198403: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198416: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198429: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198441: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198453: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0</span><br><span class="line">2021-06-02 08:22:00.198466: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7</span><br><span class="line">2021-06-02 08:22:00.202942: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0, 1</span><br><span class="line">2021-06-02 08:22:00.203023: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:</span><br><span class="line">2021-06-02 08:22:00.203032: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0 1 </span><br><span class="line">2021-06-02 08:22:00.203037: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N Y </span><br><span class="line">2021-06-02 08:22:00.203042: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 1:   Y N </span><br><span class="line">2021-06-02 08:22:00.206630: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10452 MB memory) -&gt; physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)</span><br><span class="line">2021-06-02 08:22:00.207768: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10470 MB memory) -&gt; physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:04:00.0, compute capability: 6.1)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;tf-keras-dapple.py&quot;</span>, line 391, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    est.train( input_fn = fn_image_preprocess , steps = FLAGS.num_batches) <span class="comment">#, hooks = hooks)</span></span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 367, <span class="keyword">in</span> train</span><br><span class="line">    loss = self._train_model(input_fn, hooks, saving_listeners)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1158, <span class="keyword">in</span> _train_model</span><br><span class="line">    <span class="built_in">return</span> self._train_model_default(input_fn, hooks, saving_listeners)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1188, <span class="keyword">in</span> _train_model_default</span><br><span class="line">    features, labels, ModeKeys.TRAIN, self.config)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1146, <span class="keyword">in</span> _call_model_fn</span><br><span class="line">    model_fn_results = self._model_fn(features=features, **kwargs)</span><br><span class="line">  File <span class="string">&quot;tf-keras-dapple.py&quot;</span>, line 254, <span class="keyword">in</span> model_fn</span><br><span class="line">    total_loss, outputs = model.build(features, labels)</span><br><span class="line">  File <span class="string">&quot;/root/source/DAPPLE/vgg19/applications/vgg19_slice_model.py&quot;</span>, line 329, <span class="keyword">in</span> build</span><br><span class="line">    x = self.block4_conv1[0](x)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer.py&quot;</span>, line 561, <span class="keyword">in</span> __call__</span><br><span class="line">    base_layer_utils.create_keras_history(inputs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer_utils.py&quot;</span>, line 200, <span class="keyword">in</span> create_keras_history</span><br><span class="line">    _, created_layers = _create_keras_history_helper(tensors, <span class="built_in">set</span>(), [])</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer_utils.py&quot;</span>, line 244, <span class="keyword">in</span> _create_keras_history_helper</span><br><span class="line">    constants[i] = backend.function([], op_input)([])</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.py&quot;</span>, line 3253, <span class="keyword">in</span> __call__</span><br><span class="line">    session = get_session(inputs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.py&quot;</span>, line 462, <span class="keyword">in</span> get_session</span><br><span class="line">    _initialize_variables(session)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.py&quot;</span>, line 879, <span class="keyword">in</span> _initialize_variables</span><br><span class="line">    [variables_module.is_variable_initialized(v) <span class="keyword">for</span> v <span class="keyword">in</span> candidate_vars])</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py&quot;</span>, line 950, <span class="keyword">in</span> run</span><br><span class="line">    run_metadata_ptr)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py&quot;</span>, line 1173, <span class="keyword">in</span> _run</span><br><span class="line">    feed_dict_tensor, options, run_metadata)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py&quot;</span>, line 1350, <span class="keyword">in</span> _do_run</span><br><span class="line">    run_metadata)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py&quot;</span>, line 1370, <span class="keyword">in</span> _do_call</span><br><span class="line">    raise <span class="built_in">type</span>(e)(node_def, op, message)</span><br><span class="line">tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot assign a device <span class="keyword">for</span> operation block1_conv1/kernel/Initializer/random_uniform/RandomUniform: Could not satisfy explicit device specification <span class="string">&#x27;&#x27;</span> because the node node block1_conv1/kernel/Initializer/random_uniform/RandomUniform (defined at /root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/vgg19_slice_model.py:280) placed on device Device assignments active during op <span class="string">&#x27;block1_conv1/kernel/Initializer/random_uniform/RandomUniform&#x27;</span> creation:</span><br><span class="line">  with tf.device(None): &lt;/usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py:602&gt;</span><br><span class="line">  with tf.device(/job:worker/replica:0/task:0/device:GPU:0): &lt;/root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/vgg19_slice_model.py:275&gt;</span><br><span class="line">  with tf.device(None): &lt;/usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py:1174&gt;  was colocated with a group of nodes that required incompatible device <span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:0&#x27;</span>. All available devices [/job:localhost/replica:0/task:0/device:CPU:0, /job:localhost/replica:0/task:0/device:XLA_GPU:0, /job:localhost/replica:0/task:0/device:XLA_GPU:1, /job:localhost/replica:0/task:0/device:XLA_CPU:0, /job:localhost/replica:0/task:0/device:GPU:0, /job:localhost/replica:0/task:0/device:GPU:1]. </span><br><span class="line">Colocation Debug Info:</span><br><span class="line">Colocation group had the following types and supported devices: </span><br><span class="line">Root Member(assigned_device_name_index_=-1 requested_device_name_=<span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:0&#x27;</span> assigned_device_name_=<span class="string">&#x27;&#x27;</span> resource_device_name_=<span class="string">&#x27;/job:worker/replica:0/task:0/device:GPU:0&#x27;</span> supported_device_types_=[GPU, CPU, XLA_CPU, XLA_GPU] possible_devices_=[]</span><br><span class="line">AssignVariableOp: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">VarIsInitializedOp: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">Mul: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">Add: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">Sub: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">ReadVariableOp: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">RandomUniform: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">VarHandleOp: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line">Const: GPU CPU XLA_CPU XLA_GPU </span><br><span class="line"></span><br><span class="line">Colocation members, user-requested devices, and framework assigned devices, <span class="keyword">if</span> any:</span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/shape (Const) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/min (Const) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/max (Const) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/RandomUniform (RandomUniform) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/sub (Sub) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform/mul (Mul) </span><br><span class="line">  block1_conv1/kernel/Initializer/random_uniform (Add) </span><br><span class="line">  block1_conv1/kernel (VarHandleOp) /job:worker/replica:0/task:0/device:GPU:0</span><br><span class="line">  block1_conv1/kernel/IsInitialized/VarIsInitializedOp (VarIsInitializedOp) /job:worker/replica:0/task:0/device:GPU:0</span><br><span class="line">  block1_conv1/kernel/Assign (AssignVariableOp) /job:worker/replica:0/task:0/device:GPU:0</span><br><span class="line">  block1_conv1/kernel/Read/ReadVariableOp (ReadVariableOp) /job:worker/replica:0/task:0/device:GPU:0</span><br><span class="line">  block1_conv1/Conv2D/ReadVariableOp (ReadVariableOp) /job:worker/replica:0/task:0/device:GPU:0</span><br><span class="line">  VarIsInitializedOp_18 (VarIsInitializedOp) /job:worker/replica:0/task:1/device:GPU:0</span><br><span class="line"></span><br><span class="line">	 [[node block1_conv1/kernel/Initializer/random_uniform/RandomUniform (defined at /root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/vgg19_slice_model.py:280) ]]Additional information about colocations:No node-device colocations were active during op <span class="string">&#x27;block1_conv1/kernel/Initializer/random_uniform/RandomUniform&#x27;</span> creation.</span><br><span class="line">Device assignments active during op <span class="string">&#x27;block1_conv1/kernel/Initializer/random_uniform/RandomUniform&#x27;</span> creation:</span><br><span class="line">  with tf.device(None): &lt;/usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py:602&gt;</span><br><span class="line">  with tf.device(/job:worker/replica:0/task:0/device:GPU:0): &lt;/root/<span class="built_in">source</span>/DAPPLE/vgg19/applications/vgg19_slice_model.py:275&gt;</span><br><span class="line">  with tf.device(None): &lt;/usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py:1174&gt;</span><br><span class="line"></span><br><span class="line">Original stack trace <span class="keyword">for</span> u<span class="string">&#x27;block1_conv1/kernel/Initializer/random_uniform/RandomUniform&#x27;</span>:</span><br><span class="line">  File <span class="string">&quot;tf-keras-dapple.py&quot;</span>, line 391, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    est.train( input_fn = fn_image_preprocess , steps = FLAGS.num_batches) <span class="comment">#, hooks = hooks)</span></span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 367, <span class="keyword">in</span> train</span><br><span class="line">    loss = self._train_model(input_fn, hooks, saving_listeners)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1158, <span class="keyword">in</span> _train_model</span><br><span class="line">    <span class="built_in">return</span> self._train_model_default(input_fn, hooks, saving_listeners)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1188, <span class="keyword">in</span> _train_model_default</span><br><span class="line">    features, labels, ModeKeys.TRAIN, self.config)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow_estimator/python/estimator/estimator.py&quot;</span>, line 1146, <span class="keyword">in</span> _call_model_fn</span><br><span class="line">    model_fn_results = self._model_fn(features=features, **kwargs)</span><br><span class="line">  File <span class="string">&quot;tf-keras-dapple.py&quot;</span>, line 254, <span class="keyword">in</span> model_fn</span><br><span class="line">    total_loss, outputs = model.build(features, labels)</span><br><span class="line">  File <span class="string">&quot;/root/source/DAPPLE/vgg19/applications/vgg19_slice_model.py&quot;</span>, line 280, <span class="keyword">in</span> build</span><br><span class="line">    x = self.block1_conv1[i](img_input)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer.py&quot;</span>, line 591, <span class="keyword">in</span> __call__</span><br><span class="line">    self._maybe_build(inputs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer.py&quot;</span>, line 1881, <span class="keyword">in</span> _maybe_build</span><br><span class="line">    self.build(input_shapes)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/layers/convolutional.py&quot;</span>, line 165, <span class="keyword">in</span> build</span><br><span class="line">    dtype=self.dtype)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer.py&quot;</span>, line 384, <span class="keyword">in</span> add_weight</span><br><span class="line">    aggregation=aggregation)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/tracking/base.py&quot;</span>, line 663, <span class="keyword">in</span> _add_variable_with_custom_getter</span><br><span class="line">    **kwargs_for_getter)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer_utils.py&quot;</span>, line 155, <span class="keyword">in</span> make_variable</span><br><span class="line">    shape=variable_shape <span class="keyword">if</span> variable_shape.rank <span class="keyword">else</span> None)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py&quot;</span>, line 259, <span class="keyword">in</span> __call__</span><br><span class="line">    <span class="built_in">return</span> cls._variable_v1_call(*args, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py&quot;</span>, line 220, <span class="keyword">in</span> _variable_v1_call</span><br><span class="line">    shape=shape)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py&quot;</span>, line 198, <span class="keyword">in</span> &lt;lambda&gt;</span><br><span class="line">    previous_getter = lambda **kwargs: default_variable_creator(None, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py&quot;</span>, line 2495, <span class="keyword">in</span> default_variable_creator</span><br><span class="line">    shape=shape)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py&quot;</span>, line 263, <span class="keyword">in</span> __call__</span><br><span class="line">    <span class="built_in">return</span> super(VariableMetaclass, cls).__call__(*args, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py&quot;</span>, line 460, <span class="keyword">in</span> __init__</span><br><span class="line">    shape=shape)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py&quot;</span>, line 604, <span class="keyword">in</span> _init_from_args</span><br><span class="line">    initial_value() <span class="keyword">if</span> init_from_fn <span class="keyword">else</span> initial_value,</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/base_layer_utils.py&quot;</span>, line 135, <span class="keyword">in</span> &lt;lambda&gt;</span><br><span class="line">    init_val = lambda: initializer(shape, dtype=dtype)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/init_ops.py&quot;</span>, line 533, <span class="keyword">in</span> __call__</span><br><span class="line">    shape, -<span class="built_in">limit</span>, <span class="built_in">limit</span>, dtype, seed=self.seed)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/random_ops.py&quot;</span>, line 247, <span class="keyword">in</span> random_uniform</span><br><span class="line">    rnd = gen_random_ops.random_uniform(shape, dtype, seed=seed1, seed2=seed2)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_random_ops.py&quot;</span>, line 820, <span class="keyword">in</span> random_uniform</span><br><span class="line">    name=name)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/op_def_library.py&quot;</span>, line 788, <span class="keyword">in</span> _apply_op_helper</span><br><span class="line">    op_def=op_def)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/util/deprecation.py&quot;</span>, line 507, <span class="keyword">in</span> new_func</span><br><span class="line">    <span class="built_in">return</span> func(*args, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py&quot;</span>, line 3616, <span class="keyword">in</span> create_op</span><br><span class="line">    op_def=op_def)</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py&quot;</span>, line 2005, <span class="keyword">in</span> __init__</span><br><span class="line">    self._traceback = tf_stack.extract_stack()</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">Primary job  terminated normally, but 1 process returned</span><br><span class="line">a non-zero <span class="built_in">exit</span> code. Per user-direction, the job has been aborted.</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">mpirun detected that one or more processes exited with non-zero status, thus causing</span><br><span class="line">the job to be terminated. The first process to <span class="keyword">do</span> so was:</span><br><span class="line"></span><br><span class="line">  Process name: [[63853,1],0]</span><br><span class="line">  Exit code:    1</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e07147abcad642ab7b08',
+            clientSecret: '1dd3bd0487d829eb6297331b4f56ac4835c3bf89',
+            repo: 'zzqq2199.github.io',
+            owner: 'zzqq2199',
+            admin: ['zzqq2199'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 zzqq2199
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
