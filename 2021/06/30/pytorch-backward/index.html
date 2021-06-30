@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ssh | Togo&#39;s Blog</title>
-  <meta name="keywords" content=" cmd , ssh ">
-  <meta name="description" content="ssh | Togo&#39;s Blog">
+  <title>pytorch-backward | Togo&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="pytorch-backward | Togo&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Backward调用链写一个demo代码，调用torch.backward()1234567891011121314import torchx &#x3D; torch.Tensor([1,2,3])print(x.grad_fn)x.requires_grad&#x3D;Truey &#x3D; x**2print(&quot;y:&quot;,y)y.data&#x3D;torch.Tensor([3,2,1])print(&amp;quo">
 <meta property="og:type" content="article">
@@ -708,36 +708,19 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-ssh" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-pytorch-backward" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">ssh</h1>
+        <h1 class="article-title">pytorch-backward</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="tool">tool</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color4">cmd</a>
-            
-            <a class="color4">ssh</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-20 22:36:43'>2021-04-11 23:26</time>
+            发布时间 : <time class="date" title='最后更新: 2021-06-30 14:54:08'>2021-06-30 13:33</time>
         
     </div>
     <div class="article-meta">
@@ -770,7 +753,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Backward%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">Backward调用链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E4%B8%AAdemo%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%B0%83%E7%94%A8torch-backward"><span class="toc-text">写一个demo代码，调用torch.backward()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">调用链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86"><span class="toc-text">逻辑梳理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#grad-fn%E4%B8%AD%E5%AD%98%E4%BA%86%E5%93%AA%E4%BA%9B%E4%B8%9C%E8%A5%BF"><span class="toc-text">grad_fn中存了哪些东西</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2"><span class="toc-text">基于字符串搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E8%B0%83%E7%94%A8%E9%93%BE%E4%B8%AD%E7%94%A8%E5%88%B0grad-fn%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-text">反向调用链中用到grad_fn的地方</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -786,7 +769,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Backward调用链"><a href="#Backward调用链" class="headerlink" title="Backward调用链"></a>Backward调用链</h1><h2 id="写一个demo代码，调用torch-backward"><a href="#写一个demo代码，调用torch-backward" class="headerlink" title="写一个demo代码，调用torch.backward()"></a>写一个demo代码，调用torch.backward()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.Tensor([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">print(x.grad_fn)</span><br><span class="line">x.requires_grad=<span class="literal">True</span></span><br><span class="line">y = x**<span class="number">2</span></span><br><span class="line">print(<span class="string">&quot;y:&quot;</span>,y)</span><br><span class="line">y.data=torch.Tensor([<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">print(<span class="string">&quot;y:&quot;</span>,y)</span><br><span class="line">print(<span class="string">&quot;y.grad_fn:&quot;</span>,y.grad_fn)</span><br><span class="line">z = <span class="number">2</span>*y</span><br><span class="line">print(<span class="string">&quot;z:&quot;</span>,z)</span><br><span class="line">c = torch.<span class="built_in">sum</span>(z)</span><br><span class="line">c.backward()</span><br><span class="line">print(<span class="string">&quot;x.grad:&quot;</span>,x.grad)</span><br></pre></td></tr></table></figure>
+<h2 id="调用链"><a href="#调用链" class="headerlink" title="调用链"></a>调用链</h2><ol>
+<li><code>demo: backward()</code></li>
+<li><p><code>torch/tensor.py#79: Tensor.backward()</code></p>
+<p> torch.autograd.backward()</p>
+</li>
+<li><p><code>torch/autograd/__init__.py#38: backward()</code> </p>
+<p> Variable._execution_engine.run_backward()</p>
+</li>
+<li><p><code>torch/autograd/variable.py#14: from torch._C import _ImperativeEngine as ImperativeEngine; Variable_execution_engine=ImperativeEngine</code></p>
+<p> <code>torch/csrc/autograd/python_engine.cpp#272 THPEngine_initModule()</code></p>
+<p> <code>PyModule_AddObject(module, &quot;_ImperativeEngine&quot;, (PyObject *)&amp;THPEngineType);</code></p>
+<p> 所以Variable._execution_engine —&gt; torch._C._ImperativeEngine() —&gt; THPEngineType(), 下面找run_backward()。</p>
+<p> <code>torch/csrc/autograd/python_engine.cpp#220: &#123;(char*)&quot;run_backward&quot;, (PyCFunction)THPEngine_run_backward, METH_VARARGS | METH_KEYWORDS, nullptr&#125;,</code></p>
+<p> <code>torch/csrc/autograd/python_engine.cpp#89: PyObject *THPEngine_run_backward()</code></p>
+<p> 最终backward()调用的即是THPEngine_run_backward()</p>
+<p> L142~L161 大概是将节点的前驱的id与grad_fn纳入output_edges中（图中的前驱就是反向过程中的输出）</p>
+<p> <code>L169: outputs = engine.execute(roots, grads, keep_graph, create_graph, output_edges);</code></p>
+</li>
+<li><p><code>torch/csrc/autograd/python_engine.cpp#54: PythonEngine::execute()</code></p>
+<p> <code>Engine::execute(roots, inputs, keep_graph, create_graph, outputs);</code> 调用基类的方法。</p>
+</li>
+<li><p><code>torch/csrc/autograd/engine.cpp#561: Engine::execute()</code></p>
+<p> L583: <code>graph_task.init_to_execute()</code> 初始化一些参数，未深究</p>
+<p> L585: 向<code>ready_queues</code>中push一些东西，<code>ready_queues</code>是成员变量，后续在反向执行过程中还会用到。</p>
+<p> L599： <code>thread_main(&amp;graph_task)</code></p>
+</li>
+<li><p><code>torch/csrc/autograd/engine.cpp#267: Engine::thread_main()</code></p>
+<p> L276: <code>evaluate_function(task)</code></p>
+</li>
+<li><p><code>torch/csrc/autograd/engine.cpp#436: Engine::evaluate_function()</code></p>
+<p> L450: <code>auto outputs = call_function(task);</code></p>
+<p> 在后半部分，还会往queue里塞数据，应该就是类似深搜/广搜方法。</p>
+</li>
+<li><p><code>torch/csrc/autograd/engine.cpp#390: call_function()</code></p>
+<p> L394: <code>call_pre_hooks()</code> 一定存在，且被调用</p>
+<p> L417, L419: <code>fn()</code> 一定存在，且被调用</p>
+<p> L431: <code>call_post_hooks()</code> 不一定存在，若存在则调用</p>
+<p> <code>&amp;fn</code>的类型定义在<code>torch/csrc/autograd/engine.cpp#53</code>，是指向<code>Function</code>类型的指针。fn()的调用是重载了<code>Function</code>的<code>()</code>，位于<code>torch/csrc/autograd/function.h#114</code>中，会调用<code>apply()</code></p>
+</li>
+<li><p><code>torch/include/torch/csrc/autograd/functions/basic_ops.h#57: apply()</code></p>
+<p>这里是基类的apply()方法，用override标明一定要重写。所以得看派生类的apply()。</p>
+<p><code>torch/csrc/autograd/generated/Functions.cpp</code>中有很多apply，截图如下：</p>
+<p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png" alt=""></p>
+</li>
+</ol>
+<h2 id="逻辑梳理"><a href="#逻辑梳理" class="headerlink" title="逻辑梳理"></a>逻辑梳理</h2><p>TODO</p>
+<h1 id="grad-fn中存了哪些东西"><a href="#grad-fn中存了哪些东西" class="headerlink" title="grad_fn中存了哪些东西"></a>grad_fn中存了哪些东西</h1><p>grad_fn的记录应该是从前向的时候便开始记录，但是这部分不像backward部分，那么好找。目前通过两部分同步寻找线索：</p>
+<ol>
+<li>基于字符串搜索</li>
+<li>反向调用链中调用到grad_fn的地方</li>
+</ol>
+<h2 id="基于字符串搜索"><a href="#基于字符串搜索" class="headerlink" title="基于字符串搜索"></a>基于字符串搜索</h2><p>在<code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#1454</code>中，找到了grad_fn的行为，会记录<code>input_</code>, <code>weight</code>等数据，并且会通过<code>SavedVariable</code>将需要的tensor记录下来（指针/深拷贝？）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png" alt=""></p>
+<h2 id="反向调用链中用到grad-fn的地方"><a href="#反向调用链中用到grad-fn的地方" class="headerlink" title="反向调用链中用到grad_fn的地方"></a>反向调用链中用到grad_fn的地方</h2><p>在上文提到的第四步中，即<code>torch/csrc/autograd/python_engine.cpp#142</code>部分，将<code>grad_fn</code>信息push到<code>output_edges</code>中，最后传给<code>engine.execute</code>执行。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png" alt=""></p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
     </div>
