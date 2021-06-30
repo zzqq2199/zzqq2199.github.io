@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png">
 <meta property="article:published_time" content="2021-06-30T05:33:20.000Z">
-<meta property="article:modified_time" content="2021-06-30T07:14:22.163Z">
+<meta property="article:modified_time" content="2021-06-30T07:23:43.950Z">
 <meta property="article:author" content="Togo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png">
@@ -720,7 +720,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-06-30 15:14:22'>2021-06-30 13:33</time>
+            发布时间 : <time class="date" title='最后更新: 2021-06-30 15:23:43'>2021-06-30 13:33</time>
         
     </div>
     <div class="article-meta">
@@ -821,7 +821,7 @@
 <li>基于字符串搜索</li>
 <li>反向调用链中调用到grad_fn的地方</li>
 </ol>
-<h2 id="基于字符串搜索"><a href="#基于字符串搜索" class="headerlink" title="基于字符串搜索"></a>基于字符串搜索</h2><p>在<code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#1454</code>中，找到了grad_fn的行为，会记录<code>input_</code>, <code>weight</code>等数据，并且会通过<code>SavedVariable</code>将需要的tensor记录下来（指针/深拷贝？）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png" alt=""></p>
+<h2 id="基于字符串搜索"><a href="#基于字符串搜索" class="headerlink" title="基于字符串搜索"></a>基于字符串搜索</h2><p>在<code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#1454</code>中，找到了grad_fn的行为，会记录<code>input_</code>, <code>weight</code>等数据，并且会通过<code>SavedVariable</code>将需要的tensor记录下来（指针/深拷贝？根据demo中的例子，推测应该是深拷贝）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png" alt=""></p>
 <h2 id="反向调用链中用到grad-fn的地方"><a href="#反向调用链中用到grad-fn的地方" class="headerlink" title="反向调用链中用到grad_fn的地方"></a>反向调用链中用到grad_fn的地方</h2><p>在上文提到的第四步中，即<code>torch/csrc/autograd/python_engine.cpp#142</code>部分，将<code>grad_fn</code>信息push到<code>output_edges</code>中，最后传给<code>engine.execute</code>执行。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png" alt=""></p>
 <p><code>torch/csrc/autograd/python_engine.cpp#161: output_edges.emplace_back(grad_fn, output_nr)</code> output_edges的类型是<code>std::vector&lt;Edge&gt;</code>， 所以相当于output_edges中push了一个<code>Edge(grad_fn, output_nr)</code>。</p>
 <p><code>torch/csrc/autograd/edge.h#17: Edge()</code>，grad_fn赋值给了Edge.function, 是一个Function类型的指针。</p>
