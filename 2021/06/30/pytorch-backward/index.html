@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png">
 <meta property="article:published_time" content="2021-06-30T05:33:20.000Z">
-<meta property="article:modified_time" content="2021-06-30T07:23:43.950Z">
+<meta property="article:modified_time" content="2021-07-01T07:11:52.270Z">
 <meta property="article:author" content="Togo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png">
@@ -720,7 +720,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-06-30 15:23:43'>2021-06-30 13:33</time>
+            发布时间 : <time class="date" title='最后更新: 2021-07-01 15:11:52'>2021-06-30 13:33</time>
         
     </div>
     <div class="article-meta">
@@ -772,46 +772,46 @@
         <h1 id="Backward调用链"><a href="#Backward调用链" class="headerlink" title="Backward调用链"></a>Backward调用链</h1><h2 id="写一个demo代码，调用torch-backward"><a href="#写一个demo代码，调用torch-backward" class="headerlink" title="写一个demo代码，调用torch.backward()"></a>写一个demo代码，调用torch.backward()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">x = torch.Tensor([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">print(x.grad_fn)</span><br><span class="line">x.requires_grad=<span class="literal">True</span></span><br><span class="line">y = x**<span class="number">2</span></span><br><span class="line">print(<span class="string">&quot;y:&quot;</span>,y)</span><br><span class="line">y.data=torch.Tensor([<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">print(<span class="string">&quot;y:&quot;</span>,y)</span><br><span class="line">print(<span class="string">&quot;y.grad_fn:&quot;</span>,y.grad_fn)</span><br><span class="line">z = <span class="number">2</span>*y</span><br><span class="line">print(<span class="string">&quot;z:&quot;</span>,z)</span><br><span class="line">c = torch.<span class="built_in">sum</span>(z)</span><br><span class="line">c.backward()</span><br><span class="line">print(<span class="string">&quot;x.grad:&quot;</span>,x.grad)</span><br></pre></td></tr></table></figure>
 <h2 id="调用链"><a href="#调用链" class="headerlink" title="调用链"></a>调用链</h2><ol>
 <li><code>demo: backward()</code></li>
-<li><p><code>torch/tensor.py#79: Tensor.backward()</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/tensor.py#L79"><code>torch/tensor.py#79: Tensor.backward()</code></a></p>
 <p> torch.autograd.backward()</p>
 </li>
-<li><p><code>torch/autograd/__init__.py#38: backward()</code> </p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/autograd/__init__.py#L38"><code>torch/autograd/__init__.py#38: backward()</code></a></p>
 <p> Variable._execution_engine.run_backward()</p>
 </li>
-<li><p><code>torch/autograd/variable.py#14: from torch._C import _ImperativeEngine as ImperativeEngine; Variable_execution_engine=ImperativeEngine</code></p>
-<p> <code>torch/csrc/autograd/python_engine.cpp#272 THPEngine_initModule()</code></p>
-<p> <code>PyModule_AddObject(module, &quot;_ImperativeEngine&quot;, (PyObject *)&amp;THPEngineType);</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/autograd/variable.py#L14"><code>torch/autograd/variable.py#14: from torch._C import _ImperativeEngine as ImperativeEngine; Variable_execution_engine=ImperativeEngine</code></a></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L272"><code>torch/csrc/autograd/python_engine.cpp#272 THPEngine_initModule()</code></a></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L282"><code>PyModule_AddObject(module, &quot;_ImperativeEngine&quot;, (PyObject *)&amp;THPEngineType);</code></a></p>
 <p> 所以Variable._execution_engine —&gt; torch._C._ImperativeEngine() —&gt; THPEngineType(), 下面找run_backward()。</p>
-<p> <code>torch/csrc/autograd/python_engine.cpp#220: &#123;(char*)&quot;run_backward&quot;, (PyCFunction)THPEngine_run_backward, METH_VARARGS | METH_KEYWORDS, nullptr&#125;,</code></p>
-<p> <code>torch/csrc/autograd/python_engine.cpp#89: PyObject *THPEngine_run_backward()</code></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L220"><code>torch/csrc/autograd/python_engine.cpp#220: &#123;(char*)&quot;run_backward&quot;, (PyCFunction)THPEngine_run_backward, METH_VARARGS | METH_KEYWORDS, nullptr&#125;,</code></a></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L89"><code>torch/csrc/autograd/python_engine.cpp#89: PyObject *THPEngine_run_backward()</code></a></p>
 <p> 最终backward()调用的即是THPEngine_run_backward()</p>
 <p> L142~L161 大概是将节点的前驱的id与grad_fn纳入output_edges中（图中的前驱就是反向过程中的输出）</p>
-<p> <code>L169: outputs = engine.execute(roots, grads, keep_graph, create_graph, output_edges);</code></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L169"><code>L169: outputs = engine.execute(roots, grads, keep_graph, create_graph, output_edges);</code></a></p>
 </li>
-<li><p><code>torch/csrc/autograd/python_engine.cpp#54: PythonEngine::execute()</code></p>
-<p> <code>Engine::execute(roots, inputs, keep_graph, create_graph, outputs);</code> 调用基类的方法。</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L54"><code>torch/csrc/autograd/python_engine.cpp#54: PythonEngine::execute()</code></a></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L61"><code>Engine::execute(roots, inputs, keep_graph, create_graph, outputs);</code></a> 调用基类的方法。</p>
 </li>
-<li><p><code>torch/csrc/autograd/engine.cpp#561: Engine::execute()</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L561"><code>torch/csrc/autograd/engine.cpp#561: Engine::execute()</code></a></p>
 <p> L583: <code>graph_task.init_to_execute()</code> 初始化一些参数，未深究</p>
 <p> L585: 向<code>ready_queues</code>中push一些东西，<code>ready_queues</code>是成员变量，后续在反向执行过程中还会用到。</p>
 <p> L599： <code>thread_main(&amp;graph_task)</code></p>
 </li>
-<li><p><code>torch/csrc/autograd/engine.cpp#267: Engine::thread_main()</code></p>
-<p> L276: <code>evaluate_function(task)</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L267"><code>torch/csrc/autograd/engine.cpp#267: Engine::thread_main()</code></a></p>
+<p> L276: <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L276"><code>evaluate_function(task)</code></a></p>
 </li>
-<li><p><code>torch/csrc/autograd/engine.cpp#436: Engine::evaluate_function()</code></p>
-<p> L450: <code>auto outputs = call_function(task);</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L436"><code>torch/csrc/autograd/engine.cpp#436: Engine::evaluate_function()</code></a></p>
+<p> L450: <a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L450"><code>auto outputs = call_function(task);</code></a></p>
 <p> 在后半部分，还会往queue里塞数据，应该就是类似深搜/广搜方法。</p>
 </li>
-<li><p><code>torch/csrc/autograd/engine.cpp#390: call_function()</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L390"><code>torch/csrc/autograd/engine.cpp#390: call_function()</code></a></p>
 <p> L394: <code>call_pre_hooks()</code> 一定存在，且被调用</p>
 <p> L417, L419: <code>fn()</code> 一定存在，且被调用</p>
 <p> L431: <code>call_post_hooks()</code> 不一定存在，若存在则调用</p>
-<p> <code>&amp;fn</code>的类型定义在<code>torch/csrc/autograd/engine.cpp#53</code>，是指向<code>Function</code>类型的指针。fn()的调用是重载了<code>Function</code>的<code>()</code>，位于<code>torch/csrc/autograd/function.h#114</code>中，会调用<code>apply()</code></p>
+<p> <code>&amp;fn</code>的类型定义在<a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L53"><code>torch/csrc/autograd/engine.cpp#53</code></a>，是指向<code>Function</code>类型的指针。fn()的调用是重载了<code>Function</code>的<code>()</code>，位于<a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/function.h#L114"><code>torch/csrc/autograd/function.h#114</code></a>中，会调用<code>apply()</code></p>
 </li>
-<li><p><code>torch/include/torch/csrc/autograd/functions/basic_ops.h#57: apply()</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/functions/basic_ops.h#L57"><code>torch/include/torch/csrc/autograd/functions/basic_ops.h#57: apply()</code></a></p>
 <p>这里是基类的apply()方法，用override标明一定要重写。所以得看派生类的apply()。</p>
-<p><code>torch/csrc/autograd/generated/Functions.cpp</code>中有很多apply，截图如下：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward_add_generated/torch/csrc/autograd/generated/Functions.cpp#L4262"><code>torch/csrc/autograd/generated/Functions.cpp</code></a>中有很多apply，截图如下：</p>
 <p><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png" alt=""></p>
 </li>
 </ol>
@@ -821,11 +821,11 @@
 <li>基于字符串搜索</li>
 <li>反向调用链中调用到grad_fn的地方</li>
 </ol>
-<h2 id="基于字符串搜索"><a href="#基于字符串搜索" class="headerlink" title="基于字符串搜索"></a>基于字符串搜索</h2><p>在<code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#1454</code>中，找到了grad_fn的行为，会记录<code>input_</code>, <code>weight</code>等数据，并且会通过<code>SavedVariable</code>将需要的tensor记录下来（指针/深拷贝？根据demo中的例子，推测应该是深拷贝）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png" alt=""></p>
-<h2 id="反向调用链中用到grad-fn的地方"><a href="#反向调用链中用到grad-fn的地方" class="headerlink" title="反向调用链中用到grad_fn的地方"></a>反向调用链中用到grad_fn的地方</h2><p>在上文提到的第四步中，即<code>torch/csrc/autograd/python_engine.cpp#142</code>部分，将<code>grad_fn</code>信息push到<code>output_edges</code>中，最后传给<code>engine.execute</code>执行。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png" alt=""></p>
-<p><code>torch/csrc/autograd/python_engine.cpp#161: output_edges.emplace_back(grad_fn, output_nr)</code> output_edges的类型是<code>std::vector&lt;Edge&gt;</code>， 所以相当于output_edges中push了一个<code>Edge(grad_fn, output_nr)</code>。</p>
-<p><code>torch/csrc/autograd/edge.h#17: Edge()</code>，grad_fn赋值给了Edge.function, 是一个Function类型的指针。</p>
-<p><code>torch/csrc/autograd/engine.cpp#417: fn()</code>, 取function，并且调用了<code>apply()</code></p>
+<h2 id="基于字符串搜索"><a href="#基于字符串搜索" class="headerlink" title="基于字符串搜索"></a>基于字符串搜索</h2><p>在<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pipedream_pytorch/view_backward_add_generated/torch/csrc/autograd/generated/VariableTypeEverything.cpp"><code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#1454</code></a>中，找到了grad_fn的行为，会记录<code>input_</code>, <code>weight</code>等数据，并且会通过<code>SavedVariable</code>将需要的tensor记录下来（指针/深拷贝？根据demo中的例子，推测应该是深拷贝）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png" alt=""></p>
+<h2 id="反向调用链中用到grad-fn的地方"><a href="#反向调用链中用到grad-fn的地方" class="headerlink" title="反向调用链中用到grad_fn的地方"></a>反向调用链中用到grad_fn的地方</h2><p>在上文提到的第四步中，即<a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L142"><code>torch/csrc/autograd/python_engine.cpp#142</code></a>部分，将<code>grad_fn</code>信息push到<code>output_edges</code>中，最后传给<code>engine.execute</code>执行。<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/python_engine.cpp#L161"><code>torch/csrc/autograd/python_engine.cpp#161: output_edges.emplace_back(grad_fn, output_nr)</code></a> output_edges的类型是<code>std::vector&lt;Edge&gt;</code>， 所以相当于output_edges中push了一个<code>Edge(grad_fn, output_nr)</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/edge.h#L17"><code>torch/csrc/autograd/edge.h#17: Edge()</code></a>，grad_fn赋值给了Edge.function, 是一个Function类型的指针。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zzqq2199/pipedream_pytorch/blob/view_backward/torch/csrc/autograd/engine.cpp#L417"><code>torch/csrc/autograd/engine.cpp#417: fn()</code></a>, 取function，并且调用了<code>apply()</code></p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>以<code>Power</code>为例，假设说有<code>y=x**2</code>在前向中：<br><code>torch/csrc/autograd/generated/VariableTypeEverything.cpp#65753</code>中，记录了pow求导需要的<code>self=x</code>(L65760), <code>exponent=2</code>(L65761)。</p>
 <p>其中保存数据用的<code>SavedVariable()</code>位于<code>torch/csrc/autograd/saved_variable.cpp#15</code>中。与反向中解压对应。</p>
 <p>在反向中，<br><code>torch/csrc/autograd/generated/Functions.cpp#4267</code>,对<code>self_</code>解压，获得了之前保存的<code>self</code>数据，随后通过L4269的<code>pow_backward()</code>做反向。</p>
