@@ -16,8 +16,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144929.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630145211.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210714160648.png">
 <meta property="article:published_time" content="2021-06-30T05:33:20.000Z">
-<meta property="article:modified_time" content="2021-07-01T07:11:52.270Z">
+<meta property="article:modified_time" content="2021-07-20T06:53:21.820Z">
 <meta property="article:author" content="Togo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210630144252.png">
@@ -720,7 +721,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-07-01 15:11:52'>2021-06-30 13:33</time>
+            发布时间 : <time class="date" title='最后更新: 2021-07-20 14:53:21'>2021-06-30 13:33</time>
         
     </div>
     <div class="article-meta">
@@ -753,7 +754,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Backward%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">Backward调用链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E4%B8%AAdemo%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%B0%83%E7%94%A8torch-backward"><span class="toc-text">写一个demo代码，调用torch.backward()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">调用链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86"><span class="toc-text">逻辑梳理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#grad-fn%E4%B8%AD%E5%AD%98%E4%BA%86%E5%93%AA%E4%BA%9B%E4%B8%9C%E8%A5%BF"><span class="toc-text">grad_fn中存了哪些东西</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2"><span class="toc-text">基于字符串搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E8%B0%83%E7%94%A8%E9%93%BE%E4%B8%AD%E7%94%A8%E5%88%B0grad-fn%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-text">反向调用链中用到grad_fn的地方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Backward%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">Backward调用链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E4%B8%AAdemo%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%B0%83%E7%94%A8torch-backward"><span class="toc-text">写一个demo代码，调用torch.backward()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%93%BE"><span class="toc-text">调用链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%A2%B3%E7%90%86"><span class="toc-text">逻辑梳理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#grad-fn%E4%B8%AD%E5%AD%98%E4%BA%86%E5%93%AA%E4%BA%9B%E4%B8%9C%E8%A5%BF"><span class="toc-text">grad_fn中存了哪些东西</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%90%9C%E7%B4%A2"><span class="toc-text">基于字符串搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E8%B0%83%E7%94%A8%E9%93%BE%E4%B8%AD%E7%94%A8%E5%88%B0grad-fn%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-text">反向调用链中用到grad_fn的地方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-text">准备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#c10-intrusive-ptr"><span class="toc-text">c10::intrusive_ptr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#at-Tensor%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%88%E6%89%BE%E5%88%B0%E6%8C%87%E9%92%88%EF%BC%8C%E4%B8%8E%E5%AF%B9%E5%BA%94%E5%A4%A7%E5%B0%8F%EF%BC%89"><span class="toc-text">at::Tensor中的数据存在哪里（找到指针，与对应大小）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1"><span class="toc-text">任务</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -830,6 +831,53 @@
 <p>其中保存数据用的<code>SavedVariable()</code>位于<code>torch/csrc/autograd/saved_variable.cpp#15</code>中。与反向中解压对应。</p>
 <p>在反向中，<br><code>torch/csrc/autograd/generated/Functions.cpp#4267</code>,对<code>self_</code>解压，获得了之前保存的<code>self</code>数据，随后通过L4269的<code>pow_backward()</code>做反向。</p>
 <p>其中解压数据用的<code>unpack()</code>位于<code>torch/csrc/autograd/saved_variable.cpp#34</code>中，与前向中压缩对应。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="c10-intrusive-ptr"><a href="#c10-intrusive-ptr" class="headerlink" title="c10::intrusive_ptr"></a>c10::intrusive_ptr</h2><p><a target="_blank" rel="noopener" href="https://caffe2.ai/doxygen-c/html/classc10_1_1intrusive__ptr.html">官方API介绍页面</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/21c74798062b">Caffe2核心代码解析系列之三：Tensor</a>,里面有提到Tensor中存放的实际地址（storage）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Xixo0628/article/details/112603174">intrusive_ptr源码解析</a></p>
+<p>就是一个包装后的更高级的指针，可以处理一般指针与弱指针两种类型。</p>
+<h2 id="at-Tensor中的数据存在哪里（找到指针，与对应大小）"><a href="#at-Tensor中的数据存在哪里（找到指针，与对应大小）" class="headerlink" title="at::Tensor中的数据存在哪里（找到指针，与对应大小）"></a>at::Tensor中的数据存在哪里（找到指针，与对应大小）</h2><p>在StorageImpl.h(c10/core/StorageImpl.h)中，分别有几个成员变量：</p>
+<ul>
+<li>data_type_</li>
+<li>data_ptr_</li>
+<li>numel_</li>
+<li>received_cuda_</li>
+</ul>
+<h1 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h1><ol>
+<li><p>数据存放位置，并且如何操纵之</p>
+<ul>
+<li><del>打印StorageImpl.h中的各个成员变量（检查是否在GPU）</del></li>
+<li><p><del>尝试将数据移动到CPU</del></p>
+<ul>
+<li><p>如何释放GPU上的内存？</p>
+<ul>
+<li>有其他指针也指向这个地址。</li>
+<li>如何获知哪些ptr指向同一个内存</li>
+<li><p>对别人的ptr做修改（private类型，尽量不要破坏属性）<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/20210714160648.png" alt=""></p>
+</li>
+<li><p>从这段代码中可以得出结论：grad_fn存放的tensor只有一个引用（来自grad_fn自身）。那么如果想释放tensor，则修改一下grad_fn，让grad_fn这里直接释放即可。</p>
+</li>
+</ul>
+</li>
+<li>查看tensor初始化时候的GPU内存申请过程，再找一个释放过程。<ul>
+<li>从<code>torch/csrc/autograd/generated/VariableType_2.cpp#L12533</code>中的pow()进去，跟踪不到具体实现代码。</li>
+</ul>
+</li>
+<li>先实现将GPU上的内存拷贝一份到CPU上<ul>
+<li>通过遍历， <code>buff_CPU[address] = xxx</code></li>
+<li>Q: 在cpp代码里面无法直接调用cudaMemcpy。得看能否通过想baseType-&gt;pow()这样子调用cuda函数。  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过.to()可以达到目的。</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>Tensor (GPU)<br> //backup<br> tensor_in_cpu = Tensor.to(CPU)<br> set_data(tensor_in_cpu)  //check whether GPU memory is released</p>
+<p> //restore<br> set_data(tensor_in_cpu.to(GPU))</p>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
