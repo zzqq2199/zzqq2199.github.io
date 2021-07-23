@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PipeDream源码理解 | Togo&#39;s Blog</title>
+  <title>GPipe startup | Togo&#39;s Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="PipeDream源码理解 | Togo&#39;s Blog">
+  <meta name="description" content="GPipe startup | Togo&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Open-Source Repository repository: torchgpipe paper: GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism  Software versions requirementstravis.yml Startupdocker(pytorch) dock">
 <meta property="og:type" content="article">
@@ -712,9 +712,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-pipedream-read" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-GPipe-startup" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">PipeDream源码理解</h1>
+        <h1 class="article-title">GPipe startup</h1>
     
     <div class="article-meta">
         
@@ -724,7 +724,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-06-21 16:37:08'>2021-06-16 16:48</time>
+            发布时间 : <time class="date" title='最后更新: 2021-07-23 14:54:54'>2021-07-22 14:15</time>
         
     </div>
     <div class="article-meta">
@@ -757,7 +757,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-image-classification-main-with-runtime-py"><span class="toc-text">runtime&#x2F;image_classification&#x2F;main_with_runtime.py</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%97%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-text">接受的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E8%AF%BB"><span class="toc-text">解读</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-image-classification-models-vgg16-gpus-4-straight-mp-conf-json"><span class="toc-text">runtime&#x2F;image_classification&#x2F;models&#x2F;vgg16&#x2F;gpus&#x3D;4_straight&#x2F;mp_conf.json</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-optimizer-py"><span class="toc-text">runtime&#x2F;optimizer.py</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC%EF%BC%9A"><span class="toc-text">一些参数的值：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-runtime-py"><span class="toc-text">runtime&#x2F;runtime.py</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#StageRuntime-initialize"><span class="toc-text">StageRuntime::initialize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StageRuntime-train"><span class="toc-text">StageRuntime::train</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StageRuntime-run-forward"><span class="toc-text">StageRuntime::run_forward</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StageRuntime-receive-tensors-forward"><span class="toc-text">StageRuntime::receive_tensors_forward</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-communication-py"><span class="toc-text">runtime&#x2F;communication.py</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%97%E7%9A%84%E5%8F%82%E6%95%B0-1"><span class="toc-text">接受的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#init"><span class="toc-text">__init__</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#initialize"><span class="toc-text">initialize</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-queues"><span class="toc-text">setup_queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-messaging-schedule"><span class="toc-text">setup_messaging_schedule</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create-process-groups"><span class="toc-text">create_process_groups</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#start-helper-threads"><span class="toc-text">start_helper_threads</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#start-helper-thread"><span class="toc-text">start_helper_thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#send-helper-thread-args"><span class="toc-text">send_helper_thread_args</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#send-helper-thread"><span class="toc-text">send_helper_thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#send"><span class="toc-text">_send</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recv"><span class="toc-text">_recv</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Open-Source-Repository"><span class="toc-text">Open-Source Repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Software-versions-requirements"><span class="toc-text">Software versions requirements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Startup"><span class="toc-text">Startup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-pytorch"><span class="toc-text">docker(pytorch)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-docker-gpipe"><span class="toc-text">in docker(gpipe)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#run-code"><span class="toc-text">run code</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Results"><span class="toc-text">Results</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ResNet101"><span class="toc-text">ResNet101</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -773,292 +773,72 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以运行VGG模型为例，启动脚本代码为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python main_with_runtime.py --module models.vgg16.gpus=4_straight --recompute -b 32 --data_dir /data/DNN_Dataset/imagenet/full/pytorch-imagenet-data --rank 0 --local_rank 0 --master_addr localhost --config_path models/vgg16/gpus=4_straight/mp_conf.json --distributed_backend gloo 2&gt;&amp;1 &gt;&gt; vgg.log &amp;</span><br><span class="line">python main_with_runtime.py --module models.vgg16.gpus=4_straight --recompute -b 32 --data_dir /data/DNN_Dataset/imagenet/full/pytorch-imagenet-data --rank 1 --local_rank 1 --master_addr localhost --config_path models/vgg16/gpus=4_straight/mp_conf.json --distributed_backend gloo 2&gt;&amp;1 &gt;&gt; vgg.log &amp;</span><br><span class="line">python main_with_runtime.py --module models.vgg16.gpus=4_straight --recompute -b 32 --data_dir /data/DNN_Dataset/imagenet/full/pytorch-imagenet-data --rank 2 --local_rank 2 --master_addr localhost --config_path models/vgg16/gpus=4_straight/mp_conf.json --distributed_backend gloo 2&gt;&amp;1 &gt;&gt; vgg.log &amp;</span><br><span class="line">python main_with_runtime.py --module models.vgg16.gpus=4_straight --recompute -b 32 --data_dir /data/DNN_Dataset/imagenet/full/pytorch-imagenet-data --rank 3 --local_rank 3 --master_addr localhost --config_path models/vgg16/gpus=4_straight/mp_conf.json --distributed_backend gloo 2&gt;&amp;1 &gt;&gt; vgg.log &amp;</span><br></pre></td></tr></table></figure></p>
-<h1 id="runtime-image-classification-main-with-runtime-py"><a href="#runtime-image-classification-main-with-runtime-py" class="headerlink" title="runtime/image_classification/main_with_runtime.py"></a>runtime/image_classification/main_with_runtime.py</h1><h2 id="接受的参数"><a href="#接受的参数" class="headerlink" title="接受的参数"></a>接受的参数</h2><ol>
-<li>module=models.vgg16.gpus=4</li>
-<li>recompute: 重计算</li>
-<li>b=32: batchsize</li>
-<li>master_addr=localhost: master节点的地址(多机设置待研究)</li>
-<li>data_dir=xxx: 数据集路径</li>
-<li>config_path=models/vgg16/gpus=4_straight/mp_conf.json：pipeline的构成</li>
-<li>rank=x: </li>
-<li>local_rank=x: （与全局rank的区别待研究）</li>
-<li>distributed_backend=gloo/nccl: DP模式下使用nccl，否则使用gloo。</li>
-</ol>
-<h2 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h2><ol>
-<li>解析参数：在训练前插入参数输出，参见<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/args.log">这里</a></li>
-<li>class SyntheticDataset(Line 107~117): 用于inceptionv3的虚拟数据集</li>
-<li>import module(Line 129~131): 相当于导入了<code>models/vgg16/gpus=4_straight/__init__.py</code>，并且得到了一个有5个module的model。</li>
-<li>dtypes(Line 139): 为何input0与target对应的是int64，input0的dtype似乎与line145行的指定dtype=torch.float32有矛盾。</li>
-<li>生成每个stage对应的输入输出tensor大小(Line 133~155): 先指定input0的size，然后根据<code>runtime/image_classification/models/vgg16/gpus=4_straight/__init__.py:15~19</code>可以依次生成out0, out1, out2, out3对应的大小。</li>
-<li>runtime.StageRuntime(Line 177~191)：生成运行时信息，包括当前进程对应的stage, num_stages, num_ranks等等。对应变量的值已经打印出来，参考<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/vgg.log">这里</a></li>
-<li><p>define optimizer(Line 202~232): <code>num_versions</code>表示optimizer需要保存的参数的版本数量，在gpus=4_straight组别中，实际输出：</p>
-<p> | rank | num_versions |<br> | —— | —————— |<br> | 0    | 4            |<br> | 1    | 3            |<br> | 2    | 2            |<br> | 3    | 1            |</p>
-</li>
-<li>Load data(Line 236~298)</li>
-<li>进入train() (Line 313)</li>
-<li>train::switch to train mode(Line 339 345): 需要设置r的一些变量。(TODO)</li>
-<li><p>train::warmup (Line 359~361): </p>
-<p>| rank | num_warmup_minibatches |<br>| —— | ——————————— |<br>| 0    | 3                      |<br>| 1    | 2                      |<br>| 2    | 1                      |<br>| 3    | 0                      |</p>
-<p>对应的是如下红框阶段：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210617153344.png" alt=""></p>
-</li>
-<li>train::static (Line 363~413): forward — backward — forward — backward …</li>
-<li>train::end (Line 415~421): 若干个backward</li>
-</ol>
-<h1 id="runtime-image-classification-models-vgg16-gpus-4-straight-mp-conf-json"><a href="#runtime-image-classification-models-vgg16-gpus-4-straight-mp-conf-json" class="headerlink" title="runtime/image_classification/models/vgg16/gpus=4_straight/mp_conf.json"></a>runtime/image_classification/models/vgg16/gpus=4_straight/mp_conf.json</h1><p>原文内容如下：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;module_to_stage_map&quot;</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">    <span class="attr">&quot;stage_to_rank_map&quot;</span>: &#123;<span class="attr">&quot;0&quot;</span>: [<span class="number">0</span>], <span class="attr">&quot;1&quot;</span>: [<span class="number">1</span>], <span class="attr">&quot;2&quot;</span>: [<span class="number">2</span>], <span class="attr">&quot;3&quot;</span>: [<span class="number">3</span>]&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li><p>什么是module？</p>
-<p> 参见<code>runtime/image_classification/models/vgg16/gpus=4_straight/__init__.py</code>中的<code>model</code>函数，里面返回了一个list，包含5个items，分别是：Stage0, Stage1, Stage2, Stage3, criterion(用于计算loss)。以上就是5个modules，把vgg模型划分成了5个部分。</p>
-<p> 根据<code>module_to_stage_map</code>，有映射关系：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module --&gt; stage --&gt; rank</span><br><span class="line">---------------------------</span><br><span class="line">Stage0 --&gt; stage0 --&gt; rank0</span><br><span class="line">Stage1 --&gt; stage1 --&gt; rank1</span><br><span class="line">Stage2 --&gt; stage2 --&gt; rank2</span><br><span class="line">Stage3, criterion --&gt; stage3 --&gt; rank3</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="runtime-optimizer-py"><a href="#runtime-optimizer-py" class="headerlink" title="runtime/optimizer.py"></a>runtime/optimizer.py</h1><p>由<code>main_with_runtime.py:222~229</code>中引用，原文如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">optimizer = sgd.SGDWithWeightStashing(r.modules(), r.master_parameters,</span><br><span class="line">                                      r.model_parameters, args.loss_scale,</span><br><span class="line">                                      num_versions=num_versions,</span><br><span class="line">                                      lr=args.lr,</span><br><span class="line">                                      momentum=args.momentum,</span><br><span class="line">                                      weight_decay=args.weight_decay,</span><br><span class="line">                                      verbose_freq=args.verbose_frequency,</span><br><span class="line">                                      macrobatch=args.macrobatch)</span><br></pre></td></tr></table></figure></p>
-<p>SGDWithWeightStashing继承自<code>optimizer.py</code>中的OptimizerWithWeightStashing(插入了一个optim_name)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SGDWithWeightStashing</span>(<span class="params">OptimizerWithWeightStashing</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    SGD optimizer with weight stashing.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, modules, master_parameters, model_parameters,</span></span></span><br><span class="line"><span class="function"><span class="params">                 loss_scale, num_versions, lr=required, momentum=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 dampening=<span class="number">0</span>, weight_decay=<span class="number">0</span>, nesterov=<span class="literal">False</span>, verbose_freq=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 macrobatch=<span class="literal">False</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>(SGDWithWeightStashing, self).__init__(</span><br><span class="line">            optim_name=<span class="string">&#x27;SGD&#x27;</span>,</span><br><span class="line">            modules=modules, master_parameters=master_parameters,</span><br><span class="line">            model_parameters=model_parameters, loss_scale=loss_scale,</span><br><span class="line">            num_versions=num_versions, lr=lr, momentum=momentum,</span><br><span class="line">            dampening=dampening, weight_decay=weight_decay,</span><br><span class="line">            nesterov=nesterov, verbose_freq=verbose_freq,</span><br><span class="line">            macrobatch=macrobatch,</span><br><span class="line">        )</span><br></pre></td></tr></table></figure></p>
-<h2 id="一些参数的值："><a href="#一些参数的值：" class="headerlink" title="一些参数的值："></a>一些参数的值：</h2><p>全部打印在<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/optimizer.log">这里</a></p>
-<ol>
-<li>macrobatch=false. 若为真，则最多只存储2个版本的参数。</li>
-<li>queue中存放num_versions个(params, version)对。queue[0]中存放最旧的参数版本，queue[-1]中存放最新的参数版本。</li>
-</ol>
-<h1 id="runtime-runtime-py"><a href="#runtime-runtime-py" class="headerlink" title="runtime/runtime.py"></a><code>runtime/runtime.py</code></h1><p>全部打印在<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/vgg.log">这里</a></p>
-<h2 id="StageRuntime-initialize"><a href="#StageRuntime-initialize" class="headerlink" title="StageRuntime::initialize"></a><code>StageRuntime::initialize</code></h2><p>接受的参数：</p>
-<ol>
-<li>model: <code>runtime/image_classification/models/vgg16/gpus=4_straight/__init__.py</code>中的model()</li>
-<li>inputs_module_destinations: {“input”:0}</li>
-<li>configuration_maps: <code>runtime/image_classification/models/vgg16/gpus=4_straight/mp_conf.json</code>中的内容</li>
-<li>master_addr, rank, local_rank: 根据args确定</li>
-<li>num_ranks_in_server: 1</li>
-<li>self.target_tensor_names={“target”}</li>
-<li><font color="red">`enable_compute`: 除了0是False，其他均为True。 </font>
-
-</li>
-</ol>
-<p>处理过程：</p>
-<ol>
-<li>初始化(Line 83~91): 其中<code>criterion_input_name = &#39;out3&#39;</code></li>
-<li>给每个tensor赋予一个tag，最后得到self.tensor_tags=<code>&#123;&#39;input0&#39;: 1, &#39;out0&#39;: 2, &#39;out1&#39;: 3, &#39;out2&#39;: 4, &#39;out3&#39;: 5, &#39;loss&#39;: 6, &#39;target&#39;: 7, &#39;ack&#39;: 8&#125;</code>。注意，这里增加了两个额外的tensor，分别是<code>target</code>与<code>ack</code>。<code>target</code>用于传递label，<code>ack</code>待研究，应该与其名字作用相关TODO</li>
-<li>configure_map及其衍生<ul>
-<li>module_to_stage_map: 一对一</li>
-<li>stage_to_rank_map: 一对多，如果一个stage对应多个rank，则此stage在多个rank间做了replicas备份</li>
-<li>stage_to_depth: 暂时不用管</li>
-<li>stage_to_module_map: 一对多， 一个stage可能由多个module组成。例如stage3由Stage3+criterion组成。</li>
-<li>rank_to_stage_map: 一对一： 一个rank对应一个固定stage —&gt; 对应可能多个module</li>
-<li>ranks_in_previous_stage</li>
-<li>num_ranks_in_previous_stage: 前者的长度</li>
-<li>ranks_in_next_stage</li>
-<li>num_ranks_in_next_stage</li>
+        <h1 id="Open-Source-Repository"><a href="#Open-Source-Repository" class="headerlink" title="Open-Source Repository"></a>Open-Source Repository</h1><ul>
+<li>repository: <a target="_blank" rel="noopener" href="https://github.com/kakaobrain/torchgpipe">torchgpipe</a></li>
+<li>paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.06965">GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism</a></li>
 </ul>
-</li>
-<li><p>modules_with_dependencies的生成</p>
-<ul>
-<li><p>modules: list of int, 当前rank对应的module id</p>
-<p>| rank | modules | models                                                           |<br>| —— | ———- | ———————————————————————————————— |<br>| 0    | [0]     | [(Stage0(), [“input0”], [“out0”])]                               |<br>| 1    | [1]     | [(Stage1(), [“out0”], [“out1”])]                                 |<br>| 2    | [2]     | [(Stage2(), [“out1”], [“out2”])]                                 |<br>| 3    | [3,4]   | [(Stage3(), [“out2”], [“out3”]),(criterion, [“out3”], [“loss”])] |</p>
-</li>
-</ul>
-</li>
-<li><p>comm_handler: TODO</p>
-</li>
-<li>send_ranks, receive_ranks(Line 192~206, Line 208~222): 枚举，若module i的输出(tensor_name)在module j的输入中，并且i与j对应的stage不是同一个，则需要将tensor_name发送。’input’与’input0’有什么区别？(TODO)</li>
-<li>move to cuda(Line 224~229)</li>
-<li>在replicas间做数据并行(Line 232~279): <ol>
-<li>groups: groups[stageID]表示第stageID个stage的通信域。等某个stage对应多个rank的时候才会创建新的通信域（用于多replicas间的数据并行通信）</li>
-<li>modules[i]使用torch.nn.parallel.DistributedDataParallel()包装。</li>
-<li>计算本机对应需要做数据并行的num_parameters, module_size.</li>
+<h1 id="Software-versions-requirements"><a href="#Software-versions-requirements" class="headerlink" title="Software versions requirements"></a>Software versions requirements</h1><p><a target="_blank" rel="noopener" href="https://github.com/kakaobrain/torchgpipe/blob/master/.travis.yml">travis.yml</a></p>
+<h1 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h1><h2 id="docker-pytorch"><a href="#docker-pytorch" class="headerlink" title="docker(pytorch)"></a>docker(pytorch)</h2><ol>
+<li><code>docker pull pytorch/pytorch:1.4-cuda10.1-cudnn7-devel</code></li>
+<li><code>nvidia-docker run -itd --name=gpipe --net=host -v=/data:/data pytorch/pytorch:1.4-cuda10.1-cudnn7-devel bash</code></li>
+<li><code>docker exec  -it gpipe bash</code></li>
 </ol>
-</li>
+<h2 id="in-docker-gpipe"><a href="#in-docker-gpipe" class="headerlink" title="in docker(gpipe)"></a>in docker(gpipe)</h2><ol>
+<li><code>pip install torchgpipe</code></li>
 </ol>
-<h2 id="StageRuntime-train"><a href="#StageRuntime-train" class="headerlink" title="StageRuntime::train"></a><code>StageRuntime::train</code></h2><ol>
-<li><p>训练过程中的多版本tensor与weights的变化情况:<br> <img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/20210621163648.jpg" alt=""></p>
-</li>
-<li><p>对comm_handler作初始化。</p>
-</li>
-<li><code>modules[i].train</code>： 参考<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html?highlight=module#torch.nn.Module">这里</a>，设置为train模式。</li>
+<h2 id="run-code"><a href="#run-code" class="headerlink" title="run code"></a>run code</h2><ol>
+<li><code>git clone https://github.com/kakaobrain/torchgpipe</code></li>
+<li><code>cd torchgpipe</code></li>
+<li><code>cd benchmarks/resnet101-speed</code></li>
+<li><code>vim main.py</code> # 修改batchsize，否则在1080Ti上跑不起来</li>
+<li><code>python main.py pipeline-4</code></li>
 </ol>
-<h2 id="StageRuntime-run-forward"><a href="#StageRuntime-run-forward" class="headerlink" title="StageRuntime::run_forward"></a><code>StageRuntime::run_forward</code></h2><ol>
-<li>接受tensor</li>
-<li>执行前向计算</li>
-<li>发送tensors</li>
-<li>更新信息： forward_minibatch_id+=1</li>
-</ol>
-<h3 id="StageRuntime-receive-tensors-forward"><a href="#StageRuntime-receive-tensors-forward" class="headerlink" title="StageRuntime::receive_tensors_forward"></a><code>StageRuntime::receive_tensors_forward</code></h3><p>由于代码中没有调用<code>set_loader</code>，所以<code>self.loader_iter</code> is None。</p>
-<blockquote>
-<p>Togo: 按我的理解，第0个stage应该有loader_iter，负责读取数据集输入？</p>
-</blockquote>
-<ol>
-<li>comm_handler.recv() (Line 415~420): </li>
-<li>comm_handler.increment_messaging_index() (Line 426~428): 处理replicas情形，暂不管。</li>
-</ol>
-<h1 id="runtime-communication-py"><a href="#runtime-communication-py" class="headerlink" title="runtime/communication.py"></a><code>runtime/communication.py</code></h1><p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zzqq2199/pic_for_public/pic/img/comm_handler.log">打印的值</a><br>基本流程概览：<br><img src="https://raw.githubusercontent.com/zzqq2199/pic_for_public/master/img/IMG_20210618_163803.jpg" alt=""></p>
-<h2 id="接受的参数-1"><a href="#接受的参数-1" class="headerlink" title="接受的参数"></a>接受的参数</h2><ol>
-<li>master_addr: localhost</li>
-<li>master_port: 12345</li>
-<li>rank, local_rank: same as in args</li>
-<li>num_ranks_in_server: 1</li>
-<li>world_size: 4</li>
-<li>fp16: False</li>
-<li>distributed_backend : gloo</li>
-</ol>
-<h2 id="init"><a href="#init" class="headerlink" title="__init__"></a><code>__init__</code></h2><ol>
-<li>调用<code>torch.distributed.init_process_group()</code>初始化了一个通信域。</li>
-<li>由于传入的<code>num_ranks_in_server==1</code>所以直接return。</li>
-</ol>
-<h2 id="initialize"><a href="#initialize" class="headerlink" title="initialize"></a><code>initialize</code></h2><ol>
-<li><code>receive_ranks</code>: 不仅包括传入的中间变量，还包括<code>target</code>。e.g. <code>rank=2, comm_handler.receive_ranks=&#123;&#39;out1&#39;: [1], &#39;target&#39;: [1]&#125;</code></li>
-<li><code>send_ranks</code>: 与<code>receive_ranks</code>相对应。e.g. <code>rank=1, comm_handler.send_ranks=&#123;&#39;out1&#39;: [2], &#39;target&#39;: [2]&#125;</code></li>
-<li><code>tensor_tags</code>: 每个rank都一样，<code>&#123;&#39;input0&#39;: 1, &#39;out0&#39;: 2, &#39;out1&#39;: 3, &#39;out2&#39;: 4, &#39;out3&#39;: 5, &#39;loss&#39;: 6, &#39;target&#39;: 7, &#39;ack&#39;: 8&#125;</code></li>
-<li><code>target_tensor_names</code>: <code>&#123;&#39;target&#125;</code></li>
-<li><code>rank_in_stage</code>: 在replica情形下，在子数据并行模块中的rank。此处均为0.</li>
-<li><code>num_ranks_in_stage</code>: 此处均为1</li>
-<li><code>ranks_in_previous_stage</code>: 如名。</li>
-<li><code>num_ranks_in_previous_stage</code>: 上一项的长度</li>
-<li><code>ranks_in_next_stage</code></li>
-<li><code>num_ranks_in_next_stage</code></li>
-</ol>
-<h3 id="setup-queues"><a href="#setup-queues" class="headerlink" title="setup_queues"></a><code>setup_queues</code></h3><ol>
-<li>forward_receive_queues</li>
-<li>backward_receive_queues</li>
-<li>forward_send_queues</li>
-<li>backward_send_queues</li>
-<li>num_forward_threads</li>
-<li>num_backward_threads</li>
-<li>num_ack_threads</li>
-</ol>
-<div class="table-container">
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><h2 id="ResNet101"><a href="#ResNet101" class="headerlink" title="ResNet101"></a>ResNet101</h2><div class="table-container">
 <table>
 <thead>
 <tr>
-<th>rank</th>
-<th>FR</th>
-<th>FS</th>
-<th>BR</th>
-<th>BS</th>
-<th>NF</th>
-<th>NB</th>
-<th>NA</th>
+<th>balance-type</th>
+<th>throughput</th>
+<th>Mem_GPU0</th>
+<th>Mem_GPU1</th>
+<th>Mem_GPU2</th>
+<th>Mem_GPU3</th>
+<th>balance-value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>target</td>
-<td>out0, target</td>
-<td>out0, ack</td>
-<td>ack</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
+<td>by_time</td>
+<td>~65</td>
+<td>2157</td>
+<td>3445</td>
+<td>2357</td>
+<td>2847</td>
+<td>[66,99,111,94]</td>
 </tr>
 <tr>
-<td>1</td>
-<td>out0, target</td>
-<td>out1, target</td>
-<td>out1, ack</td>
-<td>out0, ack</td>
-<td>4</td>
-<td>2</td>
-<td>2</td>
+<td>by_size</td>
+<td>~61</td>
+<td>2107</td>
+<td>6485</td>
+<td>2397</td>
+<td>2847</td>
+<td>[46,105,125,94]</td>
 </tr>
 <tr>
-<td>2</td>
-<td>out1, target</td>
-<td>out2, target</td>
-<td>out2, ack</td>
-<td>out1, ack</td>
-<td>4</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>3</td>
-<td>out2, target</td>
-<td>target</td>
-<td>ack</td>
-<td>out2,ack</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
+<td>maximize speed</td>
+<td>~65</td>
+<td>2091</td>
+<td>5049</td>
+<td>2195</td>
+<td>2505</td>
+<td>[44,92,124,110]</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>在执行(Line 130~146)时，<code>receive_ranks=&#123;&#39;out1&#39;:[1]&#125;</code>, 在(Line 165~178)中会讲<code>target</code>加入<code>receive_ranks</code>。其余同理。</p>
-<h3 id="setup-messaging-schedule"><a href="#setup-messaging-schedule" class="headerlink" title="setup_messaging_schedule"></a><code>setup_messaging_schedule</code></h3><p>应该是用于有replicas的情况下，应该传输给谁。</p>
-<ol>
-<li>fwd_messaging_scheduling_row(FR)</li>
-<li>fwd_messaging_scheduling_col(FC)</li>
-<li>bwd_messaging_scheduling_row(BR)</li>
-<li>bwd_messaging_scheduling_col(BC)</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>rank</th>
-<th>FR</th>
-<th>FC</th>
-<th>BR</th>
-<th>BC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>-1</td>
-<td>0</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="create-process-groups"><a href="#create-process-groups" class="headerlink" title="create_process_groups"></a><code>create_process_groups</code></h3><p>由于<code>num_ranks_in_server=1</code>，所以直接跳过。</p>
-<h2 id="start-helper-threads"><a href="#start-helper-threads" class="headerlink" title="start_helper_threads"></a><code>start_helper_threads</code></h2><ol>
-<li>设置<code>counter</code>为总线程数量。当counter归零时，表示所有线程安全退出。</li>
-<li>处理<code>ack</code>， 由于是train模式，所以讲ack删除， <font color=red>所以后面还会用到ack吗？</font></li>
-<li>计算前向反向迭代次数，用于处理有replicas的情况(Line 269~273)</li>
-<li>dtype=torch.float32</li>
-<li>跳过<code>target</code>或者<code>ack</code>。 <font color=red> 为什么这里要跳过target？</font></li>
-</ol>
-<h3 id="start-helper-thread"><a href="#start-helper-thread" class="headerlink" title="start_helper_thread"></a><code>start_helper_thread</code></h3><p>根据给的必要信息，启动<code>send_helper_thread</code>或者<code>recv_helper_thread</code></p>
-<h3 id="send-helper-thread-args"><a href="#send-helper-thread-args" class="headerlink" title="send_helper_thread_args"></a><code>send_helper_thread_args</code></h3><p>根据提供的<code>tensor_name</code>，<code>index</code>，<code>backward:Bool</code>, <code>num_iterations</code>，返回对应的<br><code>(queue, self.counter, self.local_rank, tensor_name, self.rank, dst_rank, tag, sub_process_group, num_iterations)</code></p>
-<p>由于<code>ranks_in_server=[]</code>，所以<code>is_gpu_to_gpu_comm</code>总是返回False，所以总是设置<code>sub_process_group=None</code></p>
-<h3 id="send-helper-thread"><a href="#send-helper-thread" class="headerlink" title="send_helper_thread"></a><code>send_helper_thread</code></h3><ol>
-<li><code>tensor=queue.remove()</code> 参照<code>runtime/threadsafe_queue.py:20</code>。</li>
-<li>调用<code>_send</code>发送</li>
-</ol>
-<h3 id="send"><a href="#send" class="headerlink" title="_send"></a><code>_send</code></h3><p>由于<code>sub_process_group==None</code>，所以总是现将tensor复制到cpu再发送。</p>
-<ol>
-<li>转到cpu</li>
-<li>发送shape</li>
-<li>发送tensor</li>
-</ol>
-<h3 id="recv"><a href="#recv" class="headerlink" title="_recv"></a><code>_recv</code></h3><p>同样经过cpu中转。</p>
-<ol>
-<li>接受shape</li>
-<li>根据shape创建同样大小的tensor</li>
-<li>接受tensor</li>
-<li>转到gpu</li>
+<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><ol>
+<li>参数chunks的意义与作用？chunks argument specifies the number of micro-batches. 值每个gpu上有几个chunks。</li>
 </ol>
 
       
